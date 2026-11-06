@@ -5,7 +5,6 @@ plugins {
     id 'com.gradleup.shadow' version '9.4.1'
     id 'org.jetbrains.gradle.plugin.idea-ext' version '1.4.1'
     id 'xyz.wagyourtail.unimined' version '1.4.25-kappa'
-    id 'net.kyori.blossom' version '2.2.0'
 }
 
 import org.jetbrains.gradle.ext.Gradle
@@ -23,10 +22,10 @@ base {
     archivesName = rootProject.name
 }
 
-// Produce ProjectName.jar instead of mod-id-version.jar. Classifier artifacts remain
-// distinguishable as ProjectName-dev.jar and ProjectName-sources.jar.
+// Version every artifact so releases are distinguishable:
+// ProjectName-1.0.0.jar, ProjectName-1.0.0-dev.jar, ProjectName-1.0.0-sources.jar
 tasks.withType(AbstractArchiveTask).configureEach {
-    archiveVersion = ''
+    archiveVersion = version
 }
 
 java {
@@ -119,28 +118,45 @@ processResources {
     rename '(.+_at.cfg)', 'META-INF/$1'
 }
 
+// Generate Tags.java so @Mod(version = ...) always matches gradle.properties mod_version.
+def generatedVersionDir = layout.buildDirectory.dir('generated/sources/version/java')
+tasks.register('generateVersionSource') {
+    def outDir = generatedVersionDir
+    def ver = mod_version
+    inputs.property('modVersion', ver)
+    outputs.dir(outDir)
+    doLast {
+        def file = outDir.get().file('ae2csl/Tags.java').asFile
+        file.parentFile.mkdirs()
+        file.text = """/*
+ * AE2 Crystal Science
+ * A mod that adds crystal-related machines and items to Applied Energistics 2
+ */
+
+package ae2csl;
+
+public final class Tags {
+
+    public static final String MOD_ID = "ae2csl";
+    public static final String MOD_NAME = "AE2 Crystal Science: Legacy";
+    public static final String VERSION = "${ver}";
+
+    private Tags() {
+    }
+}
+"""
+    }
+}
+
 sourceSets {
     main {
-        blossom {
-            javaSources {
-                property('mod_id', mod_id)
-                property('mod_name', mod_name)
-                property('mod_version', mod_version)
-                property('package', "${root_package}.${mod_id}")
-            }
-            resources {
-                property('mod_id', mod_id)
-                property('mod_name', mod_name)
-                property('mod_version', mod_version)
-                property('mod_description', mod_description)
-                property('mod_authors', mod_authors.toString().split(',').findAll { !it.isBlank() }.collect { "\"${it.strip()}\"" }.join(', '))
-                property('mod_credits', mod_credits)
-                property('mod_url', mod_url)
-                property('mod_update_json', mod_update_json)
-                property('mod_logo_path', mod_logo_path)
-            }
-        }
+        java.srcDir(generatedVersionDir)
     }
+}
+
+tasks.named('compileJava').configure { dependsOn 'generateVersionSource' }
+tasks.matching { it.name == 'sourcesJar' || it.name == 'javadoc' }.configureEach {
+    dependsOn 'generateVersionSource'
 }
 
 idea {

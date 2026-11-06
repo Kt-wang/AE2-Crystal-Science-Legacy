@@ -2,7 +2,7 @@
 
 **Applied Energistics: Crystal Science 的 Minecraft 1.12.2 / Cleanroom 非官方移植版。**
 
-本移植对应上游 1.21.1 版本，运行在
+本移植基于上游 1.21.1 版本，运行在
 [AE2-Supergiant](https://github.com/FormlessDragon/Applied-Energistics-2-Supergiant)
 （AE2 的 1.12.2 Cleanroom 重构分支）之上。
 
@@ -12,9 +12,10 @@
 
 | 项目 | 值 |
 |---|---|
+| 版本 | **1.0.0** |
 | Minecraft | 1.12.2 |
 | 加载器 | Cleanroom Loader |
-| 前置 | AE2-Supergiant **v1.1.0** |
+| 前置 | AE2-Supergiant |
 | 可选 | JEI 4.35.1、CraftTweaker 4.1.20.716 |
 | Mod ID | `ae2csl` |
 | 包名 | `ae2csl.*` |
@@ -31,7 +32,7 @@
 ## 安装
 
 1. 准备 Minecraft 1.12.2 + Cleanroom Loader 实例。
-2. 将 `AE2-Crystal-Science-Legacy.jar` 与 **AE2-Supergiant** 放入 `mods/`。
+2. 将 `AE2-Crystal-Science-Legacy-1.0.0.jar` 与 **AE2-Supergiant** 放入 `mods/`。
 3. 可选：加入 JEI（配方查看）或 CraftTweaker（脚本）。
 
 ## 构建
@@ -39,7 +40,7 @@
 需要 **JDK 25**，使用仓库自带的 Gradle Wrapper：
 
 ```bash
-./gradlew build      # 产物：build/libs/AE2-Crystal-Science-Legacy.jar
+./gradlew build      # 产物：build/libs/AE2-Crystal-Science-Legacy-1.0.0.jar
 ./gradlew runClient  # 开发客户端
 ./gradlew runServer  # 开发服务端
 ```
