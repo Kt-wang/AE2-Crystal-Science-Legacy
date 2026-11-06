@@ -1,0 +1,65 @@
+{
+  "result": "PASS",
+  "cleanroom": "0.7.14-alpha",
+  "side": "client",
+  "regression": {
+    "cleanroom": "0.7.14-alpha",
+    "ae2s": "1.1.0",
+    "ae2csl": "1.0.1",
+    "commonMixinTargetsLoaded": true,
+    "tickMethod": "func_73660_a",
+    "serverHostTicks": 5,
+    "normalProviderTicks": 5,
+    "extendedProviderTicks": 5,
+    "emptyCableBusSafe": true,
+    "ordinaryTileSafe": true,
+    "result": "PASS",
+    "clientWorldGuard": true,
+    "clientMixinTargetLoaded": true
+  },
+  "mods": {
+    "minecraft": "1.12.2",
+    "mcp": "9.42",
+    "cleanroom": "0.7.14-alpha",
+    "cleanmix": "0.9.0",
+    "mixinbooter": "12.1",
+    "configanytime": "3.0",
+    "FML": "8.0.99.99",
+    "forge": "14.23.5.2864",
+    "ae2": "1.1.0",
+    "ae2csl": "1.0.1",
+    "ae2csl_regression": "1",
+    "mcp_testbridge": "0.1.0"
+  },
+  "inputPreflight": {
+    "result": "FAIL",
+    "error": "java.lang.NoSuchFieldError: Class net.minecraftforge.common.ForgeEarlyConfig does not have member field 'boolean FORCE_WAYLAND'\n\tat org.lwjglx.Sys.<clinit>(Sys.java:27)\n\tat org.lwjglx.input.Keyboard.<clinit>(Keyboard.java:200)\n\tat ae2csl.client.eventlistener.MirrorLinkerListener.onKeyInput(MirrorLinkerListener.java:23)\n\tat net.minecraftforge.fml.common.eventhandler.ASMEventHandler.invoke(ASMEventHandler.java:79)\n\tat net.minecraftforge.fml.common.eventhandler.EventBus.post(EventBus.java:197)\n\tat ae2csl.verification.InputRegression.tick(InputRegression.java:41)\n\tat net.minecraftforge.fml.common.eventhandler.ASMEventHandler.invoke(ASMEventHandler.java:79)\n\tat net.minecraftforge.fml.common.eventhandler.EventBus.post(EventBus.java:197)\n\tat net.minecraftforge.fml.common.FMLCommonHandler.onPostClientTick(FMLCommonHandler.java:360)\n\tat net.minecraft.client.Minecraft.func_71407_l(Minecraft.java:1667)\n\tat net.minecraft.client.Minecraft.func_71411_J(Minecraft.java:1005)\n\tat net.minecraft.client.Minecraft.func_99999_d(Minecraft.java:411)\n\tat net.minecraft.client.main.Main.main(Main.java:110)\n\tat top.outlands.foundation.LaunchHandler.launch(LaunchHandler.java:125)\n\tat top.outlands.foundation.boot.Foundation.main(Foundation.java:59)\n"
+  },
+  "expectedFailureReproduced": true,
+  "models": [
+    {
+      "id": "ae2csl:resonating_pattern_provider_part",
+      "missing": false,
+      "quads": 18
+    },
+    {
+      "id": "ae2csl:extended_resonating_pattern_provider_part",
+      "missing": false,
+      "quads": 18
+    },
+    {
+      "id": "ae2csl:resonating_memory_card",
+      "missing": false,
+      "quads": 10
+    }
+  ],
+  "machine": {
+    "id": "ae2csl:resonating_pattern_provider",
+    "tile": "ae2csl.tile.resonating.TileResonatingPatternProvider",
+    "worldTime": 119
+  },
+  "cableBus": {
+    "id": "minecraft:air"
+  },
+  "glError": 0
+}

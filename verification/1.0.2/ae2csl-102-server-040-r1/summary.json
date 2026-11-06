@@ -1,0 +1,31 @@
+{
+  "result": "PASS",
+  "cleanroom": "0.4.0",
+  "side": "server",
+  "regression": {
+    "cleanroom": "0.4.0",
+    "ae2s": "1.1.0",
+    "ae2csl": "1.0.2",
+    "commonMixinTargetsLoaded": true,
+    "tickMethod": "func_73660_a",
+    "serverHostTicks": 5,
+    "normalProviderTicks": 5,
+    "extendedProviderTicks": 5,
+    "emptyCableBusSafe": true,
+    "ordinaryTileSafe": true,
+    "result": "PASS"
+  },
+  "mods": {
+    "minecraft": "1.12.2",
+    "mcp": "9.42",
+    "cleanroom": "0.4.0",
+    "mixinbooter": "10.7",
+    "configanytime": "3.0",
+    "FML": "8.0.99.99",
+    "forge": "14.23.5.2864",
+    "ae2": "1.1.0",
+    "ae2csl": "1.0.2",
+    "ae2csl_regression": "1",
+    "mcp_testbridge": "0.1.0"
+  }
+}

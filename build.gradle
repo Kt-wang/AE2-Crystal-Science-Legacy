@@ -275,5 +275,22 @@ tasks.withType(JavaCompile).configureEach {
     options.encoding = 'UTF-8'
 }
 
+// Direct runtime-backend references can compile and start, but fail on input
+// when another Cleanroom backend is active. Check the actual installation jar.
+tasks.register('verifyPublicInputApi') {
+    dependsOn tasks.named(remapTaskName)
+    def installationJar = tasks.named(remapTaskName).flatMap { it.archiveFile }
+    inputs.file installationJar
+    doLast {
+        zipTree(installationJar.get().asFile).matching { include '**/*.class' }.each { entry ->
+            def constants = new String(entry.bytes, java.nio.charset.StandardCharsets.ISO_8859_1)
+            if (constants.contains('org/lwjglx/') || constants.contains('org/lwjgl/glfw/')) {
+                throw new GradleException("Direct input backend reference in ${entry.name}; use public LWJGL 2 / Forge input APIs")
+            }
+        }
+    }
+}
+tasks.named('check') { dependsOn 'verifyPublicInputApi' }
+
 apply from: 'gradle/scripts/publishing.gradle'
 apply from: 'gradle/scripts/extra.gradle'

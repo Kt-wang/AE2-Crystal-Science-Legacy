@@ -1,0 +1,117 @@
+{
+  "result": "PASS",
+  "cleanroom": "0.4.0",
+  "side": "client",
+  "regression": {
+    "cleanroom": "0.4.0",
+    "ae2s": "1.1.0",
+    "ae2csl": "1.0.2",
+    "commonMixinTargetsLoaded": true,
+    "tickMethod": "func_73660_a",
+    "serverHostTicks": 5,
+    "normalProviderTicks": 5,
+    "extendedProviderTicks": 5,
+    "emptyCableBusSafe": true,
+    "ordinaryTileSafe": true,
+    "result": "PASS",
+    "clientWorldGuard": true,
+    "clientMixinTargetLoaded": true
+  },
+  "mods": {
+    "minecraft": "1.12.2",
+    "mcp": "9.42",
+    "cleanroom": "0.4.0",
+    "mixinbooter": "10.7",
+    "configanytime": "3.0",
+    "kirino_engine": "epoch-1.a1",
+    "kirino_ecs": "epoch-1.a1",
+    "kirino_gl": "epoch-1.a1",
+    "FML": "8.0.99.99",
+    "forge": "14.23.5.2864",
+    "ae2": "1.1.0",
+    "crafttweaker": "4.1.20",
+    "ae2csl": "1.0.2",
+    "ae2csl_regression": "1",
+    "ctgui": "1.0.0",
+    "jei": "4.35.1",
+    "mcp_testbridge": "0.1.0"
+  },
+  "inputPreflight": {
+    "result": "PASS",
+    "events": 8
+  },
+  "inputTests": {
+    "keyEventsAndMousePolling": [
+      {
+        "id": 1,
+        "events": 8,
+        "hotbar": 0,
+        "result": "PASS"
+      },
+      {
+        "id": 2,
+        "events": 8,
+        "hotbar": 0,
+        "result": "PASS"
+      },
+      {
+        "id": 3,
+        "wheel": 0,
+        "x": 640,
+        "y": 360,
+        "hotbar": 0,
+        "result": "PASS"
+      },
+      {
+        "id": 4,
+        "events": 8,
+        "hotbar": 0,
+        "result": "PASS"
+      }
+    ],
+    "cardBefore": {
+      "id": 7,
+      "hotbar": 0,
+      "cardSlot": 0,
+      "result": "PASS"
+    },
+    "cardNext": {
+      "id": 9,
+      "hotbar": 0,
+      "cardSlot": 1,
+      "result": "PASS"
+    },
+    "cardRestored": {
+      "id": 11,
+      "hotbar": 0,
+      "cardSlot": 0,
+      "result": "PASS"
+    }
+  },
+  "models": [
+    {
+      "id": "ae2csl:resonating_pattern_provider_part",
+      "missing": false,
+      "quads": 18
+    },
+    {
+      "id": "ae2csl:extended_resonating_pattern_provider_part",
+      "missing": false,
+      "quads": 18
+    },
+    {
+      "id": "ae2csl:resonating_memory_card",
+      "missing": false,
+      "quads": 10
+    }
+  ],
+  "machine": {
+    "id": "ae2csl:resonating_pattern_provider",
+    "tile": "ae2csl.tile.resonating.TileResonatingPatternProvider",
+    "worldTime": 222
+  },
+  "cableBus": {
+    "id": "minecraft:air"
+  },
+  "glError": 0
+}
