@@ -1,0 +1,1 @@
+{"energyCost":80000,"processTime":800,"result":{"item":"minecraft:heart_of_the_sea","count":1},"inputA":{"item":"minecraft:nautilus_shell","count":4},"inputB":{"item":"minecraft:ender_eye","count":1},"inputC":{"count":8,"type":"forge:ore_dict","ore":"gemPrismarine"}}

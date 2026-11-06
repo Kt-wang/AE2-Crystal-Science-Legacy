@@ -1,0 +1,1 @@
+{"energyCost":51200,"processTime":512,"result":{"item":"ae2omnicells:omni_link_processor","count":32},"inputA":{"item":"ae2omnicells:omni_link_circuit_print","count":32},"inputB":{"count":32,"type":"forge:ore_dict","ore":"dustRedstone"},"inputC":{"count":32,"type":"forge:ore_dict","ore":"itemSilicon"}}

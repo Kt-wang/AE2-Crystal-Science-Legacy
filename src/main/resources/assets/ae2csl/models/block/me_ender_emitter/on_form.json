@@ -1,0 +1,6 @@
+{
+  "parent": "ae2csl:block/me_ender_emitter/off_form",
+  "textures": {
+    "1": "ae2csl:block/me_ender_transmitter/me_ender_transmitter_light_on"
+  }
+}

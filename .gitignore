@@ -1,0 +1,58 @@
+.gradle
+**/build/
+!src/**/build/
+run/
+out/
+
+# Ignore Gradle GUI config
+gradle-app.setting
+
+# Avoid ignoring Gradle wrapper jar file (.jar files are usually ignored)
+!gradle-wrapper.jar
+
+# Avoid ignore Gradle wrappper properties
+!gradle-wrapper.properties
+
+# Cache of project
+.gradletasknamecache
+
+# Eclipse Gradle plugin generated files
+# Eclipse Core
+.project
+# JDT-specific (Eclipse Java Development Tools)
+.classpath
+
+# IDEA config
+.idea
+
+# Local environment variables / secrets
+.env
+*.env.local
+
+
+
+# Local reference sources (not part of this repository)
+/code-source/
+/PigmeeTech/
+
+# Local agent/scratch data
+/.tmp/
+/.thinkrail/
+
+# Local git history backups
+/.git.bak*/
+
+# Local screenshots
+/img*.png
+
+# Local agent memory / docs (kept out of the repository)
+/.claude/
+/docs/
+
+# Local AI/dev notes and attribution scratch (kept out of the repository)
+/AGENTS.md
+/CLAUDE.md
+/NOTICE
+
+# Local helper scripts (kept out of the repository)
+/scripts/

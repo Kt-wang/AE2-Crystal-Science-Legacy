@@ -1,0 +1,1 @@
+{"type": "minecraft:crafting_shaped", "key": {"a": {"type": "forge:ore_dict", "ore": "dustSkyStone"}, "b": {"item": "ae2:inscriber"}, "c": {"item": "ae2csl:resonating_processor"}, "d": {"item": "ae2:engineering_processor"}, "e": {"item": "ae2csl:blank_print_press"}}, "pattern": ["aba", "bcb", "ded"], "result": {"count": 1, "item": "ae2csl:circuit_etcher"}}

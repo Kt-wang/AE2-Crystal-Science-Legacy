@@ -1,0 +1,1 @@
+{"energyCost":51200,"processTime":512,"result":{"item":"ae2csl:ender_quartz_seed","count":32},"inputA":{"count":8,"type":"forge:ore_dict","ore":"gemQuartz"},"inputB":{"type":"forge:ore_dict","ore":"dustEnderPearl","count":8},"inputC":{"item":"minecraft:end_stone","count":16}}

@@ -1,0 +1,1 @@
+{"energyCost":51200,"processTime":512,"result":{"item":"ae2csl:resonating_crystal_dust","count":32},"inputA":{"type":"forge:ore_dict","ore":"gems_sky_stone_crystal","count":32},"inputB":{"item":"minecraft:redstone_block","count":32},"inputC":{"type":"forge:ore_dict","ore":"gems_ender_quartz","count":32}}

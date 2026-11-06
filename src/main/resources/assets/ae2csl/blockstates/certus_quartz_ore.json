@@ -1,0 +1,6 @@
+{
+  "variants": {
+    "normal": { "model": "ae2csl:certus_quartz_ore" },
+    "inventory": { "model": "ae2csl:certus_quartz_ore" }
+  }
+}

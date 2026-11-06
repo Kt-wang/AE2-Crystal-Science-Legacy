@@ -1,0 +1,1 @@
+{"energyCost":51200,"processTime":512,"result":{"item":"megacells:accumulation_processor","count":32},"inputA":{"item":"megacells:printed_accumulation_processor","count":32},"inputB":{"type":"forge:ore_dict","ore":"dustFluix","count":32},"inputC":{"count":32,"type":"forge:ore_dict","ore":"itemSilicon"}}

@@ -1,0 +1,1 @@
+{"type": "minecraft:crafting_shapeless", "ingredients": [{"item": "ae2csl:ender_interface"}, {"type": "forge:ore_dict", "ore": "ingotIron"}], "result": {"count": 1, "item": "ae2csl:ender_interface_upgrade"}}

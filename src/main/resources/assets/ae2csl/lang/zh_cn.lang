@@ -1,0 +1,439 @@
+itemGroup.ae2csl=水晶科技: 遗产
+tile.crystal_growth_chamber.name=晶体催生仓
+tile.certus_quartz_ore.name=赛特斯石英矿石
+tile.charged_certus_quartz_ore.name=充能赛特斯石英矿石
+tile.crystal_pulverizer.name=晶能粉碎机
+tile.circuit_etcher.name=电路蚀刻器
+tile.quartz_grindstone.name=石英磨具
+tile.crystal_vibration_chamber.name=晶能谐振仓
+tile.crystal_aggregator.name=晶能聚合器
+tile.entropy_variation_chamber.name=熵变反应器
+tile.ender_broadcaster.name=ME末影广播装置
+tile.ender_emitter.name=ME末影发信器
+tile.integrated_interface.name=ME集成接口
+tile.resonating_pattern_provider.name=谐振样板供应器
+tile.mirror_pattern_provider.name=镜像样板供应器
+tile.quartz_oscillator_clock.name=石英震荡器
+container.crystal_growth_chamber=晶体催生仓
+container.circuit_etcher=电路蚀刻器
+container.quartz_grindstone=石英磨具
+container.crystal_pulverizer=晶能粉碎机
+container.crystal_vibration_chamber=晶能谐振仓
+container.crystal_aggregator=晶能聚合器
+container.ender_broadcaster=ME末影广播装置
+container.ender_emitter=ME末影发信器
+container.entropy_variation_chamber=熵变反应器
+container.integrated_interface=ME集成接口
+container.mirror_pattern_provider=镜像样板供应器
+container.quartz_oscillator_clock=石英震荡器
+container.resonating_pattern_provider=谐振样板供应器
+container.ender_interface=ME末影接口
+container.meteorite_pattern_provider=自装配式样板供应器
+container.simple_pattern_provider=初级样板供应器
+
+# Items
+# Pure Crystals (17 types)
+item.purified_certus_quartz_crystal.name=高纯赛特斯石英水晶
+item.purified_fluix_crystal.name=高纯福鲁伊克斯水晶
+item.purified_nether_quartz_crystal.name=高纯下界石英水晶
+item.purified_ender_quartz.name=高纯末影石英
+item.purified_meteor_crystal.name=高纯陨石水晶
+item.purified_resonating_crystal.name=高纯谐振水晶
+item.purified_entro_crystal.name=高纯恩特罗水晶
+item.purified_redstone_crystal.name=高纯红石水晶
+item.purified_quantum_crystal.name=高纯量子水晶
+item.purified_rose_quartz.name=高纯玫瑰石英
+item.purified_irradiated_crystal.name=高纯辐射水晶
+item.purified_ember_crystal.name=高纯余烬水晶
+item.purified_link_crystal.name=高纯链接水晶
+item.purified_overload_crystal.name=高纯过载水晶
+item.purified_data_crystal.name=高纯数据水晶
+item.purified_energized_fluix_crystal.name=高纯充能福鲁伊克斯水晶
+item.purified_energized_certus_quartz_crystal.name=高纯充能水晶
+# Crystal Seeds (17 types)
+item.certus_quartz_seed.name=赛特斯石英种子
+item.fluix_crystal_seed.name=福鲁伊克斯水晶种子
+item.nether_quartz_seed.name=下界石英种子
+item.ender_quartz_seed.name=末影石英种子
+item.meteor_seed.name=陨石种子
+item.resonating_seed.name=谐振种子
+item.entro_crystal_seed.name=恩洛特水晶种子
+item.redstone_crystal_seed.name=红石水晶种子
+item.quantum_crystal_seed.name=量子水晶种子
+item.rose_quartz_seed.name=玫瑰石英种子
+item.irradiated_seed.name=辐照种子
+item.ember_seed.name=余烬种子
+item.link_crystal_seed.name=链接水晶种子
+item.overload_crystal_seed.name=过载水晶种子
+item.data_crystal_seed.name=数据水晶种子
+item.energized_fluix_crystal_seed.name=充能福鲁伊克斯水晶种子
+item.energized_certus_quartz_seed.name=充能赛特斯石英种子
+# Dusts
+item.nether_quartz_dust.name=下界石英粉
+item.resonating_crystal_dust.name=谐振水晶粉
+item.redstone_crystal_dust.name=红石水晶粉
+item.quantum_crystal_dust.name=量子水晶粉
+item.irradiated_crystal_dust.name=辐照水晶粉
+item.link_crystal_dust.name=链接水晶粉
+# Tools - Ender
+item.ender_sword.name=末影剑
+item.ender_pickaxe.name=末影镐
+item.ender_axe.name=末影斧
+item.ender_shovel.name=末影锹
+item.ender_hoe.name=末影锄
+item.meteor_sword.name=陨石剑
+item.meteor_pickaxe.name=陨石镐
+item.meteor_axe.name=陨石斧
+item.meteor_shovel.name=陨石锹
+item.meteor_hoe.name=陨石锄
+item.resonating_sword.name=谐振剑
+item.resonating_pickaxe.name=谐振镐
+item.resonating_axe.name=谐振斧
+item.resonating_shovel.name=谐振锹
+item.resonating_hoe.name=谐振锄
+item.ender_interface_upgrade.name=末影接口升级卡
+item.extended_ender_interface_upgrade.name=扩展末影接口升级卡
+item.extended_integrated_interface_upgrade.name=扩展集成接口升级卡
+item.extended_resonating_pattern_provider_upgrade.name=扩展谐振样板供应器升级卡
+item.integrated_interface_upgrade.name=集成接口升级卡
+item.meteor_pattern_provider_upgrade.name=陨石样板供应器升级卡
+item.pattern_provider_upgrade.name=样板供应器升级卡
+item.resonating_pattern_provider_upgrade.name=谐振样板供应器升级卡
+item.ender_linker.name=末影连接器
+item.mirror_linker.name=镜像连接器
+item.resonating_linker.name=谐振连接器
+item.resonating_memory_card.name=谐振存储卡
+item.resonating_pattern_converter.name=谐振样板转换器
+item.wireless_resonant_terminal.name=无线谐振终端
+item.resonating_pattern.name=谐振样板
+item.resonating_pattern_provider_part.name=谐振样板供应器
+
+# JEI
+jei.ae2csl.circuit_etcher=电路蚀刻
+jei.ae2csl.circuit_etcher.desc=电路蚀刻器使用AE电力将原材料蚀刻成电路。将输入物品放入左侧槽位，等待输出。
+jei.ae2csl.crystal_aggregator=晶能聚合
+jei.ae2csl.crystal_pulverizer=晶能粉碎
+jei.ae2csl.crystal_vibration=晶能谐振
+jei.ae2csl.crystal_growth=晶体生长
+jei.ae2csl.crystal_growth_chamber.desc=晶体催生仓使用AE电力加速晶体生长。将水晶种子放入槽位并供电即可使其生长。
+jei.ae2csl.entropy_variation_chamber=熵变反应
+gui.ae2csl.entropy.mode.heat=加热
+gui.ae2csl.entropy.mode.cool=冷却
+
+# API - Machine Settings
+ae2csl.machine_settings.redstone_controlled_no_pulse.title=红石模式
+ae2csl.machine_settings.redstone_controlled_no_pulse.ignore.desc=始终工作
+ae2csl.machine_settings.redstone_controlled_no_pulse.low_signal.desc=无信号时工作
+ae2csl.machine_settings.redstone_controlled_no_pulse.high_signal.desc=有信号时工作
+ae2csl.machine_settings.show_range_mode.title=展示工作范围
+ae2csl.machine_settings.show_range_mode.show.desc=显示当前工作范围
+ae2csl.machine_settings.show_range_mode.hide.desc=隐藏当前工作范围
+ae2csl.machine_settings.black_list_mode.title=切换黑白名单模式
+ae2csl.machine_settings.black_list_mode.white_list.desc=当前为白名单模式
+ae2csl.machine_settings.black_list_mode.black_list.desc=当前为黑名单模式
+ae2csl.machine_settings.pull_mode.title=抽取目标面容器
+ae2csl.machine_settings.pull_mode.on.desc=当前会抽取目标面容器
+ae2csl.machine_settings.pull_mode.off.desc=当前不会抽取目标面容器
+ae2csl.machine_settings.entropy_change_mode.title=熵变模式
+ae2csl.machine_settings.entropy_change_mode.increase.desc=熵增
+ae2csl.machine_settings.entropy_change_mode.decrease.desc=熵减
+ae2csl.machine_settings.auto_link_mode.title=自动连接模式
+ae2csl.machine_settings.auto_link_mode.enable.desc=自动连接到范围内新放置的设备
+ae2csl.machine_settings.auto_link_mode.disable.desc=停止自动连接到范围内新放置的设备
+ae2csl.machine_settings.auto_link_cable_mode.title=自动连接模式下的线缆设置
+ae2csl.machine_settings.auto_link_cable_mode.enable.desc=打开自动连接模式后会连接到线缆类设备
+ae2csl.machine_settings.auto_link_cable_mode.disable.desc=打开自动连接模式后不会连接到线缆类设备
+ae2csl.machine_settings.sound_mode.title=声音设置
+ae2csl.machine_settings.sound_mode.mute.desc=静音
+ae2csl.machine_settings.sound_mode.unmute.desc=正常
+
+# API - Side Policy
+ae2csl.text.side_policy.insert=输入
+ae2csl.text.side_policy.extract=输出
+ae2csl.text.side_policy.all=输入/输出
+ae2csl.text.side_policy.none=禁用
+
+# API - Relative Side
+ae2csl.text.relative_side.front=正面
+ae2csl.text.relative_side.back=背面
+ae2csl.text.relative_side.top=顶面
+ae2csl.text.relative_side.bottom=底面
+ae2csl.text.relative_side.left=左面
+ae2csl.text.relative_side.right=右面
+
+# API - Direction
+ae2csl.text.direction.north=北面
+ae2csl.text.direction.south=南面
+ae2csl.text.direction.up=顶面
+ae2csl.text.direction.down=底面
+ae2csl.text.direction.west=西面
+ae2csl.text.direction.east=东面
+
+# GUI - Ender Broadcaster
+ae2csl.gui.bands=频段管理
+ae2csl.gui.switch=切换模式
+ae2csl.gui.disconnect=断开连接
+ae2csl.gui.no_band=未连接频段
+ae2csl.gui.no_connection=未连接
+ae2csl.gui.expected_channels=期望频段数：
+ae2csl.gui.sent_channels=发送频道数：%s
+ae2csl.gui.upgrades=升级卡
+ae2csl.gui.band_view=查看频段
+ae2csl.gui.band_create=创建频段
+ae2csl.gui.receiver_actual_channels=实际接收频道：%s
+ae2csl.gui.sender=发送端
+ae2csl.gui.receiver=接收端
+ae2csl.menu.ender_broadcaster.button.open_frequency_view_menu=打开频段菜单\n查看服务器内所有可链接频段
+ae2csl.menu.ender_broadcaster.button.open_frequency_create_menu=打开频段创建菜单\n在此处创建新的频段
+ae2csl.menu.ender_broadcaster.button.open_frequency_manager_menu=打开频段管理菜单\n在此查看和修改频段信息，以及所有频段链接的端
+ae2csl.menu.ender_broadcaster.button.toggle_band_side.title=切换端模式
+ae2csl.menu.ender_broadcaster.button.toggle_band_side.desc=在发送端与接收端之间切换
+ae2csl.menu.ender_broadcaster.button.clean_linker_connection=清空链接\n将机器与频段的链接断开
+
+# GUI - Ender Emitter
+ae2csl.gui.distance=连接距离
+ae2csl.gui.auto=自动模式
+ae2csl.gui.range=显示范围
+ae2csl.gui.auto_link_cable=自动连接线缆
+ae2csl.gui.band=频段
+ae2csl.gui.band_channels=频段频道
+ae2csl.gui.emitter_channels=发射器频道
+ae2csl.gui.scan_all=扫描全部
+ae2csl.gui.destroy_all=断开全部
+ae2csl.gui.max_distance=最大距离
+ae2csl.menu.ender_emitter.button.try_sacn_all=主动扫描\n对周围所有可连接设备进行一次连接尝试
+ae2csl.menu.ender_emitter.button.destroy_all=断开连接\n断开当前发信器的全部无线连接
+ae2csl.menu.ender_emitter.button.add_distance=自动连接距离设置\n自动连接范围 +1
+ae2csl.menu.ender_emitter.button.reduce_distance=自动连接距离设置\n自动连接范围 -1
+ae2csl.menu.ender_emitter.button.open_frequency_view_menu=打开频段菜单\n查看服务器内所有可链接频段
+ae2csl.menu.ender_emitter.button.clean_band_connection=清空频段链接\n将此发信器与频段断开
+container.side_config=侧面配置
+gui.ae2csl.side_config.tooltip=配置每个面的输入/输出策略与自动搬运
+gui.ae2csl.side_config.auto_export=自动输出
+gui.ae2csl.side_config.auto_import=自动输入
+gui.ae2csl.side_config.back=返回
+gui.ae2csl.side_config.clear=清空
+gui.ae2csl.side_config.on=开
+gui.ae2csl.side_config.off=关
+gui.ae2csl.side_config.dir.up=上
+gui.ae2csl.side_config.dir.down=下
+gui.ae2csl.side_config.dir.north=北
+gui.ae2csl.side_config.dir.south=南
+gui.ae2csl.side_config.dir.west=西
+gui.ae2csl.side_config.dir.east=东
+gui.ae2csl.side_config.policy.all=全部
+gui.ae2csl.side_config.policy.insert=输入
+gui.ae2csl.side_config.policy.extract=输出
+gui.ae2csl.side_config.policy.none=禁用
+
+# 新增物品
+item.blank_print_press.name=空白印刷模板
+item.crystal_growth_card.name=晶体生长卡
+item.ender_blank_print_press.name=末影空白印刷模板
+item.ender_interface_part.name=ME末影接口
+item.extended_ender_interface_part.name=扩展ME末影接口
+item.extended_integrated_interface_part.name=扩展ME集成接口
+item.extended_resonating_pattern_provider_part.name=扩展谐振样板供应器
+item.flour.name=面粉
+item.integrated_interface_part.name=ME集成接口
+item.meteorite_pattern_provider_part.name=自装配式样板供应器
+item.mirror_pattern_provider_part.name=镜像样板供应器
+item.quartz_oscillator_clock_part.name=石英震荡器
+item.resonant_template_coding_terminal_part.name=谐振合成编码终端
+item.resonating_print_press.name=谐振印刷模板
+item.resonating_processor.name=谐振处理器
+item.resonating_circuit_print.name=谐振电路板
+item.simple_circuit_print.name=简单电路板
+item.simple_pattern_provider_part.name=初级样板供应器
+item.simple_processor.name=简单处理器
+item.wooden_gear.name=木齿轮
+
+# 储存方块
+tile.silicon_block.name=硅块
+tile.rose_quartz_block.name=玫瑰石英块
+tile.quantum_crystal_block.name=量子水晶块
+tile.redstone_crystal_block.name=红石水晶块
+tile.resonating_crystal_block.name=谐振水晶块
+tile.meteor_crystal_block.name=陨石水晶块
+tile.ender_quartz_block.name=末影石英块
+tile.crystal_grid_block.name=水晶网格块
+tile.irradiated_crystal_block.name=辐照水晶块
+tile.charged_certus_quartz_block.name=充能赛特斯石英块
+tile.charged_overload_crystal_block.name=充能过载水晶块
+tile.simple_pattern_provider.name=初级样板供应器
+tile.meteorite_pattern_provider.name=自装配式样板供应器
+tile.ender_interface.name=ME末影接口
+tile.extended_ender_interface.name=扩展ME末影接口
+tile.extended_integrated_interface.name=扩展ME集成接口
+tile.extended_resonating_pattern_provider.name=扩展谐振样板供应器
+
+# GUI - 广播装置子菜单
+ae2csl.gui.back=返回
+ae2csl.menu.title.frequency_bands=频段菜单
+ae2csl.menu.title.frequency_band_create=创建频段
+ae2csl.menu.title.frequency_band_link=尝试链接
+ae2csl.menu.title.frequency_band_manager=管理频段
+ae2csl.menu.title.band_white_list_manager=管理白名单
+ae2csl.menu.frequency_band.encrypted=已加密
+ae2csl.menu.frequency_band.private=私有
+ae2csl.menu.frequency_band_create_menu.is_public=是否公开频段
+ae2csl.menu.frequency_band_create_menu.allow_memory_card_copy=是否允许内存卡复制链接状态
+ae2csl.menu.frequency_band_create_menu.confirm=确认
+ae2csl.menu.frequency_band_menu.as_sender=发送端
+ae2csl.menu.frequency_band_menu.as_receiver=接收端
+ae2csl.menu.frequency_band_menu.confirm=确认
+ae2csl.menu.frequency_band_menu.connected=已链接
+ae2csl.menu.frequency_band_menu.not_connected=未链接
+ae2csl.menu.frequency_band_menu.input_password=请输入密码…
+ae2csl.menu.frequency_band_create_menu.input_band_name=请输入频段名…
+ae2csl.menu.frequency_band_create_menu.input_password=请输入密码…
+ae2csl.menu.frequency_manager_menu.input_password_field=在此修改密码
+ae2csl.menu.frequency_manager_menu.band_name=名称：%s
+ae2csl.menu.frequency_manager_menu.band_usage=频道情况：%s
+ae2csl.menu.frequency_manager_menu.confirm_password_button=修改密码
+ae2csl.menu.frequency_manager_menu.click_again=再次点击以确认
+ae2csl.menu.frequency_manager_menu.band_error.fine=当前状态：正常
+ae2csl.menu.frequency_manager_menu.band_error.missing_controller=错误：没有任何发送端处于带控制器网络
+ae2csl.menu.frequency_manager_menu.band_error.controller_conflict=错误：有至少2个发送端处于不同的带控制器网络
+ae2csl.menu.frequency_manager_menu.band_error.sender_error=错误：有发送端处于无控制器网络或发送端自身状态未就绪
+ae2csl.menu.frequency_manager_menu.band_error.no_sender=当前状态：找不到任何发送端，如果发送端确实存在，请检查区块加载
+ae2csl.menu.frequency_manager.button.change_public.title=切换可见性
+ae2csl.menu.frequency_manager.button.change_public.desc=在公开和私有之间切换频段可见性，只有处于白名单的玩家才能看见私有频段
+ae2csl.menu.frequency_manager.button.change_allow_memory_card.title=切换内存卡模式
+ae2csl.menu.frequency_manager.button.change_allow_memory_card.desc=此频段是否允许使用内存卡复制从机器上复制链接状态
+ae2csl.menu.frequency_manager.button.remove_band=删除此频段\n注意：此操作不可撤销！
+ae2csl.menu.frequency_manager.button.open_white_list_manager=打开白名单管理\n你可以在此菜单内管理频段白名单玩家
+ae2csl.menu.band_whitelist.whitelist=白名单玩家
+ae2csl.menu.band_whitelist.other=其他玩家
+
+# 消息 - 频段链接
+ae2csl.msg.broadcaster.sender.not_connect_any_band=当前广播装置未链接到任何频段
+ae2csl.msg.band_create.no_name=频段名不能为空
+ae2csl.msg.band_create.band_present=频段已存在
+ae2csl.msg.band_create.success=成功创建
+ae2csl.msg.band_link.password_error=密码错误
+ae2csl.msg.band_link.sender.grid_must_has_control=发送端必须处于有控制器的网络
+ae2csl.msg.band_link.sender.grid_conflict=同一个频段的发送端不能处于不同的ME网络中
+ae2csl.msg.band_link.receiver.grid_conflict=发送端将要链接的网络将会导致控制器冲突
+ae2csl.msg.frequency_manager.you_not_owner=只有所有者才能修改此选项
+ae2csl.msg.frequency_manager.password_changed=密码已修改
+
+# 消息 - 末影连接器
+ae2csl.msg.item.ender_linker.bing_to_emitter=已绑定到该发信器
+ae2csl.msg.item.ender_linker.success_to_link=成功将此设备连接到绑定的发信器
+ae2csl.msg.item.ender_linker.failed_to_link=绑定失败，相关发信器可能没有多余频道或超出最大连接距离
+
+# 消息 - 镜像/谐振供应器
+ae2csl.msg.mirror_linker.applied=已将当前镜像目标写入镜像样板供应器
+ae2csl.msg.mirror_linker.applied_batch=已将当前镜像目标写入附近的 %s 个镜像样板供应器
+ae2csl.msg.mirror_linker.cleared_batch=已清空附近的 %s 个镜像样板供应器的镜像目标
+ae2csl.msg.mirror_linker.cleared_provider=已清空该镜像样板供应器的镜像目标
+ae2csl.msg.mirror_pattern_provider.bound=已绑定镜像目标到 (%s, %s, %s)
+ae2csl.msg.mirror_pattern_provider.cleared=已清空镜像目标
+ae2csl.msg.mirror_pattern_provider.invalid_target=不能镜像其他镜像样板供应器
+ae2csl.msg.resonating_memory_card.auto_apply=已自动应用槽位 %s/%s 的配置：%s
+ae2csl.msg.resonating_provider.marked=已标记默认输入 %s/%s -> (%s, %s, %s) 面：%s
+ae2csl.msg.resonating_provider.selected_marked=当前默认输入 %s/%s -> (%s, %s, %s) 面：%s
+ae2csl.msg.resonating_provider.selected_unmarked=当前默认输入 %s/%s（未标记）
+ae2csl.msg.resonating_provider.unmarked=已清除默认输入 %s/%s 的标记
+block.ae2csl.integrated_interface=ME集成接口
+gui.ae2csl.storage_inv=存储
+gui.ae2csl.pattern_inv=样板
+block.ae2csl.extended_integrated_interface=扩展ME集成接口
+ae2csl.item.integrated_interface_upgrade.tooltip=将样板供应器或ME接口升级为ME集成接口
+ae2csl.item.extended_integrated_interface_upgrade.tooltip=将ME集成接口升级为扩展集成接口
+block.ae2csl.ender_interface=ME末影接口
+block.ae2csl.extended_ender_interface=扩展ME末影接口
+ae2csl.menu.ender_interface.absorb_slot_text=吸收标记与距离设置
+ae2csl.item.ender_interface_upgrade.tooltip=将ME接口升级为ME末影接口
+ae2csl.item.extended_ender_interface_upgrade.tooltip=将ME末影接口升级为扩展末影接口
+ae2csl.msg.mirror_pattern_provider.target_missing=该镜像样板供应器尚未绑定镜像目标
+block.ae2csl.simple_pattern_provider=初级样板供应器
+gui.ae2csl.return_inv=物品返回仓
+block.ae2csl.quartz_oscillator_clock=石英震荡器
+ae2csl.menu.quartz_oscillator_clock.text.count_down=触发间隔时间（刻）：
+ae2csl.menu.quartz_oscillator_clock.text.pulse_width=触发持续时间（刻）：
+block.ae2csl.meteorite_pattern_provider=自装配式样板供应器
+item.overload_card.name=陨石超频卡
+block.ae2csl.resonating_pattern_provider=谐振样板供应器
+block.ae2csl.extended_resonating_pattern_provider=扩展谐振样板供应器
+ae2csl.msg.resonating_linker.applied=已将当前谐振发配逻辑写入谐振样板供应器
+ae2csl.menu.title.extended_resonating_pattern_provider=扩展谐振样板供应器
+ae2csl.menu.title.side_config_menu=面配置
+block.ae2csl.circuit_etcher=电路蚀刻器
+block.ae2csl.crystal_aggregator=晶能聚合器
+block.ae2csl.crystal_growth_chamber=晶体催生仓
+block.ae2csl.crystal_pulverizer=晶能粉碎机
+block.ae2csl.crystal_vibration_chamber=晶能谐振仓
+block.ae2csl.ender_broadcaster=ME末影广播装置
+block.ae2csl.ender_emitter=ME末影发信器
+block.ae2csl.entropy_variation_reaction_chamber=熵变反应器
+block.ae2csl.quartz_grindstone=石英磨具
+item.ae2csl.resonating_pattern_converter=谐振样板转换器
+
+# 工具链接提示
+ae2csl.tooltip.tool.linked=[已链接] 维度 %s，坐标 %s,%s,%s
+ae2csl.tooltip.tool.unlinked=[未链接] 将此物品放入无线访问节点以链接
+ae2csl.item.pattern_provider_upgrade.tooltip=将初级样板供应器升级为样板供应器
+ae2csl.item.resonating_pattern_provider_upgrade.tooltip=将样板供应器升级为谐振样板供应器
+ae2csl.item.meteor_pattern_provider_upgrade.tooltip=将样板供应器升级为自装配式样板供应器
+ae2csl.item.extended_resonating_pattern_provider_upgrade.tooltip=将谐振样板供应器升级为扩展谐振样板供应器
+message.ae2csl.tooltip.burn_time=燃烧时间：%s刻
+message.ae2csl.tooltip.energy=能量密度：%sAE每刻
+message.ae2csl.tooltip.seed_growth=生长度：%s％
+ae2csl.item.ender_linker.tooltip=链接末影广播装置/发信器/接口
+ae2csl.item.resonating_linker.tooltip=链接谐振样板供应器
+ae2csl.item.wireless_resonant_terminal.tooltip=无线访问谐振终端
+ae2csl.tooltip.unbound=未绑定
+ae2csl.tooltip.target=目标：%s, %s, %s
+ae2csl.tooltip.memory_card_slot=槽位 %s/%s：%s
+container.resonant_template_coding_terminal=谐振合成编码终端
+gui.ae2csl.entropy.mode.short.heat=热
+gui.ae2csl.entropy.mode.short.cool=冷
+gui.ae2csl.entropy.fluid.water=水
+gui.ae2csl.entropy.fluid.lava=熔岩
+gui.ae2csl.entropy.fluid.amount=%s / %s mB
+
+# Resonating Drive (placeholder)
+tile.resonating_drive.name=谐振ME驱动器
+
+# Resonating Drive Settings
+gui.ae2csl.resonating_drive_settings=谐振ME驱动器设置
+ae2csl.gui.resonating_drive.settings=设置
+ae2csl.gui.resonating_drive.auto_pull=自动拉取网络中的存储元件
+ae2csl.gui.resonating_drive.auto_pull.on=自动拉取存储元件：开
+ae2csl.gui.resonating_drive.auto_pull.off=自动拉取存储元件：关
+
+
+
+# --- 谐振样板（右键标记 / 滚轮选槽）---
+ae2csl.msg.resonating_pattern.no_inputs=该样板没有任何输入材料
+ae2csl.msg.resonating_pattern.no_valid_inputs=该样板没有任何有效输入材料
+ae2csl.msg.resonating_pattern.input_empty=空槽
+ae2csl.msg.resonating_pattern.input_invalid=未知
+ae2csl.msg.resonating_pattern.marked=已标记：%s/%s（%s）→ (%s, %s, %s) 的 %s 面
+ae2csl.msg.resonating_pattern.unmarked=已取消标记：%s/%s（%s）
+ae2csl.msg.resonating_pattern.selected_input_marked=已切换目标材料：%s/%s（%s） 已标记到 (%s, %s, %s) 的 %s 面
+ae2csl.msg.resonating_pattern.selected_input_unmarked=已切换目标材料：%s/%s（%s） 未标记
+
+# --- 谐振链接器绑定 ---
+ae2csl.msg.resonating_linker.bound_provider=已绑定谐振样板供应器
+ae2csl.msg.resonating_linker.no_provider=请先绑定谐振样板供应器
+ae2csl.msg.resonating_linker.provider_unavailable=已绑定的谐振样板供应器不可用
+ae2csl.item.resonating_linker.provider=已绑定供应器：(%s, %s, %s)
+ae2csl.item.resonating_linker.provider.unbound=已绑定供应器：无
+
+# --- 谐振记忆卡（9 槽） ---
+ae2csl.msg.resonating_memory_card.slot=当前内存槽位 %s/%s，配置：%s
+ae2csl.item.resonating_memory_card.slot=槽位：%s/%s
+ae2csl.item.resonating_memory_card.target=当前配置：%s
+ae2csl.item.resonating_memory_card.empty=空
+ae2csl.item.resonating_memory_card.stored=已保存配置：%s/%s
+ae2csl.item.resonating_memory_card.usage=潜行右键机器保存到当前槽；右键机器应用；潜行+滚轮换槽；潜行右键空气清空当前槽
+
+# --- 谐振样板 tooltip ---
+ae2csl.item.resonating_pattern.usage=右键方块面：标记/取消当前输入槽的远程目标（潜行+滚轮切换输入槽）
+ae2csl.item.resonating_pattern.selected=当前输入槽：%s
+ae2csl.item.resonating_pattern.target=输入 %s（%s）→ (%s, %s, %s) 的 %s 面
+ae2csl.item.resonating_pattern.no_targets=未标记任何输入目标（将回退到供应器默认目标/相邻库存）
+ae2csl.item.resonating_pattern.more=还有 %s 个已标记输入（共 %s 个输入）

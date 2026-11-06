@@ -1,0 +1,1 @@
+{"type": "minecraft:crafting_shaped", "key": {"a": {"type": "forge:ore_dict", "ore": "ingotIron"}, "b": {"item": "ae2csl:resonating_crystal_dust"}, "c": {"item": "ae2:silicon_press"}}, "pattern": ["aba", "bcb", "aba"], "result": {"count": 1, "item": "ae2csl:resonating_print_press"}}

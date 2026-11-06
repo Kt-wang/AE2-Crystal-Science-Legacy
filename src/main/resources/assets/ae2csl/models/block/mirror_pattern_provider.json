@@ -1,0 +1,6 @@
+{
+  "parent": "block/cube_all",
+  "textures": {
+    "all": "ae2csl:block/mirror_pattern_provider/base"
+  }
+}

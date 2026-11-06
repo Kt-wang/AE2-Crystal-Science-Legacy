@@ -1,0 +1,11 @@
+{
+  "crank_music": {
+    "category": "block",
+    "sounds": [
+      {
+        "name": "ae2csl:crank_music",
+        "stream": true
+      }
+    ]
+  }
+}

@@ -1,0 +1,1 @@
+{"energyCost":51200,"processTime":512,"result":{"item":"minecraft:end_stone","count":64},"inputA":{"type":"forge:ore_dict","ore":"dustEnderPearl","count":16},"inputB":{"count":32,"type":"forge:ore_dict","ore":"sand"},"inputC":{"count":32,"type":"forge:ore_dict","ore":"cobblestone"}}

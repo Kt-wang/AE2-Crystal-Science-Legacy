@@ -1,0 +1,1 @@
+{"energyCost": 57600, "processTime": 576, "result": {"item": "extendedae:concurrent_processor", "count": 36}, "inputA": {"type": "forge:ore_dict", "ore": "blockEntro", "count": 9}, "inputB": {"type": "forge:ore_dict", "ore": "blockRedstone", "count": 4}, "inputC": {"type": "forge:ore_dict", "ore": "blockSilicon", "count": 4}}

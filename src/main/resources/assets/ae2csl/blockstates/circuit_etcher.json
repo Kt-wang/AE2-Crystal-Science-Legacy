@@ -1,0 +1,9 @@
+{
+  "variants": {
+    "active=false,powered=false": { "model": "ae2csl:circuit_etcher" },
+    "active=false,powered=true":  { "model": "ae2csl:circuit_etcher" },
+    "active=true,powered=false": { "model": "ae2csl:circuit_etcher_active" },
+    "active=true,powered=true":  { "model": "ae2csl:circuit_etcher_active" },
+    "inventory": { "model": "ae2csl:circuit_etcher" }
+  }
+}

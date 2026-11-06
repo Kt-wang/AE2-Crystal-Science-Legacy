@@ -1,0 +1,123 @@
+{
+  "$schema": "schema.json",
+  "includes": [
+    "common/common.json",
+    "common/player_inventory.json",
+    "common/toolbox.json"
+  ],
+  "background": {
+    "texture": "ae2csl:textures/gui/meteorite_pattern_provider_menu.png",
+    "textureWidth": 512,
+    "textureHeight": 512,
+    "srcRect": [
+      0,
+      0,
+      176,
+      294
+    ]
+  },
+  "slots": {
+    "ENCODED_PATTERN": {
+      "left": 8,
+      "top": 37,
+      "grid": "BREAK_AFTER_9COLS"
+    },
+    "STORAGE": {
+      "left": 8,
+      "top": 176,
+      "grid": "BREAK_AFTER_9COLS"
+    }
+  },
+  "text": {
+    "dialog_title": {
+      "text": {
+        "translate": "block.ae2csl.meteorite_pattern_provider"
+      },
+      "position": {
+        "left": 8,
+        "top": 6
+      }
+    },
+    "interface_stored_items": {
+      "text": {
+        "translate": "gui.ae2csl.return_inv"
+      },
+      "position": {
+        "left": 8,
+        "top": 165
+      }
+    }
+  },
+  "widgets": {
+    "openPriority": {
+      "left": 152,
+      "top": -5,
+      "width": 20,
+      "height": 20
+    },
+    "lockReason": {
+      "left": 5,
+      "top": 15
+    },
+    "previousPage": {
+      "left": 116,
+      "top": -5,
+      "width": 20,
+      "height": 20
+    },
+    "nextPage": {
+      "left": 134,
+      "top": -5,
+      "width": 20,
+      "height": 20
+    },
+    "patternModifierPanel": {
+      "left": -126,
+      "top": 59,
+      "width": 86,
+      "height": 180
+    },
+    "patternModifierPanelAmount0": {
+      "left": -63,
+      "top": 67,
+      "width": 18,
+      "height": 20
+    },
+    "patternModifierPanelAmount1": {
+      "left": -63,
+      "top": 89,
+      "width": 18,
+      "height": 20
+    },
+    "patternModifierPanelAmount2": {
+      "left": -63,
+      "top": 111,
+      "width": 18,
+      "height": 20
+    },
+    "patternModifierPanelAmount3": {
+      "left": -63,
+      "top": 133,
+      "width": 18,
+      "height": 20
+    },
+    "patternModifierPanelAmount4": {
+      "left": -63,
+      "top": 155,
+      "width": 18,
+      "height": 20
+    },
+    "patternModifierPanelAmount5": {
+      "left": -63,
+      "top": 177,
+      "width": 18,
+      "height": 20
+    },
+    "patternModifierPanelClear": {
+      "left": -63,
+      "top": 199,
+      "width": 18,
+      "height": 20
+    }
+  }
+}

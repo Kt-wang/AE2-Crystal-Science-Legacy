@@ -1,0 +1,12 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "particle": "ae2csl:block/crystal_aggregator/on/front",
+    "down": "ae2csl:block/crystal_aggregator/on/bottom",
+    "up": "ae2csl:block/crystal_aggregator/on/top",
+    "north": "ae2csl:block/crystal_aggregator/on/front",
+    "south": "ae2csl:block/crystal_aggregator/on/back",
+    "west": "ae2csl:block/crystal_aggregator/on/left",
+    "east": "ae2csl:block/crystal_aggregator/on/right"
+  }
+}

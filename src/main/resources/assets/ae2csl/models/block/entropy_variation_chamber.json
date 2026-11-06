@@ -1,0 +1,12 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "particle": "ae2csl:block/entropy_variation_chamber/base",
+    "down": "ae2csl:block/entropy_variation_chamber/base",
+    "up": "ae2csl:block/entropy_variation_chamber/top",
+    "north": "ae2csl:block/entropy_variation_chamber/front",
+    "south": "ae2csl:block/entropy_variation_chamber/base",
+    "east": "ae2csl:block/entropy_variation_chamber/left",
+    "west": "ae2csl:block/entropy_variation_chamber/right"
+  }
+}

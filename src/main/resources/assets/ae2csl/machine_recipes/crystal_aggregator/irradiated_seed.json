@@ -1,0 +1,1 @@
+{"energyCost":51200,"processTime":512,"result":{"item":"ae2csl:irradiated_seed","count":32},"inputA":{"type":"forge:ore_dict","ore":"dustSulfur","count":16},"inputB":{"type":"forge:ore_dict","ore":"dustUranium","count":8},"inputC":{"item":"ae2csl:irradiated_crystal_dust","count":8}}

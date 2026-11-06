@@ -1,0 +1,1 @@
+{"energyCost": 14400, "processTime": 144, "result": {"item": "ae2csl:resonating_processor", "count": 9}, "inputA": {"type": "forge:ore_dict", "ore": "storage_blocks_pure_crystal_resonating_crystal_block"}, "inputB": {"type": "forge:ore_dict", "ore": "storage_blocks_pure_crystal_meteor_crystal_block"}, "inputC": {"type": "forge:ore_dict", "ore": "blockSilicon"}}

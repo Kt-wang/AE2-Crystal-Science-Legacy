@@ -1,0 +1,1 @@
+{"type": "minecraft:crafting_shaped", "key": {"#": {"item": "ae2csl:purified_ender_quartz"}, "|": {"type": "forge:ore_dict", "ore": "stickWood"}}, "pattern": ["###", " | ", " | "], "result": {"count": 1, "item": "ae2csl:ender_pickaxe"}}

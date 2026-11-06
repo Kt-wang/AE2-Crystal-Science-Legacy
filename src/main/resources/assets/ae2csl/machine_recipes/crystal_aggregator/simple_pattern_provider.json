@@ -1,0 +1,1 @@
+{"energyCost":4000,"processTime":100,"result":{"item":"ae2csl:simple_pattern_provider","count":1},"inputA":{"item":"ae2csl:simple_processor","count":1},"inputB":{"item":"minecraft:crafting_table","count":1},"inputC":{"type":"forge:ore_dict","ore":"gearWood","count":2}}

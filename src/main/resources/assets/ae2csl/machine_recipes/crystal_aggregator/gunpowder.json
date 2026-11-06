@@ -1,0 +1,1 @@
+{"energyCost":14400,"processTime":144,"result":{"item":"minecraft:gunpowder","count":9},"inputA":{"count":1,"type":"forge:ore_dict","ore":"dustGunpowder"},"inputB":{"type":"forge:ore_dict","ore":"dyeGray","count":1},"inputC":{"item":"minecraft:sugar","count":8}}

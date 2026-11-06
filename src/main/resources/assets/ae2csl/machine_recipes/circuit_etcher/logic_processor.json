@@ -1,0 +1,1 @@
+{"energyCost": 14400, "processTime": 144, "result": {"item": "ae2:logic_processor", "count": 9}, "inputA": {"type": "forge:ore_dict", "ore": "blockGold"}, "inputB": {"type": "forge:ore_dict", "ore": "blockRedstone"}, "inputC": {"type": "forge:ore_dict", "ore": "blockSilicon"}}

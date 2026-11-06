@@ -1,0 +1,12 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "down": "ae2csl:block/quartz_oscillator_clock/on/bottom",
+    "east": "ae2csl:block/quartz_oscillator_clock/on/left",
+    "north": "ae2csl:block/quartz_oscillator_clock/on/front",
+    "particle": "ae2csl:block/quartz_oscillator_clock/on/front",
+    "south": "ae2csl:block/quartz_oscillator_clock/on/back",
+    "up": "ae2csl:block/quartz_oscillator_clock/on/top",
+    "west": "ae2csl:block/quartz_oscillator_clock/on/right"
+  }
+}

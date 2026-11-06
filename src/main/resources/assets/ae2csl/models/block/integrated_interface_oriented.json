@@ -1,0 +1,12 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "down": "ae2csl:block/integrated_interface/alternate",
+    "east": "ae2csl:block/integrated_interface/alternate_arrow",
+    "north": "ae2csl:block/integrated_interface/alternate_arrow",
+    "particle": "ae2csl:block/integrated_interface/base",
+    "south": "ae2csl:block/integrated_interface/alternate_arrow",
+    "up": "ae2csl:block/integrated_interface/alternate_front",
+    "west": "ae2csl:block/integrated_interface/alternate_arrow"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "particle": "ae2csl:block/crystal_pulverizer/on/front",
+    "down": "ae2csl:block/crystal_pulverizer/on/bottom",
+    "up": "ae2csl:block/crystal_pulverizer/on/top",
+    "north": "ae2csl:block/crystal_pulverizer/on/front",
+    "south": "ae2csl:block/crystal_pulverizer/on/back",
+    "west": "ae2csl:block/crystal_pulverizer/on/left",
+    "east": "ae2csl:block/crystal_pulverizer/on/right"
+  }
+}

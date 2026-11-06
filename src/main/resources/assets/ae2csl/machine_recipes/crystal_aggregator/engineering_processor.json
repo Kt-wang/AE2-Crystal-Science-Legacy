@@ -1,0 +1,1 @@
+{"energyCost":51200,"processTime":512,"result":{"item":"ae2:engineering_processor","count":32},"inputA":{"item":"ae2:printed_engineering_processor","count":32},"inputB":{"count":32,"type":"forge:ore_dict","ore":"dustRedstone"},"inputC":{"count":32,"type":"forge:ore_dict","ore":"itemSilicon"}}

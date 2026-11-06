@@ -1,0 +1,1 @@
+{"type": "minecraft:crafting_shaped", "key": {"a": {"item": "ae2csl:simple_circuit_print"}, "b": {"type": "forge:ore_dict", "ore": "inscriberPress"}}, "pattern": [" a ", "aba", " a "], "result": {"count": 1, "item": "ae2csl:blank_print_press"}}

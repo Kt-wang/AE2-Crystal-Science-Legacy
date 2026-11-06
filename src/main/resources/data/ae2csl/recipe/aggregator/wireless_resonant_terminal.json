@@ -1,0 +1,16 @@
+{
+  "type": "ae2csl:crystal_aggregator_recipe_serializer",
+  "input_a": {
+    "item": "ae2:dense_energy_cell"
+  },
+  "input_b": {
+    "item": "ae2csl:resonating_processor"
+  },
+  "input_c": {
+    "item": "ae2csl:resonant_template_coding_terminal_part"
+  },
+  "result": {
+    "id": "ae2csl:wireless_resonant_terminal"
+  },
+  "energy_cost": 512000
+}

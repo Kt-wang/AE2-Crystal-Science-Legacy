@@ -1,0 +1,1 @@
+{"type": "minecraft:crafting_shaped", "key": {"a": {"item": "ae2:matter_ball"}, "b": {"item": "ae2:me_p2p_tunnel"}, "c": {"type": "forge:ore_dict", "ore": "storage_blocks_pure_crystal_resonating_crystal_block"}, "d": {"item": "ae2csl:resonating_processor"}}, "pattern": ["aba", "bcb", "ada"], "result": {"count": 1, "item": "ae2csl:ender_broadcaster"}}

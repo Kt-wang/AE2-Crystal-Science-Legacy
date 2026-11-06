@@ -1,0 +1,12 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "particle": "ae2csl:block/circuit_etcher/on/front",
+    "down": "ae2csl:block/circuit_etcher/on/bottom",
+    "up": "ae2csl:block/circuit_etcher/on/top",
+    "north": "ae2csl:block/circuit_etcher/on/front",
+    "south": "ae2csl:block/circuit_etcher/on/back",
+    "west": "ae2csl:block/circuit_etcher/on/left",
+    "east": "ae2csl:block/circuit_etcher/on/right"
+  }
+}

@@ -1,0 +1,1 @@
+{"energyCost":14400,"processTime":144,"result":{"item":"minecraft:redstone","count":9},"inputA":{"count":1,"type":"forge:ore_dict","ore":"dustRedstone"},"inputB":{"type":"forge:ore_dict","ore":"dyeRed","count":1},"inputC":{"item":"minecraft:sugar","count":8}}

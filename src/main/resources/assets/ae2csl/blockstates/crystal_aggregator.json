@@ -1,0 +1,9 @@
+{
+  "variants": {
+    "active=false,powered=false": { "model": "ae2csl:crystal_aggregator" },
+    "active=false,powered=true":  { "model": "ae2csl:crystal_aggregator" },
+    "active=true,powered=false": { "model": "ae2csl:crystal_aggregator_active" },
+    "active=true,powered=true":  { "model": "ae2csl:crystal_aggregator_active" },
+    "inventory": { "model": "ae2csl:crystal_aggregator" }
+  }
+}

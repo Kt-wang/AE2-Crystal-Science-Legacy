@@ -1,0 +1,1 @@
+{"type": "minecraft:crafting_shaped", "key": {"#": {"item": "ae2csl:purified_quantum_crystal"}}, "pattern": ["###", "###", "###"], "result": {"count": 1, "item": "ae2csl:quantum_crystal_block"}}

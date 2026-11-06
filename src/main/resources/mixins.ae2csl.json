@@ -1,0 +1,22 @@
+{
+  "required": true,
+  "package": "ae2csl.mixin",
+  "mixins": [
+    "CableBusBlockEntityMixin",
+    "GridNodeMixin",
+    "GrowthAcceleratorBlockEntityMixin",
+    "TileCrankMixin",
+    "CraftingCpuLogicMixin",
+    "AEBaseTileMixin",
+    "AEBaseTileBlockMixin",
+    "AEBasePartMixin"
+  ],
+  "client": [
+    "InventoryPlayerMixin"
+  ],
+  "server": [],
+  "compatibilityLevel": "JAVA_25",
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

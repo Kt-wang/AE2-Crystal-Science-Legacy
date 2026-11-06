@@ -1,0 +1,433 @@
+itemGroup.ae2csl=Crystal Science: Legacy
+tile.crystal_growth_chamber.name=Crystal Growth Chamber
+tile.certus_quartz_ore.name=Certus Quartz Ore
+tile.charged_certus_quartz_ore.name=Charged Certus Quartz Ore
+tile.crystal_pulverizer.name=Crystal Pulverizer
+tile.circuit_etcher.name=Circuit Etcher
+tile.quartz_grindstone.name=Quartz Grindstone
+tile.crystal_vibration_chamber.name=Crystal Vibration Chamber
+tile.crystal_aggregator.name=Crystal Aggregator
+tile.entropy_variation_chamber.name=Entropy Variation Chamber
+tile.ender_broadcaster.name=ME Ender Broadcaster
+tile.ender_emitter.name=ME Ender Emitter
+tile.integrated_interface.name=ME Integrated Interface
+tile.resonating_pattern_provider.name=Resonating Pattern Provider
+tile.mirror_pattern_provider.name=Mirror Pattern Provider
+tile.quartz_oscillator_clock.name=Quartz Oscillator Clock
+container.crystal_growth_chamber=Crystal Growth Chamber
+container.circuit_etcher=Circuit Etcher
+container.quartz_grindstone=Quartz Grindstone
+container.crystal_pulverizer=Crystal Pulverizer
+container.crystal_vibration_chamber=Crystal Vibration Chamber
+container.crystal_aggregator=Crystal Aggregator
+container.ender_broadcaster=ME Ender Broadcaster
+container.ender_emitter=ME Ender Emitter
+container.entropy_variation_chamber=Entropy Variation Chamber
+container.integrated_interface=ME Integrated Interface
+container.mirror_pattern_provider=Mirror Pattern Provider
+container.quartz_oscillator_clock=Quartz Oscillator Clock
+container.resonating_pattern_provider=Resonating Pattern Provider
+container.ender_interface=ME Ender Interface
+container.meteorite_pattern_provider=Meteorite Pattern Provider
+container.simple_pattern_provider=Basic Pattern Provider
+
+# Items
+# Pure Crystals (17 types)
+item.purified_certus_quartz_crystal.name=Purified Certus Quartz Crystal
+item.purified_fluix_crystal.name=Purified Fluix Crystal
+item.purified_nether_quartz_crystal.name=Purified Nether Quartz Crystal
+item.purified_ender_quartz.name=Purified Ender Quartz
+item.purified_meteor_crystal.name=Purified Meteor Crystal
+item.purified_resonating_crystal.name=Purified Resonating Crystal
+item.purified_entro_crystal.name=Purified Entro Crystal
+item.purified_redstone_crystal.name=Purified Redstone Crystal
+item.purified_quantum_crystal.name=Purified Quantum Crystal
+item.purified_rose_quartz.name=Purified Rose Quartz
+item.purified_irradiated_crystal.name=Purified Irradiated Crystal
+item.purified_ember_crystal.name=Purified Ember Crystal
+item.purified_link_crystal.name=Purified Link Crystal
+item.purified_overload_crystal.name=Purified Overload Crystal
+item.purified_data_crystal.name=Purified Data Crystal
+item.purified_energized_fluix_crystal.name=Purified Energized Fluix Crystal
+item.purified_energized_certus_quartz_crystal.name=Purified Energized Certus Quartz Crystal
+# Crystal Seeds (17 types)
+item.certus_quartz_seed.name=Certus Quartz Seed
+item.fluix_crystal_seed.name=Fluix Crystal Seed
+item.nether_quartz_seed.name=Nether Quartz Seed
+item.ender_quartz_seed.name=Ender Quartz Seed
+item.meteor_seed.name=Meteor Seed
+item.resonating_seed.name=Resonating Seed
+item.entro_crystal_seed.name=Entro Crystal Seed
+item.redstone_crystal_seed.name=Redstone Crystal Seed
+item.quantum_crystal_seed.name=Quantum Crystal Seed
+item.rose_quartz_seed.name=Rose Quartz Seed
+item.irradiated_seed.name=Irradiated Seed
+item.ember_seed.name=Ember Seed
+item.link_crystal_seed.name=Link Crystal Seed
+item.overload_crystal_seed.name=Overload Crystal Seed
+item.data_crystal_seed.name=Data Crystal Seed
+item.energized_fluix_crystal_seed.name=Energized Fluix Crystal Seed
+item.energized_certus_quartz_seed.name=Energized Certus Quartz Seed
+# Dusts
+item.nether_quartz_dust.name=Nether Quartz Dust
+item.resonating_crystal_dust.name=Resonating Crystal Dust
+item.redstone_crystal_dust.name=Redstone Crystal Dust
+item.quantum_crystal_dust.name=Quantum Crystal Dust
+item.irradiated_crystal_dust.name=Irradiated Crystal Dust
+item.link_crystal_dust.name=Link Crystal Dust
+# Tools - Ender
+item.ender_sword.name=Ender Sword
+item.ender_pickaxe.name=Ender Pickaxe
+item.ender_axe.name=Ender Axe
+item.ender_shovel.name=Ender Shovel
+item.ender_hoe.name=Ender Hoe
+item.meteor_sword.name=Meteor Sword
+item.meteor_pickaxe.name=Meteor Pickaxe
+item.meteor_axe.name=Meteor Axe
+item.meteor_shovel.name=Meteor Shovel
+item.meteor_hoe.name=Meteor Hoe
+item.resonating_sword.name=Resonating Sword
+item.resonating_pickaxe.name=Resonating Pickaxe
+item.resonating_axe.name=Resonating Axe
+item.resonating_shovel.name=Resonating Shovel
+item.resonating_hoe.name=Resonating Hoe
+item.ender_interface_upgrade.name=Ender Interface Upgrade
+item.extended_ender_interface_upgrade.name=Extended Ender Interface Upgrade
+item.extended_integrated_interface_upgrade.name=Extended Integrated Interface Upgrade
+item.extended_resonating_pattern_provider_upgrade.name=Extended Resonating Pattern Provider Upgrade
+item.integrated_interface_upgrade.name=Integrated Interface Upgrade
+item.meteor_pattern_provider_upgrade.name=Meteor Pattern Provider Upgrade
+item.pattern_provider_upgrade.name=Pattern Provider Upgrade
+item.resonating_pattern_provider_upgrade.name=Resonating Pattern Provider Upgrade
+item.ender_linker.name=Ender Linker
+item.mirror_linker.name=Mirror Linker
+item.resonating_linker.name=Resonating Linker
+item.resonating_memory_card.name=Resonating Memory Card
+item.resonating_pattern_converter.name=Resonating Pattern Converter
+item.wireless_resonant_terminal.name=Wireless Resonant Terminal
+item.resonating_pattern.name=Resonating Pattern
+item.resonating_pattern_provider_part.name=Resonating Pattern Provider
+
+# JEI
+jei.ae2csl.circuit_etcher=Circuit Etching
+jei.ae2csl.circuit_etcher.desc=The Circuit Etcher uses AE power to etch circuits from raw materials. Place input items in the left slots and wait for the output.
+jei.ae2csl.crystal_aggregator=Crystal Aggregating
+jei.ae2csl.crystal_pulverizer=Crystal Pulverizing
+jei.ae2csl.crystal_vibration=Crystal Vibration
+jei.ae2csl.crystal_growth=Crystal Growth
+jei.ae2csl.crystal_growth_chamber.desc=The Crystal Growth Chamber accelerates crystal growth using AE power. Place crystal seeds inside and provide power to grow them.
+jei.ae2csl.entropy_variation_chamber=Entropy Variation
+gui.ae2csl.entropy.mode.heat=Heat
+gui.ae2csl.entropy.mode.cool=Cool
+
+# API - Machine Settings
+ae2csl.machine_settings.redstone_controlled_no_pulse.title=Redstone Mode
+ae2csl.machine_settings.redstone_controlled_no_pulse.ignore.desc=Always active
+ae2csl.machine_settings.redstone_controlled_no_pulse.low_signal.desc=Active with no signal
+ae2csl.machine_settings.redstone_controlled_no_pulse.high_signal.desc=Active with signal
+ae2csl.machine_settings.show_range_mode.title=Show Working Area
+ae2csl.machine_settings.show_range_mode.show.desc=Show current working area
+ae2csl.machine_settings.show_range_mode.hide.desc=Hide current working area
+ae2csl.machine_settings.black_list_mode.title=Toggle Whitelist/Blacklist
+ae2csl.machine_settings.black_list_mode.white_list.desc=Whitelist mode
+ae2csl.machine_settings.black_list_mode.black_list.desc=Blacklist mode
+ae2csl.machine_settings.pull_mode.title=Pull From Target Inventory
+ae2csl.machine_settings.pull_mode.on.desc=Will pull from the target inventory
+ae2csl.machine_settings.pull_mode.off.desc=Will not pull from the target inventory
+ae2csl.machine_settings.entropy_change_mode.title=Entropy Mode
+ae2csl.machine_settings.entropy_change_mode.increase.desc=Increase
+ae2csl.machine_settings.entropy_change_mode.decrease.desc=Decrease
+ae2csl.machine_settings.auto_link_mode.title=Auto-Link Mode
+ae2csl.machine_settings.auto_link_mode.enable.desc=Automatically link newly placed devices in range
+ae2csl.machine_settings.auto_link_mode.disable.desc=Stop auto-linking newly placed devices in range
+ae2csl.machine_settings.auto_link_cable_mode.title=Cable Linking (Auto-Link)
+ae2csl.machine_settings.auto_link_cable_mode.enable.desc=Auto-link will include cable-like devices
+ae2csl.machine_settings.auto_link_cable_mode.disable.desc=Auto-link will not include cable-like devices
+ae2csl.machine_settings.sound_mode.title=Sound
+ae2csl.machine_settings.sound_mode.mute.desc=Muted
+ae2csl.machine_settings.sound_mode.unmute.desc=Normal
+
+# API - Side Policy
+ae2csl.text.side_policy.insert=Input
+ae2csl.text.side_policy.extract=Output
+ae2csl.text.side_policy.all=Input/Output
+ae2csl.text.side_policy.none=Disabled
+
+# API - Relative Side
+ae2csl.text.relative_side.front=Front
+ae2csl.text.relative_side.back=Back
+ae2csl.text.relative_side.top=Top
+ae2csl.text.relative_side.bottom=Bottom
+ae2csl.text.relative_side.left=Left
+ae2csl.text.relative_side.right=Right
+
+# API - Direction
+ae2csl.text.direction.north=North
+ae2csl.text.direction.south=South
+ae2csl.text.direction.up=Up
+ae2csl.text.direction.down=Down
+ae2csl.text.direction.west=West
+ae2csl.text.direction.east=East
+ae2csl.gui.bands=Manage Bands
+ae2csl.gui.switch=Switch
+ae2csl.gui.disconnect=Disconnect
+ae2csl.gui.no_band=No band connected
+ae2csl.gui.no_connection=Not connected
+ae2csl.gui.expected_channels=Expected Channels:
+ae2csl.gui.sent_channels=Channels Sent: %s
+ae2csl.gui.upgrades=Upgrades
+ae2csl.gui.band_view=View Band
+ae2csl.gui.band_create=Create Band
+ae2csl.gui.receiver_actual_channels=Channels Received: %s
+ae2csl.gui.sender=Sender
+ae2csl.gui.receiver=Receiver
+ae2csl.menu.ender_broadcaster.button.open_frequency_view_menu=Open Band Menu\nView all connectable bands on the server
+ae2csl.menu.ender_broadcaster.button.open_frequency_create_menu=Open Band Creation\nCreate a new band here
+ae2csl.menu.ender_broadcaster.button.open_frequency_manager_menu=Open Band Manager\nView/edit band info and all linked endpoints
+ae2csl.menu.ender_broadcaster.button.toggle_band_side.title=Toggle Mode
+ae2csl.menu.ender_broadcaster.button.toggle_band_side.desc=Switch between Sender and Receiver
+ae2csl.menu.ender_broadcaster.button.clean_linker_connection=Clear Link\nDisconnect this machine from the band
+ae2csl.gui.distance=Link Distance
+ae2csl.gui.auto=Auto Mode
+ae2csl.gui.range=Range
+ae2csl.gui.auto_link_cable=Auto Link Cable
+ae2csl.gui.band=Band
+ae2csl.gui.band_channels=Band Channels
+ae2csl.gui.emitter_channels=Emitter Channels
+ae2csl.gui.scan_all=Scan All
+ae2csl.gui.destroy_all=Destroy All
+ae2csl.gui.max_distance=Max Distance
+ae2csl.menu.ender_emitter.button.try_sacn_all=Manual Scan\nTry linking all connectable devices in range once
+ae2csl.menu.ender_emitter.button.destroy_all=Unlink\nRemove all wireless links from this emitter
+ae2csl.menu.ender_emitter.button.add_distance=Auto-Link Range\nIncrease by 1
+ae2csl.menu.ender_emitter.button.reduce_distance=Auto-Link Range\nDecrease by 1
+ae2csl.menu.ender_emitter.button.open_frequency_view_menu=Open Band Menu\nView all connectable bands on the server
+ae2csl.menu.ender_emitter.button.clean_band_connection=Clear Band Link\nDisconnect this emitter from the band
+container.side_config=Side Configuration
+gui.ae2csl.side_config.tooltip=Configure per-side I/O policy and auto transfer
+gui.ae2csl.side_config.auto_export=Auto Export
+gui.ae2csl.side_config.auto_import=Auto Import
+gui.ae2csl.side_config.back=Back
+gui.ae2csl.side_config.clear=Clear
+gui.ae2csl.side_config.on=On
+gui.ae2csl.side_config.off=Off
+gui.ae2csl.side_config.dir.up=Up
+gui.ae2csl.side_config.dir.down=Down
+gui.ae2csl.side_config.dir.north=North
+gui.ae2csl.side_config.dir.south=South
+gui.ae2csl.side_config.dir.west=West
+gui.ae2csl.side_config.dir.east=East
+gui.ae2csl.side_config.policy.all=All
+gui.ae2csl.side_config.policy.insert=Insert
+gui.ae2csl.side_config.policy.extract=Extract
+gui.ae2csl.side_config.policy.none=Disabled
+
+item.blank_print_press.name=Blank Print Press
+item.crystal_growth_card.name=Crystal Growth Card
+item.ender_blank_print_press.name=Ender Blank Print Press
+item.ender_interface_part.name=ME Ender Interface
+item.extended_ender_interface_part.name=Ex ME Ender Interface
+item.extended_integrated_interface_part.name=Ex ME Integrated Interface
+item.extended_resonating_pattern_provider_part.name=Ex Resonating Pattern Provider
+item.flour.name=Flour
+item.integrated_interface_part.name=ME Integrated Interface
+item.meteorite_pattern_provider_part.name=Meteorite Pattern Provider
+item.mirror_pattern_provider_part.name=Mirror Pattern Provider
+item.quartz_oscillator_clock_part.name=Quartz Oscillator Clock
+item.resonant_template_coding_terminal_part.name=Resonant Crafting Encoding Terminal
+item.resonating_print_press.name=Resonating Print Press
+item.resonating_processor.name=Resonating Processor
+item.resonating_circuit_print.name=Resonating Circuit Print
+item.simple_circuit_print.name=Basic Circuit Print
+item.simple_pattern_provider_part.name=Basic Pattern Provider
+item.simple_processor.name=Basic Processor
+item.wooden_gear.name=Wooden Gear
+
+tile.silicon_block.name=Silicon Block
+tile.rose_quartz_block.name=Rose Quartz Block
+tile.quantum_crystal_block.name=Quantum Crystal Block
+tile.redstone_crystal_block.name=Redstone Crystal Block
+tile.resonating_crystal_block.name=Resonating Crystal Block
+tile.meteor_crystal_block.name=Meteor Crystal Block
+tile.ender_quartz_block.name=Ender Quartz Block
+tile.crystal_grid_block.name=Crystal Grid Block
+tile.irradiated_crystal_block.name=Irradiated Crystal Block
+tile.charged_certus_quartz_block.name=Charged Certus Quartz Block
+tile.charged_overload_crystal_block.name=Charged Overload Crystal Block
+tile.simple_pattern_provider.name=Basic Pattern Provider
+tile.meteorite_pattern_provider.name=Meteorite Pattern Provider
+tile.ender_interface.name=ME Ender Interface
+tile.extended_ender_interface.name=Extended ME Ender Interface
+tile.extended_integrated_interface.name=Extended ME Integrated Interface
+tile.extended_resonating_pattern_provider.name=Extended Resonating Pattern Provider
+
+# GUI - Broadcaster sub-menus
+ae2csl.gui.back=Back
+ae2csl.menu.title.frequency_bands=Frequency Bands
+ae2csl.menu.title.frequency_band_create=Create Band
+ae2csl.menu.title.frequency_band_link=Link to Band
+ae2csl.menu.title.frequency_band_manager=Manage Band
+ae2csl.menu.title.band_white_list_manager=Whitelist Manager
+ae2csl.menu.frequency_band.encrypted=Encrypted
+ae2csl.menu.frequency_band.private=Private
+ae2csl.menu.frequency_band_create_menu.is_public=Public Band
+ae2csl.menu.frequency_band_create_menu.allow_memory_card_copy=Allow Memory Card Copy
+ae2csl.menu.frequency_band_create_menu.confirm=Confirm
+ae2csl.menu.frequency_band_menu.as_sender=Sender
+ae2csl.menu.frequency_band_menu.as_receiver=Receiver
+ae2csl.menu.frequency_band_menu.confirm=Confirm
+ae2csl.menu.frequency_band_menu.connected=Linked
+ae2csl.menu.frequency_band_menu.not_connected=Unlinked
+ae2csl.menu.frequency_band_menu.input_password=Enter password...
+ae2csl.menu.frequency_band_create_menu.input_band_name=Enter band name...
+ae2csl.menu.frequency_band_create_menu.input_password=Enter password...
+ae2csl.menu.frequency_manager_menu.input_password_field=New password
+ae2csl.menu.frequency_manager_menu.band_name=Name: %s
+ae2csl.menu.frequency_manager_menu.band_usage=Channels: %s
+ae2csl.menu.frequency_manager_menu.confirm_password_button=Change
+ae2csl.menu.frequency_manager_menu.click_again=Click again to confirm
+ae2csl.menu.frequency_manager_menu.band_error.fine=Status: OK
+ae2csl.menu.frequency_manager_menu.band_error.missing_controller=Error: No sender is in a controller network
+ae2csl.menu.frequency_manager_menu.band_error.controller_conflict=Error: At least two senders are in different controller networks
+ae2csl.menu.frequency_manager_menu.band_error.sender_error=Error: A sender is in a no-controller network or is not ready
+ae2csl.menu.frequency_manager_menu.band_error.no_sender=Status: No sender found. If senders exist, check chunk loading.
+ae2csl.menu.frequency_manager.button.change_public.title=Toggle Visibility
+ae2csl.menu.frequency_manager.button.change_public.desc=Switch between Public and Private. Only whitelisted players can see private bands.
+ae2csl.menu.frequency_manager.button.change_allow_memory_card.title=Toggle Memory Card
+ae2csl.menu.frequency_manager.button.change_allow_memory_card.desc=Allow copying link data from machines using a Memory Card
+ae2csl.menu.frequency_manager.button.remove_band=Delete this band\nWarning: This cannot be undone!
+ae2csl.menu.frequency_manager.button.open_white_list_manager=Open Whitelist Manager\nManage the band whitelist here
+ae2csl.menu.band_whitelist.whitelist=Whitelisted Players
+ae2csl.menu.band_whitelist.other=Other Players
+
+# Messages - Band linking
+ae2csl.msg.broadcaster.sender.not_connect_any_band=This broadcaster is not linked to any band
+ae2csl.msg.band_create.no_name=Band name cannot be empty
+ae2csl.msg.band_create.band_present=Band already exists
+ae2csl.msg.band_create.success=Created successfully
+ae2csl.msg.band_link.password_error=Incorrect password
+ae2csl.msg.band_link.sender.grid_must_has_control=Senders must be in a network with a controller
+ae2csl.msg.band_link.sender.grid_conflict=Senders in the same band cannot be in different ME networks
+ae2csl.msg.band_link.receiver.grid_conflict=Linking would cause a controller conflict
+ae2csl.msg.frequency_manager.you_not_owner=Only the owner can change this option
+ae2csl.msg.frequency_manager.password_changed=Password changed
+
+# Messages - Ender linker
+ae2csl.msg.item.ender_linker.bing_to_emitter=Bound to this emitter
+ae2csl.msg.item.ender_linker.success_to_link=Successfully linked this device to the bound emitter
+ae2csl.msg.item.ender_linker.failed_to_link=Link failed. The emitter may be out of channels or out of range.
+
+# Messages - Mirror / Resonating provider
+ae2csl.msg.mirror_linker.applied=Applied the stored mirror target to the Mirror Pattern Provider
+ae2csl.msg.mirror_linker.applied_batch=Applied the stored mirror target to %s nearby Mirror Pattern Providers
+ae2csl.msg.mirror_linker.cleared_batch=Cleared the mirror target on %s nearby Mirror Pattern Providers
+ae2csl.msg.mirror_linker.cleared_provider=Cleared the mirror target on this Mirror Pattern Provider
+ae2csl.msg.mirror_pattern_provider.bound=Bound mirror target to (%s, %s, %s)
+ae2csl.msg.mirror_pattern_provider.cleared=Cleared mirror target
+ae2csl.msg.mirror_pattern_provider.invalid_target=Cannot mirror another mirror pattern provider
+ae2csl.msg.resonating_memory_card.auto_apply=Auto-applied config from slot %s/%s: %s
+ae2csl.msg.resonating_provider.marked=Marked default input %s/%s -> (%s, %s, %s) %s
+ae2csl.msg.resonating_provider.selected_marked=Selected default input %s/%s -> (%s, %s, %s) %s
+ae2csl.msg.resonating_provider.selected_unmarked=Selected default input %s/%s (unmarked)
+ae2csl.msg.resonating_provider.unmarked=Cleared default input %s/%s
+block.ae2csl.integrated_interface=ME Integrated Interface
+gui.ae2csl.storage_inv=Storage
+gui.ae2csl.pattern_inv=Patterns
+block.ae2csl.extended_integrated_interface=Extended ME Integrated Interface
+ae2csl.item.integrated_interface_upgrade.tooltip=Upgrades a Pattern Provider or ME Interface into an ME Integrated Interface
+ae2csl.item.extended_integrated_interface_upgrade.tooltip=Upgrades an ME Integrated Interface into an Ex Integrated Interface
+block.ae2csl.ender_interface=ME Ender Interface
+block.ae2csl.extended_ender_interface=Ex ME Ender Interface
+ae2csl.menu.ender_interface.absorb_slot_text=Filter & Range
+ae2csl.item.ender_interface_upgrade.tooltip=Upgrades an ME Interface into an ME Ender Interface
+ae2csl.item.extended_ender_interface_upgrade.tooltip=Upgrades an ME Ender Interface into an Ex Ender Interface
+ae2csl.msg.mirror_pattern_provider.target_missing=This mirror pattern provider is not bound to a target yet
+block.ae2csl.simple_pattern_provider=Basic Pattern Provider
+gui.ae2csl.return_inv=Return Buffer
+block.ae2csl.quartz_oscillator_clock=Quartz Oscillator Clock
+ae2csl.menu.quartz_oscillator_clock.text.count_down=Interval (ticks):
+ae2csl.menu.quartz_oscillator_clock.text.pulse_width=Pulse Width (ticks):
+block.ae2csl.meteorite_pattern_provider=Meteorite Pattern Provider
+item.overload_card.name=Meteorite Overclock Card
+block.ae2csl.resonating_pattern_provider=Resonating Pattern Provider
+block.ae2csl.extended_resonating_pattern_provider=Extended Resonating Pattern Provider
+ae2csl.msg.resonating_linker.applied=Applied stored resonating targets to the provider
+ae2csl.menu.title.extended_resonating_pattern_provider=Ex Resonating P.P
+ae2csl.menu.title.side_config_menu=Side Config
+block.ae2csl.circuit_etcher=Circuit Etcher
+block.ae2csl.crystal_aggregator=Crystal Aggregator
+block.ae2csl.crystal_growth_chamber=Crystal Growth Chamber
+block.ae2csl.crystal_pulverizer=Crystal Pulverizer
+block.ae2csl.crystal_vibration_chamber=Crystal Vibration Chamber
+block.ae2csl.ender_broadcaster=ME Ender Broadcaster
+block.ae2csl.ender_emitter=ME Ender Emitter
+block.ae2csl.entropy_variation_reaction_chamber=Entropy Variation Chamber
+block.ae2csl.quartz_grindstone=Quartz Grindstone
+item.ae2csl.resonating_pattern_converter=Resonating Pattern Converter
+
+# Tool Linking Tooltips
+ae2csl.tooltip.tool.linked=[Linked] Dim %s, Pos %s,%s,%s
+ae2csl.tooltip.tool.unlinked=[Unlinked] Put this item into a Wireless Access Point to link
+ae2csl.item.pattern_provider_upgrade.tooltip=Upgrades a Simple Pattern Provider into a Pattern Provider
+ae2csl.item.resonating_pattern_provider_upgrade.tooltip=Upgrades a Pattern Provider into a Resonating Pattern Provider
+ae2csl.item.meteor_pattern_provider_upgrade.tooltip=Upgrades a Pattern Provider into a Meteorite Pattern Provider
+ae2csl.item.extended_resonating_pattern_provider_upgrade.tooltip=Upgrades a Resonating Pattern Provider into an Ex Resonating Pattern Provider
+message.ae2csl.tooltip.burn_time=Burn Time: %s ticks
+message.ae2csl.tooltip.energy=Energy Density: %s AE/t
+message.ae2csl.tooltip.seed_growth=Growth: %s%%
+ae2csl.item.ender_linker.tooltip=Links Ender Broadcaster/Emitter/Interface
+ae2csl.item.resonating_linker.tooltip=Links Resonating Pattern Providers
+ae2csl.item.wireless_resonant_terminal.tooltip=Wireless access to Resonant Terminal
+ae2csl.tooltip.unbound=Unbound
+ae2csl.tooltip.target=Target: %s, %s, %s
+ae2csl.tooltip.memory_card_slot=Slot %s/%s: %s
+container.resonant_template_coding_terminal=Resonant Crafting Encoding Terminal
+gui.ae2csl.entropy.mode.short.heat=H
+gui.ae2csl.entropy.mode.short.cool=C
+gui.ae2csl.entropy.fluid.water=Water
+gui.ae2csl.entropy.fluid.lava=Lava
+gui.ae2csl.entropy.fluid.amount=%s / %s mB
+
+# Resonating Drive (placeholder)
+tile.resonating_drive.name=Resonating ME Drive
+
+# Resonating Drive Settings
+gui.ae2csl.resonating_drive_settings=Resonating ME Drive Settings
+ae2csl.gui.resonating_drive.settings=Settings
+ae2csl.gui.resonating_drive.auto_pull=Auto-pull storage cells from network
+ae2csl.gui.resonating_drive.auto_pull.on=Auto-pull storage cells: ON
+ae2csl.gui.resonating_drive.auto_pull.off=Auto-pull storage cells: OFF
+
+
+
+# --- Resonating pattern (right-click marking / scroll selection) ---
+ae2csl.msg.resonating_pattern.no_inputs=This pattern has no inputs
+ae2csl.msg.resonating_pattern.no_valid_inputs=This pattern has no valid inputs
+ae2csl.msg.resonating_pattern.input_empty=Empty slot
+ae2csl.msg.resonating_pattern.input_invalid=Unknown
+ae2csl.msg.resonating_pattern.marked=Marked: %s/%s (%s) -> (%s, %s, %s) %s
+ae2csl.msg.resonating_pattern.unmarked=Unmarked: %s/%s (%s)
+ae2csl.msg.resonating_pattern.selected_input_marked=Selected input: %s/%s (%s), marked to (%s, %s, %s) %s
+ae2csl.msg.resonating_pattern.selected_input_unmarked=Selected input: %s/%s (%s), unmarked
+
+# --- Resonating linker binding ---
+ae2csl.msg.resonating_linker.bound_provider=Bound to resonating pattern provider
+ae2csl.msg.resonating_linker.no_provider=Bind a resonating pattern provider first
+ae2csl.msg.resonating_linker.provider_unavailable=The bound provider is unavailable
+ae2csl.item.resonating_linker.provider=Bound provider: (%s, %s, %s)
+ae2csl.item.resonating_linker.provider.unbound=Bound provider: none
+
+# --- Resonating memory card (9 slots) ---
+ae2csl.msg.resonating_memory_card.slot=Memory slot %s/%s, config: %s
+ae2csl.item.resonating_memory_card.slot=Slot: %s/%s
+ae2csl.item.resonating_memory_card.target=Selected config: %s
+ae2csl.item.resonating_memory_card.empty=empty
+ae2csl.item.resonating_memory_card.stored=Stored configs: %s/%s
+ae2csl.item.resonating_memory_card.usage=Sneak-right-click a machine to save to the current slot; right-click to apply; sneak+scroll to switch slots; sneak-right-click air to clear
+
+# --- Resonating pattern tooltip ---
+ae2csl.item.resonating_pattern.usage=Right-click a block face to mark/clear the remote target of the selected input (sneak+scroll to switch inputs)
+ae2csl.item.resonating_pattern.selected=Selected input: %s
+ae2csl.item.resonating_pattern.target=Input %s (%s) -> (%s, %s, %s) %s
+ae2csl.item.resonating_pattern.no_targets=No input targets marked (falls back to provider defaults / adjacent inventory)
+ae2csl.item.resonating_pattern.more=%s more marked inputs (of %s inputs)

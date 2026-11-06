@@ -1,0 +1,1 @@
+{"energyCost": 14400, "processTime": 144, "result": {"item": "ae2omnicells:multidimensional_expansion_processor", "count": 9}, "inputA": {"item": "ae2omnicells:singularity_block"}, "inputB": {"type": "forge:ore_dict", "ore": "blockRedstone"}, "inputC": {"type": "forge:ore_dict", "ore": "blockSilicon"}}

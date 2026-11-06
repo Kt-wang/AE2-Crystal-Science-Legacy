@@ -1,0 +1,9 @@
+{
+  "variants": {
+    "active=false,powered=false": { "model": "ae2csl:me_ender_broadcaster/form" },
+    "active=false,powered=true":  { "model": "ae2csl:me_ender_broadcaster/form" },
+    "active=true,powered=false": { "model": "ae2csl:me_ender_broadcaster/form" },
+    "active=true,powered=true":  { "model": "ae2csl:me_ender_broadcaster/form" },
+    "inventory": { "model": "ae2csl:me_ender_broadcaster/form" }
+  }
+}

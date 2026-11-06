@@ -1,0 +1,1 @@
+{"energyCost": 14400, "processTime": 144, "result": {"item": "advanced_ae:quantum_processor", "count": 9}, "inputA": {"type": "forge:ore_dict", "ore": "storage_blocks_quantum_alloy"}, "inputB": {"type": "forge:ore_dict", "ore": "blockRedstone"}, "inputC": {"type": "forge:ore_dict", "ore": "blockSilicon"}}

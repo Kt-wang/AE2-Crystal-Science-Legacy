@@ -1,0 +1,12 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "particle": "ae2csl:block/crystal_vibration_chamber/on/front",
+    "down": "ae2csl:block/crystal_vibration_chamber/on/bottom",
+    "up": "ae2csl:block/crystal_vibration_chamber/on/top",
+    "north": "ae2csl:block/crystal_vibration_chamber/on/front",
+    "south": "ae2csl:block/crystal_vibration_chamber/on/back",
+    "west": "ae2csl:block/crystal_vibration_chamber/on/left",
+    "east": "ae2csl:block/crystal_vibration_chamber/on/right"
+  }
+}

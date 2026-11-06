@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "a": {"item": "ae2:growth_accelerator"},
+    "b": {"item": "ae2:quartz_cluster"},
+    "c": {"item": "ae2:quartz_glass"},
+    "d": {"item": "ae2csl:resonating_processor"},
+    "e": {"item": "ae2:fluix_pearl"}
+  },
+  "pattern": ["aba", "cdc", "aea"],
+  "result": {"count": 1, "item": "ae2csl:crystal_growth_chamber"}
+}

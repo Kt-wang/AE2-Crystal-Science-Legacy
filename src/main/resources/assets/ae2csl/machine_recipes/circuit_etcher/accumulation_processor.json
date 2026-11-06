@@ -1,0 +1,1 @@
+{"energyCost": 14400, "processTime": 144, "result": {"item": "megacells:accumulation_processor", "count": 9}, "inputA": {"type": "forge:ore_dict", "ore": "blockSkySteel"}, "inputB": {"item": "ae2:fluix_block"}, "inputC": {"type": "forge:ore_dict", "ore": "blockSilicon"}}

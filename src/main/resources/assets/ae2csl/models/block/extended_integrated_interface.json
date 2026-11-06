@@ -1,0 +1,6 @@
+{
+  "parent": "block/cube_all",
+  "textures": {
+    "all": "ae2csl:block/extended_integrated_interface/base"
+  }
+}
