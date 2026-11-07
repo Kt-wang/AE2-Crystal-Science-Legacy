@@ -11,6 +11,7 @@ import ae2csl.init.AE2CSItems;
 import ae2csl.init.AE2CSSounds;
 import ae2.recipes.AERecipeTypes;
 import ae2.recipes.handlers.InscriberProcessType;
+import ae2.recipes.handlers.ChargerRecipe;
 import ae2.recipes.handlers.InscriberRecipe;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
@@ -103,6 +104,7 @@ public class RegistryHandler {
 
         // ---- Inscriber recipes ----
         registerInscriberRecipes();
+        registerChargerRecipes();
 
         // ---- Smelting recipes ----
         registerSmeltingRecipes();
@@ -262,6 +264,20 @@ public class RegistryHandler {
         registerQuantumInscriberRecipes();
 
         AE2CrystalScienceLegacy.LOGGER.info("Registered 6 inscriber recipes");
+    }
+
+    private static void registerChargerRecipes() {
+        Item pureRedstone = Item.getByNameOrId("ae2csl:purified_redstone_crystal");
+        Item redstoneCrystal = Item.getByNameOrId("appflux:redstone_crystal");
+        if (pureRedstone == null || redstoneCrystal == null) {
+            return;
+        }
+        // Upstream AECSCompatAFRecipeProvider.chargedRecipe(PURE_REDSTONE_CRYSTAL, REDSTONE_CRYSTAL)
+        AERecipeTypes.CHARGER.register(new ChargerRecipe(
+            Ingredient.fromStacks(new ItemStack(pureRedstone)),
+            new ItemStack(redstoneCrystal)
+        ));
+        AE2CrystalScienceLegacy.LOGGER.info("Registered 1 charger recipe");
     }
 
     private static void registerQuantumInscriberRecipes() {
