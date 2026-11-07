@@ -80,7 +80,7 @@ dependencies {
     // Unimined remaps these through detached configurations, which do not retain
     // the exclusions above. All three required artifacts are already explicit.
     modCompileOnly("CraftTweaker2:CraftTweaker2-MC1120-Main:1.12-${crt_version}") { transitive = false }
-    modRuntimeOnly("CraftTweaker2:CraftTweaker2-MC1120-Main:1.12-${crt_version}") { transitive = false }
+    modRuntimeOnly("CraftTweaker2:CraftTweaker2-MC1120-Main:1.12-${crt_version}") { transitive = true }
     runtimeOnly("CraftTweaker2:CraftTweaker2-API:${crt_version}") { transitive = false }
     runtimeOnly("CraftTweaker2:ZenScript:${crt_version}") { transitive = false }
 }
