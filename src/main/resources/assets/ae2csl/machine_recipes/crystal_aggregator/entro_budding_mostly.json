@@ -1,1 +1,1 @@
-{"energyCost":16000,"processTime":160,"result":{"item":"extendedae:entro_budding_mostly","count":1},"inputA":{"item":"ae2csl:entro_crystal_seed","count":1},"inputB":{"type":"forge:ore_dict","ore":"crystalResonating","count":1},"inputC":{"item":"ae2:fluix_block","count":1}}
+{"energyCost":16000,"processTime":160,"result":{"item":"ae2:entro_budding_mostly","count":1},"inputA":{"item":"ae2csl:entro_crystal_seed","count":1},"inputB":{"type":"forge:ore_dict","ore":"crystalResonating","count":1},"inputC":{"item":"ae2:fluix_block","count":1}}
