@@ -1,0 +1,1 @@
+{"energyCost": 51200, "processTime": 512, "result": {"item": "ae2:concurrent_processor", "count": 32}, "inputA": {"item": "ae2:concurrent_processor_print", "count": 32}, "inputB": {"type": "forge:ore_dict", "ore": "dustRedstone", "count": 32}, "inputC": {"type": "forge:ore_dict", "ore": "itemSilicon", "count": 32}}

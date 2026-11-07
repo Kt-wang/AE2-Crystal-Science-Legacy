@@ -13,8 +13,12 @@ import net.minecraftforge.common.crafting.JsonContext;
 import net.minecraftforge.oredict.OreDictionary;
 
 import java.io.*;
+import java.net.JarURLConnection;
+import java.net.URL;
 import java.nio.charset.StandardCharsets;
 import java.util.*;
+import java.util.jar.JarEntry;
+import java.util.jar.JarFile;
 
 /** Central recipe storage. Recipes loaded from classpath JSON at init. */
 public class AE2CSRecipeRegistry {
@@ -28,13 +32,16 @@ public class AE2CSRecipeRegistry {
 
         JsonContext ctx = new JsonContext(Tags.MOD_ID);
 
-        // Circuit etcher recipes
-        loadFiles("circuit_etcher", new String[]{
+        // Circuit etcher recipes: discover every JSON in the directory so new processors
+        // (AE2S concurrent, addon boards, ...) work without editing a filename list.
+        String[] etcherFallback = {
             "accumulation_processor", "calculation_processor", "complex_link_processor",
-            "concurrent_processor", "energy_processor", "engineering_processor",
+            "concurrent_processor", "ae2s_concurrent_processor", "energy_processor", "engineering_processor",
             "logic_processor", "multidimensional_expansion_processor", "omni_link_processor",
             "origination_processor", "quantum_processor", "resonating_processor", "simple_processor"
-        }, machineDir("circuit_etcher/"), ctx);
+        };
+        loadFiles("circuit_etcher", discoverRecipeNames(machineDir("circuit_etcher/"), etcherFallback),
+            machineDir("circuit_etcher/"), ctx);
 
         // Crystal pulverizer recipes
         String[] pulverizerFiles = {
@@ -52,8 +59,8 @@ public class AE2CSRecipeRegistry {
         };
         loadFiles("crystal_pulverizer", pulverizerFiles, machineDir("crystal_pulverizer/"), ctx);
 
-        // Crystal aggregator recipes
-        loadFiles("crystal_aggregator", new String[]{
+        // Crystal aggregator recipes: discover every JSON in the directory as well.
+        String[] aggregatorFallback = {
             "accumulation_processor", "atomic_disassembler", "bell",
             "budding_amethyst", "calculation_processor", "certus_quartz_seed",
             "charged_certus_quartz_crystal", "chipped_budding_quartz",
@@ -79,8 +86,11 @@ public class AE2CSRecipeRegistry {
             "resonating_drive", "resonating_linker", "resonating_memory_card",
             "resonating_pattern_converter", "resonating_pattern_provider",
             "resonating_processor", "resonating_seed", "simple_pattern_provider",
-            "simple_processor", "singularity", "slime_ball", "wireless_hub"
-        }, machineDir("crystal_aggregator/"), ctx);
+            "simple_processor", "singularity", "slime_ball", "wireless_hub",
+            "ae2s_concurrent_processor"
+        };
+        loadFiles("crystal_aggregator", discoverRecipeNames(machineDir("crystal_aggregator/"), aggregatorFallback),
+            machineDir("crystal_aggregator/"), ctx);
 
         // Quartz grindstone shares pulverizer recipes
         loadFiles("quartz_grindstone", pulverizerFiles, machineDir("crystal_pulverizer/"), ctx);
@@ -91,6 +101,52 @@ public class AE2CSRecipeRegistry {
 
     private static String machineDir(String sub) {
         return "assets/" + Tags.MOD_ID + "/machine_recipes/" + sub;
+    }
+
+    /**
+     * List JSON recipe names in a classpath directory. Falls back to the hardcoded
+     * list when the resource directory cannot be enumerated (some launch setups).
+     */
+    private static String[] discoverRecipeNames(String dir, String[] fallback) {
+        String prefix = dir.endsWith("/") ? dir : dir + "/";
+        Set<String> names = new TreeSet<>();
+        try {
+            Enumeration<URL> urls = AE2CSRecipeRegistry.class.getClassLoader().getResources(prefix);
+            while (urls.hasMoreElements()) {
+                URL url = urls.nextElement();
+                if ("file".equals(url.getProtocol())) {
+                    File directory = new File(url.toURI());
+                    File[] files = directory.listFiles();
+                    if (files != null) {
+                        for (File file : files) {
+                            String name = file.getName();
+                            if (file.isFile() && name.endsWith(".json")) {
+                                names.add(name.substring(0, name.length() - 5));
+                            }
+                        }
+                    }
+                } else if ("jar".equals(url.getProtocol())) {
+                    JarURLConnection connection = (JarURLConnection) url.openConnection();
+                    try (JarFile jar = connection.getJarFile()) {
+                        Enumeration<JarEntry> entries = jar.entries();
+                        while (entries.hasMoreElements()) {
+                            String name = entries.nextElement().getName();
+                            if (name.startsWith(prefix) && name.endsWith(".json")
+                                && name.indexOf('/', prefix.length()) < 0) {
+                                names.add(name.substring(prefix.length(), name.length() - 5));
+                            }
+                        }
+                    }
+                }
+            }
+        } catch (Exception e) {
+            AE2CrystalScienceLegacy.LOGGER.warn("Could not scan recipe directory {}: {}", dir, e.toString());
+        }
+        if (names.isEmpty()) {
+            return fallback;
+        }
+        AE2CrystalScienceLegacy.LOGGER.info("Discovered {} recipe files in {}", names.size(), dir);
+        return names.toArray(new String[0]);
     }
 
     private static void loadFiles(String type, String[] filenames, String dir, JsonContext ctx) {
