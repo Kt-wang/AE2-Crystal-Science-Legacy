@@ -1,0 +1,16 @@
+{
+  "type": "ae2:inscriber",
+  "ingredients": {
+    "middle": {
+      "item": "ae2additions:quantum_alloy_block"
+    },
+    "top": {
+      "item": "ae2additions:quantum_processor_press"
+    }
+  },
+  "mode": "inscribe",
+  "result": {
+    "id": "ae2additions:printed_quantum_processor",
+    "count": 1
+  }
+}

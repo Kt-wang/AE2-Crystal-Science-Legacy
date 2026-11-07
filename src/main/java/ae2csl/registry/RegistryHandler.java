@@ -259,6 +259,36 @@ public class RegistryHandler {
             InscriberProcessType.PRESS
         ));
 
-        AE2CrystalScienceLegacy.LOGGER.info("Registered 4 inscriber recipes");
+        registerQuantumInscriberRecipes();
+
+        AE2CrystalScienceLegacy.LOGGER.info("Registered 6 inscriber recipes");
+    }
+
+    private static void registerQuantumInscriberRecipes() {
+        Item quantumBlock = Item.getByNameOrId("ae2additions:quantum_alloy_block");
+        Item quantumPress = Item.getByNameOrId("ae2additions:quantum_processor_press");
+        Item printedBoard = Item.getByNameOrId("ae2additions:printed_quantum_processor");
+        Item processor = Item.getByNameOrId("ae2additions:quantum_processor");
+        if (quantumBlock == null || quantumPress == null || printedBoard == null || processor == null) {
+            return;
+        }
+
+        // printed_quantum_processor: quantum alloy block + quantum processor press
+        AERecipeTypes.INSCRIBER.register(new InscriberRecipe(
+            Ingredient.fromStacks(new ItemStack(quantumBlock)),
+            new ItemStack(printedBoard),
+            Ingredient.fromStacks(new ItemStack(quantumPress)),
+            Ingredient.EMPTY,
+            InscriberProcessType.INSCRIBE
+        ));
+
+        // quantum_processor: printed board + redstone + printed silicon
+        AERecipeTypes.INSCRIBER.register(new InscriberRecipe(
+            Ingredient.fromStacks(OreDictionary.getOres("dustRedstone").toArray(new ItemStack[0])),
+            new ItemStack(processor),
+            Ingredient.fromStacks(new ItemStack(printedBoard)),
+            Ingredient.fromStacks(new ItemStack(Item.getByNameOrId("ae2:printed_silicon"))),
+            InscriberProcessType.PRESS
+        ));
     }
 }
