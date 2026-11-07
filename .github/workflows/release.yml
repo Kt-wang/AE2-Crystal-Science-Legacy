@@ -26,7 +26,12 @@ jobs:
       - name: Execute Gradle build
         run: ./gradlew build
 
+      - name: Collect release artifacts
+        run: |
+          mkdir -p build/release
+          find build/libs -maxdepth 1 -type f -name '*.jar' ! -name '*-dev.jar' -exec cp {} build/release/ \;
+
       - uses: ncipollo/release-action@v1.21.0
         with:
-          artifacts: "build/libs/*"
+          artifacts: "build/release/*"
           generateReleaseNotes: true
