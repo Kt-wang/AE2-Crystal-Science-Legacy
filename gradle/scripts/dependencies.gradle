@@ -41,13 +41,22 @@ repositories {
     mavenLocal()
 }
 dependencies {
-    compileOnly "com.cleanroommc:sponge-mixin:0.20.13+mixin.0.8.7"
+    // Match formal Cleanroom 0.4.0's Mixin annotations.
+    compileOnly("com.cleanroommc:sponge-mixin:0.20.12+mixin.0.8.7") { transitive = false }
     if (enable_lwjglx.toBoolean()) {
-        compileOnly "com.cleanroommc:lwjglx:1.0.0"
+        // Compile against the public LWJGL 2 API. Cleanroom redirects these
+        // references to the active input backend at runtime. Calling org.lwjglx
+        // directly bypasses that compatibility layer (and can invoke absent GLFW
+        // functions on SDL runtimes). Never bundle either input implementation.
+        compileOnly("org.lwjgl.lwjgl:lwjgl:2.9.4-nightly-20150209") { transitive = false }
     }
 
     var mod_version = "v1.1.0"
-    compileOnly "com.github.FormlessDragon:Applied-Energistics-2-Supergiant:${mod_version}:dev"
+    if (project.hasProperty('ae2sDevJar')) {
+        compileOnly files(project.property('ae2sDevJar'))
+    } else {
+        compileOnly "com.github.FormlessDragon:Applied-Energistics-2-Supergiant:${mod_version}:dev"
+    }
     // AEBaseGui 实现了 MouseTweaks 的 IMTModGuiContainer2（@Optional），编译期需要该类文件
     compileOnly "curse.maven:mouse-tweaks-unofficial-461660:5876158"
     modCompileOnly 'mezz:jei:4.35.1'
@@ -64,12 +73,14 @@ dependencies {
             exclude group: 'com.google.code.gson', module: 'gson'
         }
     }
-    compileOnly "CraftTweaker2:CraftTweaker2-API:${crt_version}"
-    compileOnly "CraftTweaker2:ZenScript:${crt_version}"
+    compileOnly("CraftTweaker2:CraftTweaker2-API:${crt_version}") { transitive = false }
+    compileOnly("CraftTweaker2:ZenScript:${crt_version}") { transitive = false }
     // MC1120-Main is the actual mod jar (needs remapping); it does NOT contain the API/ZenScript classes,
     // so those must also be present at runtime in the dev environment.
-    modCompileOnly "CraftTweaker2:CraftTweaker2-MC1120-Main:1.12-${crt_version}"
-    modRuntimeOnly "CraftTweaker2:CraftTweaker2-MC1120-Main:1.12-${crt_version}"
-    runtimeOnly "CraftTweaker2:CraftTweaker2-API:${crt_version}"
-    runtimeOnly "CraftTweaker2:ZenScript:${crt_version}"
+    // Unimined remaps these through detached configurations, which do not retain
+    // the exclusions above. All three required artifacts are already explicit.
+    modCompileOnly("CraftTweaker2:CraftTweaker2-MC1120-Main:1.12-${crt_version}") { transitive = false }
+    modRuntimeOnly("CraftTweaker2:CraftTweaker2-MC1120-Main:1.12-${crt_version}") { transitive = false }
+    runtimeOnly("CraftTweaker2:CraftTweaker2-API:${crt_version}") { transitive = false }
+    runtimeOnly("CraftTweaker2:ZenScript:${crt_version}") { transitive = false }
 }

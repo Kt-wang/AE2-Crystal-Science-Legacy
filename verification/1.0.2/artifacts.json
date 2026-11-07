@@ -1,0 +1,119 @@
+{
+  "tested_at": "2026-11-06",
+  "minecraft": "1.12.2",
+  "java": "25.0.5",
+  "gradle": "9.8.1",
+  "ae2s": "1.1.0",
+  "baseline_cleanroom": "0.4.0",
+  "artifacts": {
+    "AE2-Crystal-Science-Legacy-1.0.2.jar": {
+      "sha256": "d80b232223e2060a1fead014d84a1130d916fbeb101899c5d7ae168405977559"
+    },
+    "AppliedEnergistics2-Supergiant-1.1.0.jar": {
+      "sha256": "1f15fcda479f6b6a15e0640e0bf0f8a86e88c08c2bbd20e63b4145ea7e5efe26"
+    },
+    "cleanroom-0.4.0-installer.jar": {
+      "sha256": "882435d851a51e14b802e0a9384e4a05cfbb3890fca435c40c494af75e5a166f"
+    },
+    "cleanroom-0.7.14-alpha-installer.jar": {
+      "sha256": "03e0e55217271c90792762ab4acf94f123a0a20b60a3d13932e035d40ed4daca"
+    },
+    "Cleanroom-0.4.0-Server-Compatibility-1.0.0.jar": {
+      "sha256": "ab21b0b5940e83190cf84a9eb7f266332b7358e1942968b1213fe32260660bbb"
+    }
+  },
+  "scenarios": [
+    {
+      "name": "ae2csl-102-input-040-r1",
+      "cleanroom": "0.4.0",
+      "side": "client",
+      "launcher_result": "FUNCTIONAL_PASS",
+      "exit": 0,
+      "timed_out": false,
+      "loader_version_seen": true,
+      "report": "ae2csl-102-input-040-r1/summary.json",
+      "installed_jars": {
+        "AppliedEnergistics2-Supergiant-1.1.0.jar": "1f15fcda479f6b6a15e0640e0bf0f8a86e88c08c2bbd20e63b4145ea7e5efe26",
+        "AE2-Crystal-Science-Legacy-1.0.2.jar": "d80b232223e2060a1fead014d84a1130d916fbeb101899c5d7ae168405977559",
+        "ae2csl-runtime-regression.jar": "d1389a5c24f0aa3a08baaa806b79faa05260be157c530da9996555db295a202f",
+        "MCP-TestBridge-Cleanroom-1.12.2-0.1.0.jar": "d2c382ae5cd36e3bc8d1369d8ec3c3fc1d9a272fba27bc1383757c91cc7a433a"
+      },
+      "negative_control": false
+    },
+    {
+      "name": "ae2csl-102-input-040-optional-r1",
+      "cleanroom": "0.4.0",
+      "side": "client",
+      "launcher_result": "FUNCTIONAL_PASS",
+      "exit": 0,
+      "timed_out": false,
+      "loader_version_seen": true,
+      "report": "ae2csl-102-input-040-optional-r1/summary.json",
+      "installed_jars": {
+        "AppliedEnergistics2-Supergiant-1.1.0.jar": "1f15fcda479f6b6a15e0640e0bf0f8a86e88c08c2bbd20e63b4145ea7e5efe26",
+        "AE2-Crystal-Science-Legacy-1.0.2.jar": "d80b232223e2060a1fead014d84a1130d916fbeb101899c5d7ae168405977559",
+        "ae2csl-runtime-regression.jar": "d1389a5c24f0aa3a08baaa806b79faa05260be157c530da9996555db295a202f",
+        "MCP-TestBridge-Cleanroom-1.12.2-0.1.0.jar": "d2c382ae5cd36e3bc8d1369d8ec3c3fc1d9a272fba27bc1383757c91cc7a433a",
+        "jei-4.35.1.jar": "8777b115592519ea0b077032988301853b39794edbb67f54b54cbef6715b283b",
+        "CraftTweaker2-MC1120-Main-1.12-4.1.20.716.jar": "5308af2b627613c618a23e436b20b41bdec15bd26ec1137cd224fdf3fa059a2d",
+        "CraftTweaker2-API-4.1.20.716.jar": "08c37eeccd2dc8058407e6fb0132c02b8ffb09fe2e4852d02771f7bb63118440",
+        "ZenScript-4.1.20.716.jar": "48159a804386ce03493c55e1df6093477956443b804fe951d1beeb64fddf7289"
+      },
+      "negative_control": false
+    },
+    {
+      "name": "ae2csl-102-server-040-r1",
+      "cleanroom": "0.4.0",
+      "side": "server",
+      "launcher_result": "FUNCTIONAL_PASS",
+      "exit": 0,
+      "timed_out": false,
+      "loader_version_seen": true,
+      "report": "ae2csl-102-server-040-r1/summary.json",
+      "installed_jars": {
+        "AppliedEnergistics2-Supergiant-1.1.0.jar": "1f15fcda479f6b6a15e0640e0bf0f8a86e88c08c2bbd20e63b4145ea7e5efe26",
+        "AE2-Crystal-Science-Legacy-1.0.2.jar": "d80b232223e2060a1fead014d84a1130d916fbeb101899c5d7ae168405977559",
+        "ae2csl-runtime-regression.jar": "d1389a5c24f0aa3a08baaa806b79faa05260be157c530da9996555db295a202f",
+        "MCP-TestBridge-Cleanroom-1.12.2-0.1.0.jar": "d2c382ae5cd36e3bc8d1369d8ec3c3fc1d9a272fba27bc1383757c91cc7a433a",
+        "Cleanroom-0.4.0-Server-Compatibility-1.0.0.jar": "ab21b0b5940e83190cf84a9eb7f266332b7358e1942968b1213fe32260660bbb"
+      },
+      "negative_control": false
+    },
+    {
+      "name": "ae2csl-102-input-sdl-r1",
+      "cleanroom": "0.7.14-alpha",
+      "side": "client",
+      "launcher_result": "FUNCTIONAL_PASS",
+      "exit": 0,
+      "timed_out": false,
+      "loader_version_seen": true,
+      "report": "ae2csl-102-input-sdl-r1/summary.json",
+      "installed_jars": {
+        "AppliedEnergistics2-Supergiant-1.1.0.jar": "1f15fcda479f6b6a15e0640e0bf0f8a86e88c08c2bbd20e63b4145ea7e5efe26",
+        "AE2-Crystal-Science-Legacy-1.0.2.jar": "d80b232223e2060a1fead014d84a1130d916fbeb101899c5d7ae168405977559",
+        "ae2csl-runtime-regression.jar": "d1389a5c24f0aa3a08baaa806b79faa05260be157c530da9996555db295a202f",
+        "MCP-TestBridge-Cleanroom-1.12.2-0.1.0.jar": "d2c382ae5cd36e3bc8d1369d8ec3c3fc1d9a272fba27bc1383757c91cc7a433a"
+      },
+      "negative_control": false
+    },
+    {
+      "name": "ae2csl-101-input-sdl-negative-r4",
+      "cleanroom": "0.7.14-alpha",
+      "side": "client",
+      "launcher_result": "FUNCTIONAL_PASS",
+      "exit": 0,
+      "timed_out": false,
+      "loader_version_seen": true,
+      "report": "ae2csl-101-input-sdl-negative-r4/summary.json",
+      "installed_jars": {
+        "AppliedEnergistics2-Supergiant-1.1.0.jar": "1f15fcda479f6b6a15e0640e0bf0f8a86e88c08c2bbd20e63b4145ea7e5efe26",
+        "AE2-Crystal-Science-Legacy-1.0.1.jar": "75fca855f58462f262a6292cda4b34f2eda02b207af8f7dbc0eae229d54537de",
+        "ae2csl-runtime-regression.jar": "d1389a5c24f0aa3a08baaa806b79faa05260be157c530da9996555db295a202f",
+        "MCP-TestBridge-Cleanroom-1.12.2-0.1.0.jar": "d2c382ae5cd36e3bc8d1369d8ec3c3fc1d9a272fba27bc1383757c91cc7a433a",
+        "lwjglxx-1.1.19.jar": "623951bc8401bc06e290b7714554e2fbaa073d24993f60b2d953d9642e35f532",
+        "lwjgl-glfw-3.4.3.jar": "2a60dbe93711632129a2ce6aa7e073aa58fa5450a88cde48a6af0a4dfeed606d"
+      },
+      "negative_control": true
+    }
+  ]
+}

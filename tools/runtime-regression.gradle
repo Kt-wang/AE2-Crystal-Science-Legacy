@@ -1,0 +1,22 @@
+// Opt-in installation test mod; never included in the distributable jar.
+// ./gradlew -I tools/runtime-regression.gradle runtimeRegressionJar
+allprojects {
+    afterEvaluate {
+        def classes = layout.buildDirectory.dir('runtime-regression/classes')
+        tasks.register('compileRuntimeRegression', JavaCompile) {
+            dependsOn tasks.named('classes')
+            source = fileTree('tools/runtime-regression') { include '**/*.java' }
+            classpath = sourceSets.main.output + sourceSets.main.compileClasspath
+            destinationDirectory = classes
+            javaCompiler = javaToolchains.compilerFor { languageVersion = JavaLanguageVersion.of(25) }
+            options.encoding = 'UTF-8'
+            options.compilerArgs.add('-proc:none')
+        }
+        tasks.register('runtimeRegressionJar', Jar) {
+            dependsOn tasks.named('compileRuntimeRegression')
+            from classes
+            archiveFileName = 'ae2csl-runtime-regression.jar'
+            destinationDirectory = layout.buildDirectory.dir('verification')
+        }
+    }
+}

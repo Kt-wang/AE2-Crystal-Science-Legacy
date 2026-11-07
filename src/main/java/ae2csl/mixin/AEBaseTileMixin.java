@@ -25,7 +25,11 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 @Mixin(value = AEBaseTile.class, remap = false)
 public abstract class AEBaseTileMixin {
 
-    @Inject(method = "update", at = @At("TAIL"), remap = false)
+    // AEBaseTile implements vanilla ITickable: AE2S's installation jar uses the
+    // SRG name even though the class itself is not obfuscated. Keep this hook
+    // required in both environments so provider ticks cannot silently stop.
+    @Inject(method = {"update()V", "func_73660_a()V"}, at = @At("TAIL"), remap = false,
+            require = 1, allow = 1)
     private void ae2cs$tickResonatingPartLogic(CallbackInfo ci) {
         if (!((Object) this instanceof IPartHost partHost)) {
             return;
