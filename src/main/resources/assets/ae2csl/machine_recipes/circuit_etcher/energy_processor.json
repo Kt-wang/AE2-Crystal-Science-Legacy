@@ -1,1 +1,1 @@
-{"energyCost": 14400, "processTime": 144, "result": {"item": "appflux:energy_processor", "count": 9}, "inputA": {"item": "appflux:charged_redstone_block"}, "inputB": {"type": "forge:ore_dict", "ore": "blockRedstone"}, "inputC": {"type": "forge:ore_dict", "ore": "blockSilicon"}}
+{"energyCost":57600,"processTime":576,"result":{"item":"appflux:energy_processor","count":36},"inputA":{"item":"appflux:charged_redstone","count":4},"inputB":{"type":"forge:ore_dict","ore":"blockRedstone","count":4},"inputC":{"type":"forge:ore_dict","ore":"blockSilicon","count":4}}
