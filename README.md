@@ -12,7 +12,7 @@
 
 | 项目 | 值 |
 |---|---|
-| 版本 | **1.0.2** |
+| 版本 | **1.0.3** |
 | Minecraft | 1.12.2 |
 | 加载器 | Cleanroom Loader **0.4.0 正式版** |
 | 前置 | AE2-Supergiant **1.1.0**（实际验收版本） |
@@ -32,7 +32,7 @@
 ## 安装
 
 1. 准备 Minecraft 1.12.2 + Cleanroom Loader 0.4.0 正式版实例，使用 Java 25。
-2. 将 `AE2-Crystal-Science-Legacy-1.0.2.jar` 与 **AE2-Supergiant** 放入 `mods/`；更新时移除旧版 Crystal Science JAR。
+2. 将 `AE2-Crystal-Science-Legacy-1.0.3.jar` 与 **AE2-Supergiant** 放入 `mods/`；更新时移除旧版 Crystal Science JAR。
 3. 可选：加入 JEI（配方查看）或 CraftTweaker（脚本）。
 
 ## 构建
@@ -40,7 +40,7 @@
 需要 **JDK 25**，使用仓库自带的 Gradle Wrapper：
 
 ```bash
-./gradlew build      # 产物：build/libs/AE2-Crystal-Science-Legacy-1.0.2.jar
+./gradlew build      # 产物：build/libs/AE2-Crystal-Science-Legacy-1.0.3.jar
 ./gradlew runClient  # 开发客户端
 ./gradlew runServer  # 开发服务端
 ```
