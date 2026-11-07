@@ -11,8 +11,11 @@ import ae2csl.init.AE2CSItems;
 import ae2csl.init.AE2CSSounds;
 import ae2.recipes.AERecipeTypes;
 import ae2.recipes.handlers.InscriberProcessType;
+import ae2.recipes.entropy.EntropyMode;
+import ae2.recipes.entropy.EntropyRecipe;
 import ae2.recipes.handlers.ChargerRecipe;
 import ae2.recipes.handlers.InscriberRecipe;
+import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
@@ -105,6 +108,7 @@ public class RegistryHandler {
         // ---- Inscriber recipes ----
         registerInscriberRecipes();
         registerChargerRecipes();
+        registerEntropyRecipes();
 
         // ---- Smelting recipes ----
         registerSmeltingRecipes();
@@ -264,6 +268,45 @@ public class RegistryHandler {
         registerQuantumInscriberRecipes();
 
         AE2CrystalScienceLegacy.LOGGER.info("Registered 6 inscriber recipes");
+    }
+
+    private static void registerEntropyRecipes() {
+        int registered = 0;
+        Block quartzBlock = Block.getBlockFromName("ae2:quartz_block");
+        if (quartzBlock != null && AE2CSBlocks.CHARGED_CERTUS_QUARTZ_BLOCK != null) {
+            AERecipeTypes.ENTROPY.register(new EntropyRecipe(
+                EntropyMode.HEAT,
+                new EntropyRecipe.Input(
+                    java.util.Optional.of(new EntropyRecipe.BlockInput(quartzBlock, java.util.Collections.emptyMap())),
+                    java.util.Optional.empty()),
+                new EntropyRecipe.Output(
+                    java.util.Optional.of(new EntropyRecipe.BlockOutput(
+                        AE2CSBlocks.CHARGED_CERTUS_QUARTZ_BLOCK, -1, false, java.util.Collections.emptyMap())),
+                    java.util.Optional.empty(),
+                    java.util.Collections.emptyList())
+            ));
+            registered++;
+        }
+
+        Block overloadBlock = Block.getBlockFromName("ae2lt:overload_crystal_block");
+        if (overloadBlock != null && AE2CSBlocks.CHARGED_OVERLOAD_CRYSTAL_BLOCK != null) {
+            AERecipeTypes.ENTROPY.register(new EntropyRecipe(
+                EntropyMode.HEAT,
+                new EntropyRecipe.Input(
+                    java.util.Optional.of(new EntropyRecipe.BlockInput(overloadBlock, java.util.Collections.emptyMap())),
+                    java.util.Optional.empty()),
+                new EntropyRecipe.Output(
+                    java.util.Optional.of(new EntropyRecipe.BlockOutput(
+                        AE2CSBlocks.CHARGED_OVERLOAD_CRYSTAL_BLOCK, -1, false, java.util.Collections.emptyMap())),
+                    java.util.Optional.empty(),
+                    java.util.Collections.emptyList())
+            ));
+            registered++;
+        }
+
+        if (registered > 0) {
+            AE2CrystalScienceLegacy.LOGGER.info("Registered {} entropy recipes", registered);
+        }
     }
 
     private static void registerChargerRecipes() {
