@@ -12,11 +12,15 @@ import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.util.ResourceLocation;
 
 public class GuiCrystalAggregator extends GuiContainer implements IUpgradePanelGui {
-    private static final ResourceLocation BG = new ResourceLocation(Tags.MOD_ID, "textures/gui/crystal_aggregator_menu.png");
+    /**
+     * 1.12.2 端口使用的背景图（无流体罐版本）。
+     * 注意：进度/能量精灵坐标必须与这张图对应，不能照搬 upstream 的 menu 图坐标。
+     */
+    private static final ResourceLocation BG = new ResourceLocation(Tags.MOD_ID, "textures/gui/crystal_aggregator.png");
 
-    /** 与 screens/crystal_aggregator_menu.json 的 images 定义一致（取自上游 1.21.1） */
-    private static final int PROGRESS_X = 77, PROGRESS_Y = 38, PROGRESS_W = 22, PROGRESS_H = 33;
-    private static final int ENERGY_X = 132, ENERGY_Y = 42, ENERGY_W = 6, ENERGY_H = 18;
+    /** 进度条精灵 (199,0,22,33)，贴在箭头框中；能量条精灵 (176,34,6,18) */
+    private static final int PROGRESS_X = 77, PROGRESS_Y = 34, PROGRESS_W = 22, PROGRESS_H = 33;
+    private static final int ENERGY_X = 132, ENERGY_Y = 40, ENERGY_W = 6, ENERGY_H = 18;
     private final TileCrystalAggregator tile;
 
     public GuiCrystalAggregator(InventoryPlayer playerInv, TileCrystalAggregator tile) {
@@ -55,6 +59,10 @@ public class GuiCrystalAggregator extends GuiContainer implements IUpgradePanelG
         ae2csl.client.gui.AE2CSToolbar.draw(guiLeft, guiTop, 1);
         // Upgrade panel (ME Interface style, right edge)
         AE2CSUpgradePanel.draw(guiLeft, guiTop, xSize, ((ae2csl.container.ContainerCrystalAggregator) this.inventorySlots).getUpgradeSlots());
+
+        // 关键：工具栏 / 升级面板都会绑定 AE2 的贴图，这里必须重新绑定自己的背景图，
+        // 否则下面按 (199,0)/(176,34) 取样会从 AE2 图标集里取到杂色 —— 表现为灰糊块。
+        this.mc.getTextureManager().bindTexture(BG);
 
         // Progress bar：22×33 的浅色箭头精灵（src 199,0），从左到右填充
         int progress = tile.getField(0);

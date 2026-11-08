@@ -18,11 +18,11 @@ public class ContainerCrystalAggregator extends AEBaseContainer {
         this.tile = tile;
 
         // Machine slots — 3 inputs + 1 output (matches source: AppEngInternalInventory(3))
-        // 坐标对齐 screens/crystal_aggregator_menu.json 与 menu 贴图里烤进去的槽位框
-        this.addSlot(new Slot(this.tile, 0, 53, 24), SlotSemantics.MACHINE_INPUT);
-        this.addSlot(new Slot(this.tile, 1, 53, 42), SlotSemantics.MACHINE_INPUT);
-        this.addSlot(new Slot(this.tile, 2, 53, 60), SlotSemantics.MACHINE_INPUT);
-        this.addSlot(new Slot(this.tile, 3, 109, 43), SlotSemantics.MACHINE_OUTPUT);
+        // 坐标对齐 textures/gui/crystal_aggregator.png 里烤进去的槽位框
+        this.addSlot(new Slot(this.tile, 0, 53, 22), SlotSemantics.MACHINE_INPUT);
+        this.addSlot(new Slot(this.tile, 1, 53, 40), SlotSemantics.MACHINE_INPUT);
+        this.addSlot(new Slot(this.tile, 2, 53, 58), SlotSemantics.MACHINE_INPUT);
+        this.addSlot(new Slot(this.tile, 3, 109, 41), SlotSemantics.MACHINE_OUTPUT);
 
         // Upgrade slots (4-7): ME-Interface-style panel on the right edge, speed cards only
         for (int i = 0; i < 4; i++) {
