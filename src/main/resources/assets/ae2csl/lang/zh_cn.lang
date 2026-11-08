@@ -442,3 +442,4 @@ ae2csl.gui.resonant_terminal.encode_resonating=编码为谐振样板
 ae2csl.gui.resonant_terminal.state.on=状态：开
 ae2csl.gui.resonant_terminal.state.off=状态：关
 ae2csl.gui.resonant_terminal.title=谐振合成编码终端
+ae2csl.gui.resonant_terminal.section=谐振编码
