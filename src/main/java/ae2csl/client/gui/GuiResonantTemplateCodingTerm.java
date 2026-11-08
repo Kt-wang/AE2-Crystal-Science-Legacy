@@ -30,11 +30,21 @@ public class GuiResonantTemplateCodingTerm extends GuiPatternEncodingTerm {
     private static final ResourceLocation BUTTON_BG_HOVER =
         new ResourceLocation("ae2", "textures/guis/icons/toolbar_button_background_hover.png");
 
-    /** 面板左侧（GUI 相对坐标） */
-    private static final int BUTTON_X = -17;
-    private static final int BUTTON_Y = 3;
-    private static final int BUTTON_W = 16;
-    private static final int BUTTON_H = 16;
+    /**
+     * 按钮位置：与 AE2 自己的「清空样板 / 替换开关」同一行（样式里 bottom: 159），
+     * 放在它们右侧的空白处。bottom 以 GUI 底边为基准，随终端高度自适应。
+     */
+    private static final int BUTTON_LEFT = 100;
+    private static final int BUTTON_BOTTOM = 159;
+    private static final int BUTTON_SIZE = 16;
+
+    private int buttonX() {
+        return BUTTON_LEFT;
+    }
+
+    private int buttonY() {
+        return this.ySize - BUTTON_BOTTOM;
+    }
 
     public GuiResonantTemplateCodingTerm(ContainerResonantTemplateCodingTerm container,
                                          InventoryPlayer playerInventory) {
@@ -46,9 +56,9 @@ public class GuiResonantTemplateCodingTerm extends GuiPatternEncodingTerm {
     }
 
     private boolean isOverButton(int mouseX, int mouseY) {
-        int x = guiLeft + BUTTON_X;
-        int y = guiTop + BUTTON_Y;
-        return mouseX >= x && mouseX < x + BUTTON_W && mouseY >= y && mouseY < y + BUTTON_H;
+        int x = guiLeft + buttonX();
+        int y = guiTop + buttonY();
+        return mouseX >= x && mouseX < x + BUTTON_SIZE && mouseY >= y && mouseY < y + BUTTON_SIZE;
     }
 
     private List<String> buildTooltip() {
@@ -69,11 +79,13 @@ public class GuiResonantTemplateCodingTerm extends GuiPatternEncodingTerm {
         Minecraft.getMinecraft().getTextureManager()
             .bindTexture(hovered || on ? BUTTON_BG_HOVER : BUTTON_BG);
         GlStateManager.color(1.0F, 1.0F, 1.0F, 1.0F);
-        drawTexturedModalRect(BUTTON_X - 1, BUTTON_Y - 2, 0, 0, 18, 20);
+        int bx = buttonX();
+        int by = buttonY();
+        drawTexturedModalRect(bx - 1, by - 2, 0, 0, 18, 20);
 
         // 图标（AE2 图案上传图标）
         bindTexture(new ResourceLocation("ae2", "textures/guis/icons.png"));
-        Icon.PATTERN_UPLOAD.getBlitter().dest(BUTTON_X, BUTTON_Y).blit();
+        Icon.PATTERN_UPLOAD.getBlitter().dest(bx, by).blit();
     }
 
     @Override
