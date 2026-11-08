@@ -46,10 +46,10 @@ public class ContainerResonantTemplateCodingTerm extends ContainerPatternEncodin
                                                IResonantTemplateCodingTerminalHost host) {
         super(ip, guiHost);
         this.resonantHost = host;
-        // AE2 的 AEBaseGui 在 initGui 里用 container.getGuiTitle() 覆盖样式里的 dialog_title，
-        // 所以标题要在这里设置才生效。
-        setGuiTitle(new net.minecraft.util.text.TextComponentTranslation(
-            "ae2csl.gui.resonant_terminal.title"));
+        // 顶部标题清空：界面里只保留样式中的「样板编码」区域标题，避免出现两个终端名。
+        // （AE2 在 AEBaseGui 构造时用 container.getGuiTitle() 覆盖样式里的 dialog_title，
+        //   所以这里给空串才会真的不显示。）
+        setGuiTitle(new net.minecraft.util.text.TextComponentString(""));
         expandEncodingSlots();
     }
 
