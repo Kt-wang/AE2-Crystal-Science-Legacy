@@ -172,12 +172,14 @@ public class AEPlugin {
             return;
         }
 
-        String interfaceGroup = "block.ae2.interface";
+        // AE2 原版总线：各自独立显示名字（不给 group，避免 tooltip 被合并成一行）
+        Upgrades.add(growthCard, ae2.core.definitions.AEParts.STORAGE_BUS.item(), 1);
+        Upgrades.add(growthCard, ae2.core.definitions.AEParts.IMPORT_BUS.item(), 1);
+        Upgrades.add(growthCard, ae2.core.definitions.AEParts.EXPORT_BUS.item(), 1);
 
-        // AE2 原版总线 / 接口
-        Upgrades.add(growthCard, ae2.core.definitions.AEParts.STORAGE_BUS.item(), 1, interfaceGroup);
-        Upgrades.add(growthCard, ae2.core.definitions.AEParts.IMPORT_BUS.item(), 1, interfaceGroup);
-        Upgrades.add(growthCard, ae2.core.definitions.AEParts.EXPORT_BUS.item(), 1, interfaceGroup);
+        // AE2 接口（部件 + 方块）：共用一个「已存在」的翻译键，tooltip 合并成「ME接口」。
+        // 注意 1.12.2 fork 没有 block.ae2.interface 键，机器名在 gui.ae2.Interface / tile.ae2.interface.name。
+        String interfaceGroup = "gui.ae2.Interface";
         Upgrades.add(growthCard, ae2.core.definitions.AEParts.INTERFACE.item(), 1, interfaceGroup);
         Upgrades.add(growthCard, ae2.core.definitions.AEBlocks.INTERFACE.item(), 1, interfaceGroup);
 
