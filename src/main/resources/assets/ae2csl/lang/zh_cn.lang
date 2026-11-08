@@ -418,6 +418,7 @@ ae2csl.msg.resonating_pattern.selected_input_unmarked=已切换目标材料：%s
 
 # --- 谐振链接器绑定 ---
 ae2csl.msg.resonating_linker.bound_provider=已绑定谐振样板供应器
+ae2csl.msg.resonating_linker.unbound=已清除链接的样板供应器
 ae2csl.msg.resonating_linker.no_provider=请先绑定谐振样板供应器
 ae2csl.msg.resonating_linker.provider_unavailable=已绑定的谐振样板供应器不可用
 ae2csl.item.resonating_linker.provider=已绑定供应器：(%s, %s, %s)

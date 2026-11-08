@@ -412,6 +412,7 @@ ae2csl.msg.resonating_pattern.selected_input_unmarked=Selected input: %s/%s (%s)
 
 # --- Resonating linker binding ---
 ae2csl.msg.resonating_linker.bound_provider=Bound to resonating pattern provider
+ae2csl.msg.resonating_linker.unbound=Cleared the linked pattern provider
 ae2csl.msg.resonating_linker.no_provider=Bind a resonating pattern provider first
 ae2csl.msg.resonating_linker.provider_unavailable=The bound provider is unavailable
 ae2csl.item.resonating_linker.provider=Bound provider: (%s, %s, %s)

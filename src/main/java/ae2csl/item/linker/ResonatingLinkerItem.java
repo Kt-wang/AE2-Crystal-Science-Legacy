@@ -5,11 +5,11 @@
  *  - 右键谐振样板供应器 → 绑定（记录维度+坐标+部件面）；
  *  - 绑定后右键任意方块面 → 就地编辑「该供应器当前默认输入槽」的目标；
  *  - 潜行 + 滚轮 → 切换该供应器的默认输入槽并提示；
- *  - 未绑定时滚轮退回物品自身的默认目标（供方块物品放置时使用）。
+ *  - 潜行 + 右键 → 清除链接器记住的供应器绑定；
+ *  - 未绑定时滚轮只提示先绑定。
  */
 package ae2csl.item.linker;
 
-import ae2.api.parts.IPartHost;
 import ae2csl.api.util.GlobalPos;
 import ae2csl.item.IResonatingTargetModeItem;
 import ae2csl.item.PatternProviderBindingHelper;
@@ -23,11 +23,11 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.EnumActionResult;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.Vec3d;
 import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraft.world.World;
 
@@ -54,15 +54,28 @@ public class ResonatingLinkerItem extends Item implements IResonatingTargetModeI
         }
 
         ItemStack stack = player.getHeldItem(hand);
+        Vec3d clickLocation = new Vec3d(pos.getX() + hitX, pos.getY() + hitY, pos.getZ() + hitZ);
+
+        // 0) 潜行 + 右键 → 清除链接器当前绑定
+        if (player.isSneaking()) {
+            if (!world.isRemote) {
+                boolean hadBinding = readReference(stack) != null;
+                clearReference(stack);
+                player.sendMessage(new TextComponentTranslation(hadBinding
+                    ? "ae2csl.msg.resonating_linker.unbound"
+                    : "ae2csl.msg.resonating_linker.no_provider"));
+            }
+            return EnumActionResult.SUCCESS;
+        }
 
         // 1) 点击谐振供应器 → 绑定
         ResonatingPatternProviderHost clicked =
-            PatternProviderBindingHelper.resolveClickedResonatingProvider(world, pos, side);
+            PatternProviderBindingHelper.resolveClickedResonatingProvider(world, pos, side, clickLocation);
         if (clicked != null) {
             if (world.isRemote) {
                 return EnumActionResult.SUCCESS;
             }
-            EnumFacing partSide = resolvePartSide(world, pos, side);
+            EnumFacing partSide = PatternProviderBindingHelper.resolvePartSide(world, pos, side, clickLocation);
             writeReference(stack, new ResonatingPatternProviderReference(
                 new GlobalPos(world.provider.getDimension(), pos), partSide));
             player.sendMessage(new TextComponentTranslation("ae2csl.msg.resonating_linker.bound_provider"));
@@ -151,23 +164,21 @@ public class ResonatingLinkerItem extends Item implements IResonatingTargetModeI
     // 绑定引用存取
     // ------------------------------------------------------------------
 
-    @Nullable
-    private static EnumFacing resolvePartSide(World world, BlockPos pos, EnumFacing clickedFace) {
-        TileEntity tile = world.getTileEntity(pos);
-        if (tile instanceof IPartHost partHost) {
-            Object part = partHost.getPart(clickedFace);
-            if (part instanceof ResonatingPatternProviderHost) {
-                return clickedFace;
-            }
-        }
-        return null;
-    }
-
     private static void writeReference(ItemStack stack, ResonatingPatternProviderReference reference) {
         if (!stack.hasTagCompound()) {
             stack.setTagCompound(new NBTTagCompound());
         }
         stack.getTagCompound().setTag(ResonatingPatternProviderReference.TAG_REFERENCE, reference.write());
+    }
+
+    private static void clearReference(ItemStack stack) {
+        if (!stack.hasTagCompound()) {
+            return;
+        }
+        NBTTagCompound tag = stack.getTagCompound();
+        if (tag != null) {
+            tag.removeTag(ResonatingPatternProviderReference.TAG_REFERENCE);
+        }
     }
 
     @Nullable
