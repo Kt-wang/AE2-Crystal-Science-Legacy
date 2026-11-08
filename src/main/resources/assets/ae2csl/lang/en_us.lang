@@ -437,3 +437,4 @@ ae2csl.gui.resonant_terminal.state.on=State: ON
 ae2csl.gui.resonant_terminal.state.off=State: OFF
 ae2csl.gui.resonant_terminal.title=Resonant Coding Terminal
 ae2csl.gui.resonant_terminal.section=Resonant Encoding
+ae2csl.msg.wireless_resonant_terminal.no_power=The terminal has no energy — charge it first

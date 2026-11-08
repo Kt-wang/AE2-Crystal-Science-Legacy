@@ -443,3 +443,4 @@ ae2csl.gui.resonant_terminal.state.on=状态：开
 ae2csl.gui.resonant_terminal.state.off=状态：关
 ae2csl.gui.resonant_terminal.title=谐振合成编码终端
 ae2csl.gui.resonant_terminal.section=谐振编码
+ae2csl.msg.wireless_resonant_terminal.no_power=终端没有能量，请先充电
