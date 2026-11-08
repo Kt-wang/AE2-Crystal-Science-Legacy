@@ -43,7 +43,8 @@ public class ResonantTemplateCodingTerminalPart extends PatternEncodingTerminalP
 
     private boolean pullRecipeInputsToRealGrid;
     private boolean pulledAnvilMode;
-    private boolean encodeResonatingPattern;
+    /** 默认开启：终端只产出谐振样板（界面不再提供开关） */
+    private boolean encodeResonatingPattern = true;
 
     public ResonantTemplateCodingTerminalPart(IPartItem<?> partItem) {
         super(partItem);
@@ -83,7 +84,9 @@ public class ResonantTemplateCodingTerminalPart extends PatternEncodingTerminalP
         super.readFromNBT(data);
         pullRecipeInputsToRealGrid = data.getBoolean(TAG_PULL_RECIPE_INPUTS);
         pulledAnvilMode = data.getBoolean(TAG_PULLED_ANVIL_MODE);
-        encodeResonatingPattern = data.getBoolean(TAG_ENCODE_RESONATING);
+        if (data.hasKey(TAG_ENCODE_RESONATING)) {
+            encodeResonatingPattern = data.getBoolean(TAG_ENCODE_RESONATING);
+        }
     }
 
     @Override
