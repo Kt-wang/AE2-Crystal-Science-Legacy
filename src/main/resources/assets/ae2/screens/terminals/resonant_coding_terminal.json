@@ -1,0 +1,49 @@
+{
+  "$schema": "../../schema.json",
+  "includes": [
+    "pattern_encoding_terminal.json"
+  ],
+  "terminalStyle": {
+    "header": {
+      "texture": "ae2csl:textures/gui/resonant_terminal.png",
+      "textureWidth": 256,
+      "textureHeight": 256,
+      "srcRect": [0, 0, 195, 17]
+    },
+    "firstRow": {
+      "texture": "ae2csl:textures/gui/resonant_terminal.png",
+      "textureWidth": 256,
+      "textureHeight": 256,
+      "srcRect": [0, 17, 195, 18]
+    },
+    "row": {
+      "texture": "ae2csl:textures/gui/resonant_terminal.png",
+      "textureWidth": 256,
+      "textureHeight": 256,
+      "srcRect": [0, 35, 195, 18]
+    },
+    "lastRow": {
+      "texture": "ae2csl:textures/gui/resonant_terminal.png",
+      "textureWidth": 256,
+      "textureHeight": 256,
+      "srcRect": [0, 53, 195, 18]
+    },
+    "bottom": {
+      "texture": "ae2csl:textures/gui/resonant_terminal.png",
+      "textureWidth": 256,
+      "textureHeight": 256,
+      "srcRect": [0, 71, 195, 180]
+    }
+  },
+  "text": {
+    "dialog_title": {
+      "text": {
+        "translate": "ae2csl.gui.resonant_terminal.title"
+      },
+      "position": {
+        "left": 8,
+        "top": 6
+      }
+    }
+  }
+}

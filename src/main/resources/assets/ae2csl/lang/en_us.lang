@@ -435,3 +435,4 @@ ae2csl.item.resonating_pattern.more=%s more marked inputs (of %s inputs)
 ae2csl.gui.resonant_terminal.encode_resonating=Encode as Resonating Pattern
 ae2csl.gui.resonant_terminal.state.on=State: ON
 ae2csl.gui.resonant_terminal.state.off=State: OFF
+ae2csl.gui.resonant_terminal.title=Resonant Coding Terminal

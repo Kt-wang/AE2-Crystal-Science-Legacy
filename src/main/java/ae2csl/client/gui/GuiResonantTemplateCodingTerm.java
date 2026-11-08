@@ -14,7 +14,7 @@ import net.minecraft.entity.player.InventoryPlayer;
 
 public class GuiResonantTemplateCodingTerm extends GuiPatternEncodingTerm {
 
-    private static final String STYLE_PATH = "/screens/terminals/pattern_encoding_terminal.json";
+    private static final String STYLE_PATH = "/screens/terminals/resonant_coding_terminal.json";
 
     public GuiResonantTemplateCodingTerm(ContainerResonantTemplateCodingTerm container,
                                          InventoryPlayer playerInventory) {
