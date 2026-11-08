@@ -14,7 +14,6 @@ import ae2.parts.encoding.PatternEncodingLogic;
 import ae2csl.me.crafting.ResonatingPatternDetails;
 import ae2csl.me.part.IResonantTemplateCodingTerminalHost;
 
-import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -130,15 +129,23 @@ public class ContainerResonantTemplateCodingTerm extends ContainerPatternEncodin
             return false;
         }
 
-        if (!consumeBlankPattern(logic)) {
+        // 输出槽必须可用：空着，或放着已编码样板（会被覆盖）时才允许编码
+        net.minecraft.inventory.Slot outputSlot = findSlot(ae2.container.SlotSemantics.ENCODED_PATTERN);
+        if (outputSlot == null) {
+            return false;
+        }
+        ItemStack current = outputSlot.getStack();
+        if (!current.isEmpty() && !ae2.api.crafting.PatternDetailsHelper.isEncodedPattern(current)) {
             return false;
         }
 
-        ItemStack remainder = pattern.copy();
-        if (!getPlayerInventory().addItemStackToInventory(remainder) && getPlayer() != null) {
-            getPlayer().world.spawnEntity(new EntityItem(getPlayer().world,
-                getPlayer().posX, getPlayer().posY + 0.5, getPlayer().posZ, remainder));
+        if (!consumeBlankPattern()) {
+            return false;
         }
+
+        outputSlot.putStack(pattern.copy());
+        outputSlot.onSlotChanged();
+        detectAndSendChanges();
         return true;
     }
 
@@ -150,21 +157,29 @@ public class ContainerResonantTemplateCodingTerm extends ContainerPatternEncodin
         return list;
     }
 
+    /** 通过容器语义找到槽位（空样板 / 已编码样板） */
+    private net.minecraft.inventory.Slot findSlot(ae2.container.SlotSemantic semantic) {
+        java.util.List<net.minecraft.inventory.Slot> slots = getSlots(semantic);
+        return slots.isEmpty() ? null : slots.get(0);
+    }
+
     /** 从空样板槽扣除 1 个 ae2:blank_pattern */
-    private static boolean consumeBlankPattern(PatternEncodingLogic logic) {
+    private boolean consumeBlankPattern() {
         Item blank = Item.REGISTRY.getObject(new ResourceLocation(BLANK_PATTERN_ID));
         if (blank == null) {
             return false;
         }
-        ae2.api.inventories.InternalInventory inv = logic.getBlankPatternInv();
-        for (int i = 0; i < inv.size(); i++) {
-            ItemStack stack = inv.getStackInSlot(i);
-            if (!stack.isEmpty() && stack.getItem() == blank) {
-                stack.shrink(1);
-                inv.setItemDirect(i, stack.isEmpty() ? ItemStack.EMPTY : stack);
-                return true;
-            }
+        net.minecraft.inventory.Slot blankSlot = findSlot(ae2.container.SlotSemantics.BLANK_PATTERN);
+        if (blankSlot == null) {
+            return false;
         }
-        return false;
+        ItemStack stack = blankSlot.getStack();
+        if (stack.isEmpty() || stack.getItem() != blank) {
+            return false;
+        }
+        stack.shrink(1);
+        blankSlot.putStack(stack.isEmpty() ? ItemStack.EMPTY : stack);
+        blankSlot.onSlotChanged();
+        return true;
     }
 }
