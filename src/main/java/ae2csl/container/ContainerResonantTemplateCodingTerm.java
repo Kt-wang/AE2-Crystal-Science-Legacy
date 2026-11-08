@@ -33,8 +33,12 @@ public class ContainerResonantTemplateCodingTerm extends ContainerPatternEncodin
 
     private static final String ACTION_SET_ENCODE_RESONATING = "setEncodeResonating";
 
-    /** 与部件上的开关同步，供 GUI 显示状态 */
-    @GuiSync(97)
+    /**
+     * 与部件上的开关同步，供 GUI 显示状态。
+     * 注意：父类 ContainerPatternEncodingTerm 已占用 78~86、92~97、100/102，
+     * 这里必须用未占用的 id，否则构造容器时抛 "declares the same sync id twice"。
+     */
+    @GuiSync(200)
     public boolean encodeResonating;
 
     private final IResonantTemplateCodingTerminalHost resonantHost;
