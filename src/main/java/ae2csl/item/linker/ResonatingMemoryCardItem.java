@@ -145,19 +145,27 @@ public class ResonatingMemoryCardItem extends MemoryCardItem implements IResonat
     @Override
     public EnumActionResult onItemUseFirst(EntityPlayer player, World world, BlockPos pos, EnumFacing side,
                                            float hitX, float hitY, float hitZ, EnumHand hand) {
-        if (player == null || hand != EnumHand.MAIN_HAND || !player.isSneaking()) {
+        if (player == null || hand != EnumHand.MAIN_HAND) {
             return EnumActionResult.PASS;
         }
+
         // AE 机器/线缆总线交给 block / part 的 useMemoryCard（mixin 已接入 9 槽）
         TileEntity tile = world.getTileEntity(pos);
         if (tile instanceof AEBaseTile || tile instanceof IPartHost) {
             return EnumActionResult.PASS;
         }
 
-        // 本模组自己的机器：存/读侧配置 + 红石设置 + 升级卡
         ItemStack stack = player.getHeldItem(hand);
+
+        // 本模组自己的机器：潜行=保存到当前槽，普通右键=应用当前槽。
+        // 注意必须在这里消费点击，否则普通右键会落到方块上直接打开机器 GUI。
         if (ResonatingMemoryCardHelper.tryUseOnAecsTile(world, pos, stack, player)) {
             return EnumActionResult.SUCCESS;
+        }
+
+        // 非本模组机器：普通右键不处理，交给方块自身（打开 GUI 等）
+        if (!player.isSneaking()) {
+            return EnumActionResult.PASS;
         }
 
         if (!world.isRemote) {
