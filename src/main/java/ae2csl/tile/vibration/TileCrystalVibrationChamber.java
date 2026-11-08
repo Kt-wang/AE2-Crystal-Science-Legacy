@@ -23,7 +23,7 @@ import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraft.world.World;
 
-public class TileCrystalVibrationChamber extends AENetworkedPoweredTile implements IInventory, ae2csl.machine.ISideConfigHost {
+public class TileCrystalVibrationChamber extends AENetworkedPoweredTile implements IInventory, ae2csl.machine.ISideConfigHost, ae2csl.machine.IUpgradeSlotsHost {
 
     private static final double FALLBACK_ENERGY_PER_TICK = 100;
     private static final int INVENTORY_SIZE = 4; // 0 = fuel, 1..3 = upgrades (speed cards)
@@ -155,6 +155,9 @@ public class TileCrystalVibrationChamber extends AENetworkedPoweredTile implemen
     @Override public boolean isUsableByPlayer(EntityPlayer p) { return world.getTileEntity(pos) == this && p.getDistanceSq(pos.getX()+0.5, pos.getY()+0.5, pos.getZ()+0.5) <= 64; }
     @Override public void openInventory(EntityPlayer p) {}
     @Override public void closeInventory(EntityPlayer p) {}
+
+    /** 升级槽起始索引（记忆卡复制升级卡用） */
+    @Override public int getUpgradeSlotStart() { return 1; }
 
     @Override public boolean isItemValidForSlot(int i, ItemStack s) {
         if (i >= 1) {

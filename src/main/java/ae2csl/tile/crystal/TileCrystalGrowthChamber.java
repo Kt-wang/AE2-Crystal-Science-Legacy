@@ -24,7 +24,7 @@ import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraft.world.World;
 
-public class TileCrystalGrowthChamber extends AENetworkedPoweredTile implements IInventory, ae2csl.machine.ISideConfigHost {
+public class TileCrystalGrowthChamber extends AENetworkedPoweredTile implements IInventory, ae2csl.machine.ISideConfigHost, ae2csl.machine.IUpgradeSlotsHost {
 
     private static final double MAX_POWER = 40000;
     private static final double ENERGY_PER_TICK = 8;
@@ -147,6 +147,9 @@ public class TileCrystalGrowthChamber extends AENetworkedPoweredTile implements 
     @Override public boolean isUsableByPlayer(EntityPlayer p) { return world.getTileEntity(pos) == this && p.getDistanceSq(pos.getX()+0.5, pos.getY()+0.5, pos.getZ()+0.5) <= 64; }
     @Override public void openInventory(EntityPlayer p) {}
     @Override public void closeInventory(EntityPlayer p) {}
+
+    /** 升级槽起始索引（记忆卡复制升级卡用） */
+    @Override public int getUpgradeSlotStart() { return 54; }
 
     @Override public boolean isItemValidForSlot(int i, ItemStack s) {
         if (i >= 54) {

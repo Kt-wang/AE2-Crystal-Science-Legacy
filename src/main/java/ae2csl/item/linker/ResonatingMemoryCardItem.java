@@ -4,8 +4,9 @@
  * 从而获得「右键机器保存 / 右键机器应用 / 潜行绕过方块」的标准记忆卡语义；
  * 额外提供 9 个槽位：
  *  - 潜行 + 滚轮：切换槽位（复用 ScrollResonatingPatternSelectPacket）；
- *  - 潜行右键空气/非 AE 方块：清空当前槽；
- *  - 右键机器：保存到当前槽 / 应用当前槽（AEBaseTileBlock/AEBasePart mixin 拦截）；
+ *  - 潜行右键机器：保存到当前槽；右键机器：应用当前槽
+ *    （AE2 机器走 useMemoryCard mixin，本模组机器走 ResonatingMemoryCardHelper.tryUseOnAecsTile）；
+ *  - 潜行右键空气/非机器方块：清空当前槽；
  *  - 放置谐振样板供应器时自动应用当前槽。
  */
 package ae2csl.item.linker;
@@ -152,8 +153,15 @@ public class ResonatingMemoryCardItem extends MemoryCardItem implements IResonat
         if (tile instanceof AEBaseTile || tile instanceof IPartHost) {
             return EnumActionResult.PASS;
         }
+
+        // 本模组自己的机器：存/读侧配置 + 红石设置 + 升级卡
+        ItemStack stack = player.getHeldItem(hand);
+        if (ResonatingMemoryCardHelper.tryUseOnAecsTile(world, pos, stack, player)) {
+            return EnumActionResult.SUCCESS;
+        }
+
         if (!world.isRemote) {
-            clearSelectedSlot(player.getHeldItem(hand));
+            clearSelectedSlot(stack);
             notifyUser(player, MemoryCardMessages.SETTINGS_CLEARED);
         }
         return EnumActionResult.SUCCESS;
