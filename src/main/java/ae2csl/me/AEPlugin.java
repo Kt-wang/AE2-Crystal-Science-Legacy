@@ -134,6 +134,8 @@ public class AEPlugin {
             }
         }
 
+        registerMachineUpgrades();
+
         if (growthCard != null) {
             Upgrades.add(growthCard, meteoriteItem, 1, "block.ae2csl.meteorite_pattern_provider");
             if (meteoritePart != null) {
@@ -155,6 +157,34 @@ public class AEPlugin {
             if (exResonatingPart != null) {
                 Upgrades.add(growthCard, exResonatingPart, 1, "block.ae2csl.extended_resonating_pattern_provider");
             }
+        }
+    }
+
+    /**
+     * 六台处理器机器的加速卡登记（对齐 1.21.1 源码 AEPlugin.onCommonSetup）。
+     * 源码里机器接受哪些升级卡完全由这里决定：其它 mod 的卡想支持某台机器，
+     * 由它自己调用 Upgrades.add(card, 机器物品, 上限) 登记即可，无需改本模组代码。
+     */
+    private static void registerMachineUpgrades() {
+        Item speedCard = ae2.core.definitions.AEItems.SPEED_CARD.item();
+
+        // 机器 -> 升级槽数量
+        Object[][] machines = {
+            { AE2CSBlocks.CRYSTAL_AGGREGATOR, 4, "block.ae2csl.crystal_aggregator" },
+            { AE2CSBlocks.CRYSTAL_PULVERIZER, 4, "block.ae2csl.crystal_pulverizer" },
+            { AE2CSBlocks.CIRCUIT_ETCHER, 4, "block.ae2csl.circuit_etcher" },
+            { AE2CSBlocks.CRYSTAL_GROWTH_CHAMBER, 4, "block.ae2csl.crystal_growth_chamber" },
+            { AE2CSBlocks.CRYSTAL_VIBRATION_CHAMBER, 3, "block.ae2csl.crystal_vibration_chamber" },
+            { AE2CSBlocks.ENTROPY_VARIATION_CHAMBER, 4, "block.ae2csl.entropy_variation_reaction_chamber" },
+        };
+        for (Object[] entry : machines) {
+            Item machine = Item.getItemFromBlock((net.minecraft.block.Block) entry[0]);
+            int slots = (Integer) entry[1];
+            String group = (String) entry[2];
+            if (machine == null) {
+                continue;
+            }
+            Upgrades.add(speedCard, machine, slots, group);
         }
     }
 

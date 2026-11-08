@@ -155,23 +155,15 @@ public class TileCrystalVibrationChamber extends AENetworkedPoweredTile implemen
     @Override public boolean isUsableByPlayer(EntityPlayer p) { return world.getTileEntity(pos) == this && p.getDistanceSq(pos.getX()+0.5, pos.getY()+0.5, pos.getZ()+0.5) <= 64; }
     @Override public void openInventory(EntityPlayer p) {}
     @Override public void closeInventory(EntityPlayer p) {}
+
     @Override public boolean isItemValidForSlot(int i, ItemStack s) {
         if (i >= 1) {
-            // 超频卡最多 2 张（文档标注上限），加速卡不限
-            if (ae2csl.util.UpgradeCardHelper.isOverloadCard(s)) return canAcceptOverloadCard(i);
-            return s.getItem() == ae2.core.definitions.AEItems.SPEED_CARD.item();
+            return ae2csl.util.UpgradeCardHelper.canInsert(this, 1, INVENTORY_SIZE, i, s,
+                net.minecraft.item.Item.getItemFromBlock(AE2CSBlocks.CRYSTAL_VIBRATION_CHAMBER));
         }
         return isFuel(s);
     }
 
-    /** 已有 2 张超频卡（不含本槽）时拒绝继续插入 */
-    private boolean canAcceptOverloadCard(int slot) {
-        int installed = 0;
-        for (int j = 1; j < INVENTORY_SIZE; j++) {
-            if (j != slot && ae2csl.util.UpgradeCardHelper.isOverloadCard(inventory.get(j))) installed++;
-        }
-        return installed < 2;
-    }
     private int clientEnergyPct;
     public int getClientEnergyPct() { return clientEnergyPct; }
 
