@@ -12,7 +12,11 @@ import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.util.ResourceLocation;
 
 public class GuiCrystalAggregator extends GuiContainer implements IUpgradePanelGui {
-    private static final ResourceLocation BG = new ResourceLocation(Tags.MOD_ID, "textures/gui/crystal_aggregator.png");
+    private static final ResourceLocation BG = new ResourceLocation(Tags.MOD_ID, "textures/gui/crystal_aggregator_menu.png");
+
+    /** 与 screens/crystal_aggregator_menu.json 的 images 定义一致（取自上游 1.21.1） */
+    private static final int PROGRESS_X = 77, PROGRESS_Y = 38, PROGRESS_W = 22, PROGRESS_H = 33;
+    private static final int ENERGY_X = 132, ENERGY_Y = 42, ENERGY_W = 6, ENERGY_H = 18;
     private final TileCrystalAggregator tile;
 
     public GuiCrystalAggregator(InventoryPlayer playerInv, TileCrystalAggregator tile) {
@@ -52,19 +56,21 @@ public class GuiCrystalAggregator extends GuiContainer implements IUpgradePanelG
         // Upgrade panel (ME Interface style, right edge)
         AE2CSUpgradePanel.draw(guiLeft, guiTop, xSize, ((ae2csl.container.ContainerCrystalAggregator) this.inventorySlots).getUpgradeSlots());
 
-        // Progress bar
+        // Progress bar：22×33 的浅色箭头精灵（src 199,0），从左到右填充
         int progress = tile.getField(0);
         int maxProgress = tile.getMaxProgress();
         if (maxProgress > 0 && progress > 0) {
-            int w = (int)(progress / (double)maxProgress * 22);
-            drawTexturedModalRect(guiLeft + 77, guiTop + 34, 199, 0, w, 33);
+            int w = Math.min(PROGRESS_W, (int) (progress / (double) maxProgress * PROGRESS_W));
+            if (w > 0) {
+                drawTexturedModalRect(guiLeft + PROGRESS_X, guiTop + PROGRESS_Y, 199, 0, w, PROGRESS_H);
+            }
         }
 
-        // Energy bar
+        // Energy bar：6×18（src 176,34），自下而上填充
         int energy = tile.getClientEnergyPct();
         if (energy > 0) {
-            int h = energy * 18 / 100;
-            drawTexturedModalRect(guiLeft + 132, guiTop + 40 + (18 - h), 176, 34, 6, h);
+            int h = Math.max(1, Math.min(ENERGY_H, energy * ENERGY_H / 100));
+            drawTexturedModalRect(guiLeft + ENERGY_X, guiTop + ENERGY_Y + (ENERGY_H - h), 176, 34, ENERGY_W, h);
         }
     }
 
