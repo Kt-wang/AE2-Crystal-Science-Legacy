@@ -1,5 +1,10 @@
 # AE2 Crystal Science: Legacy（AE2 水晶科技：Legacy）
 
+[![Release](https://img.shields.io/github/v/release/Kt-wang/AE2-Crystal-Science-Legacy?label=release)](https://github.com/Kt-wang/AE2-Crystal-Science-Legacy/releases)
+[![Minecraft](https://img.shields.io/badge/Minecraft-1.12.2-62B47A)](https://www.minecraft.net/)
+[![Cleanroom](https://img.shields.io/badge/Cleanroom-0.4.0-blue)](https://cleanroommc.com/)
+[![License](https://img.shields.io/badge/license-LGPL--3.0--or--later-yellow)](LICENSES/LGPL-3.0.txt)
+
 **Applied Energistics: Crystal Science 的 Minecraft 1.12.2 / Cleanroom 非官方移植版。**
 
 本移植基于上游 1.21.1 版本，运行在
@@ -22,9 +27,10 @@
 
 ## 内容概览
 
-- 完整的 Crystal Science 机器、产线与配套升级。
-- 与 AE2 网络集成：接口、样板供应器、存储、终端与自动化组件。
-- 谐振系列物品：工具、样板、链接器、记忆卡与升级。
+- 完整的 Crystal Science 机器、产线与配套升级（催生仓、粉碎机、聚合器、蚀刻器、谐振仓、熵变仓等）。
+- 与 AE2 网络集成：接口、样板供应器、谐振 ME 驱动器、终端与自动化组件。
+- 谐振系列：工具（内置附魔）、谐振样板、编码终端、无线终端、链接器、9 槽记忆卡与各类升级卡。
+- 谐振编码终端支持合成/处理样板，默认产出**谐振样板**（144 输入 / 36 输出容量），可按 **P** 查看样板内容。
 - AE2 指南书条目（中 / 英 / 日）、JEI 配方查看、CraftTweaker 脚本支持。
 
 > 具体机器、配方与用法请以游戏内 AE2 指南书和 JEI 为准。
@@ -52,7 +58,17 @@ Unimined 的 Access Transformer 构建工具还需要 JDK 8；Gradle 可通过 F
 
 ## 更新记录
 
-见 [CHANGELOG.md](CHANGELOG.md)。
+- 完整变更日志：[CHANGELOG.md](CHANGELOG.md)
+- 历史版本与下载：[Releases](https://github.com/Kt-wang/AE2-Crystal-Science-Legacy/releases)
+
+### 最近版本 1.0.4
+
+- 谐振合成编码终端可用：右键打开、默认编码谐振样板并写入输出槽、144/36 容量、专属皮肤。
+- 谐振样板 tooltip 补上材料明细，按 **P** 可打开样板查看界面。
+- 无线谐振终端改为真正的 AE2 无线样板编码终端（能量、网络链接、2 张升级卡）。
+- 谐振存储卡可对本模组机器复制/粘贴侧配置、配置项与升级卡。
+- 谐振链接器支持绑定部件形态供应器；潜行 + 右键空气清除绑定。
+- 补齐谐振编码终端与无线终端的晶能聚合器配方。
 
 ## 原作者与致谢
 
