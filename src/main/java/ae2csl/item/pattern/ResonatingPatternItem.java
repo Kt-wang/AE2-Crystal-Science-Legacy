@@ -333,6 +333,8 @@ public class ResonatingPatternItem extends EncodedPatternItem<ResonatingPatternD
     @SideOnly(Side.CLIENT)
     @Override
     protected void addCheckedInformation(ItemStack stack, World world, List<String> tooltip, ITooltipFlag flagIn) {
+        // 先让 AE2 追加「制作 / 使用」明细与 [P] 提示（它按 PatternDetailsHelper 解码）
+        super.addCheckedInformation(stack, world, tooltip, flagIn);
         EncodedResonatingPattern encoded = readEncodedFromStack(stack);
         tooltip.add("§7" + I18n.format("ae2csl.item.resonating_pattern.usage"));
         if (encoded == null) {

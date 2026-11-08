@@ -37,6 +37,17 @@ public class AppEngClient extends AppEngServer {
 
         // 部件模型注册必须在 preInit（fork PartModels.registerModels 仅允许预初始化阶段）
         registerPartModels();
+
+        // [P] 查看谐振样板：AE2 的 PatternGuiHandler 按 details 的具体类查表，
+        // 自定义样板类型必须自己注册，否则按 P 无反应。
+        ae2.client.gui.pattern.PatternGuiHandler.register(
+            ae2csl.me.crafting.ResonatingPatternDetails.class,
+            pattern -> {
+                net.minecraft.entity.player.InventoryPlayer inv =
+                    net.minecraft.client.Minecraft.getMinecraft().player.inventory;
+                return new ae2csl.client.gui.pattern.GuiResonatingPattern(
+                    new ae2csl.container.pattern.ContainerResonatingPattern(inv, pattern), inv);
+            });
     }
 
     /** 谐振驱动器模型加载器：拦截 ae2csl:builtin/resonating_drive
