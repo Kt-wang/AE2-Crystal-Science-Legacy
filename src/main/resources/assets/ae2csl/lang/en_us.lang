@@ -435,6 +435,3 @@ ae2csl.item.resonating_pattern.more=%s more marked inputs (of %s inputs)
 ae2csl.gui.resonant_terminal.encode_resonating=Encode as Resonating Pattern
 ae2csl.gui.resonant_terminal.state.on=State: ON
 ae2csl.gui.resonant_terminal.state.off=State: OFF
-ae2csl.gui.resonant_terminal.pull_inputs=Pull pattern inputs from the network
-ae2csl.gui.resonant_terminal.clear_to_network=Return pulled items to the network
-ae2csl.gui.resonant_terminal.clear_to_player=Return pulled items to your inventory

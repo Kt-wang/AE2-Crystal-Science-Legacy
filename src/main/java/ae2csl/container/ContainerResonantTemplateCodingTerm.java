@@ -7,9 +7,6 @@
 package ae2csl.container;
 
 import ae2.api.stacks.GenericStack;
-import ae2.container.SlotSemantic;
-import ae2.container.SlotSemantics;
-import ae2.container.slot.AppEngSlot;
 import ae2.container.slot.FakeSlot;
 import ae2.parts.encoding.PatternEncodingLogic;
 import ae2.util.ConfigGuiInventory;
@@ -33,13 +30,6 @@ public class ContainerResonantTemplateCodingTerm extends ContainerPatternEncodin
 
     /** 与 fork 的 ACTION_ENCODE 同名（客户端动作靠字符串路由） */
     private static final String ACTION_ENCODE = "encode";
-    private static final String ACTION_PULL_INPUTS = "pullInputs";
-    private static final String ACTION_CLEAR_TO_NETWORK = "clearToNetwork";
-    private static final String ACTION_CLEAR_TO_PLAYER = "clearToPlayer";
-
-    /** 抽取到终端的真实合成输入槽（对齐源码 PULLED_CRAFTING_INPUTS） */
-    public static final SlotSemantic PULLED_CRAFTING_INPUTS =
-        SlotSemantics.register("AE2CS_PULLED_CRAFTING_INPUTS", false);
     private static final String BLANK_PATTERN_ID = "ae2:blank_pattern";
     private static final String RESONATING_PATTERN_ID = "ae2csl:resonating_pattern";
 
@@ -57,10 +47,6 @@ public class ContainerResonantTemplateCodingTerm extends ContainerPatternEncodin
         super(ip, guiHost);
         this.resonantHost = host;
         expandEncodingSlots();
-        addPulledInputSlots();
-        registerClientAction(ACTION_PULL_INPUTS, this::pullInputsServer);
-        registerClientAction(ACTION_CLEAR_TO_NETWORK, this::clearToNetworkServer);
-        registerClientAction(ACTION_CLEAR_TO_PLAYER, this::clearToPlayerServer);
     }
 
     public IResonantTemplateCodingTerminalHost getResonantHost() {
@@ -107,125 +93,6 @@ public class ContainerResonantTemplateCodingTerm extends ContainerPatternEncodin
             }
             this.allOutputSlots = concat(baseOutputs, this.extraOutputSlots);
         }
-    }
-
-    private void addPulledInputSlots() {
-        if (!(this.resonantHost instanceof ae2csl.me.part.ResonantTemplateCodingTerminalPart part)) {
-            return;
-        }
-        ae2.util.inv.AppEngInternalInventory inv = part.getPulledCraftingInv();
-        for (int i = 0; i < inv.size(); i++) {
-            addSlot(new AppEngSlot(inv, i), PULLED_CRAFTING_INPUTS);
-        }
-    }
-
-    /** GUI 按钮：把编码栏的输入真正从 ME 网络抽到终端 */
-    public void pullInputs() {
-        if (isClientSide()) {
-            sendClientAction(ACTION_PULL_INPUTS);
-            return;
-        }
-        pullInputsServer();
-    }
-
-    /** GUI 按钮：把抽取来的物品退回 ME 网络 */
-    public void clearToNetwork() {
-        if (isClientSide()) {
-            sendClientAction(ACTION_CLEAR_TO_NETWORK);
-            return;
-        }
-        clearToNetworkServer();
-    }
-
-    /** GUI 按钮：把抽取来的物品退回玩家物品栏 */
-    public void clearToPlayer() {
-        if (isClientSide()) {
-            sendClientAction(ACTION_CLEAR_TO_PLAYER);
-            return;
-        }
-        clearToPlayerServer();
-    }
-
-    private void pullInputsServer() {
-        if (!(this.resonantHost instanceof IPatternTerminalLogicHost logicHost)) {
-            return;
-        }
-        ae2csl.me.part.ResonantTemplateCodingTerminalPart part = pulledHost();
-        if (part == null) {
-            return;
-        }
-        ae2.util.inv.AppEngInternalInventory pulled = part.getPulledCraftingInv();
-        pulled.clear();
-
-        PatternEncodingLogic logic = logicHost.getLogic();
-        var inputs = logic.getEncodedInputInv();
-        int limit = Math.min(inputs.size(), pulled.size());
-        boolean any = false;
-        for (int i = 0; i < limit; i++) {
-            GenericStack stack = inputs.getStack(i);
-            if (stack == null || !(stack.what() instanceof ae2.api.stacks.AEItemKey key)) {
-                continue;
-            }
-            long want = Math.max(1, stack.amount());
-            long taken = ae2.api.storage.StorageHelper.poweredExtraction(this.energySource, this.storage,
-                key, want, getActionSource(), ae2.api.config.Actionable.MODULATE);
-            if (taken <= 0) {
-                continue;
-            }
-            pulled.setItemDirect(i, key.toStack((int) Math.min(taken, key.getMaxStackSize())));
-            any = true;
-        }
-        if (any) {
-            detectAndSendChanges();
-        }
-    }
-
-    private void clearToNetworkServer() {
-        ae2csl.me.part.ResonantTemplateCodingTerminalPart part = pulledHost();
-        if (part == null) {
-            return;
-        }
-        ae2.util.inv.AppEngInternalInventory pulled = part.getPulledCraftingInv();
-        for (int i = 0; i < pulled.size(); i++) {
-            ItemStack stack = pulled.getStackInSlot(i);
-            if (stack.isEmpty()) {
-                continue;
-            }
-            long leftover = ae2.api.storage.StorageHelper.poweredInsert(this.energySource, this.storage,
-                ae2.api.stacks.AEItemKey.of(stack), stack.getCount(), getActionSource(),
-                ae2.api.config.Actionable.MODULATE);
-            if (leftover <= 0) {
-                pulled.setItemDirect(i, ItemStack.EMPTY);
-            } else {
-                stack.setCount((int) leftover);
-                pulled.setItemDirect(i, stack);
-            }
-        }
-        detectAndSendChanges();
-    }
-
-    private void clearToPlayerServer() {
-        ae2csl.me.part.ResonantTemplateCodingTerminalPart part = pulledHost();
-        if (part == null) {
-            return;
-        }
-        ae2.util.inv.AppEngInternalInventory pulled = part.getPulledCraftingInv();
-        for (int i = 0; i < pulled.size(); i++) {
-            ItemStack stack = pulled.getStackInSlot(i);
-            if (stack.isEmpty()) {
-                continue;
-            }
-            ItemStack copy = stack.copy();
-            if (getPlayerInventory().addItemStackToInventory(copy)) {
-                pulled.setItemDirect(i, copy.isEmpty() ? ItemStack.EMPTY : copy);
-            }
-        }
-        detectAndSendChanges();
-    }
-
-    @javax.annotation.Nullable
-    private ae2csl.me.part.ResonantTemplateCodingTerminalPart pulledHost() {
-        return this.resonantHost instanceof ae2csl.me.part.ResonantTemplateCodingTerminalPart part ? part : null;
     }
 
     private static FakeSlot[] concat(FakeSlot[] base, FakeSlot[] extra) {
