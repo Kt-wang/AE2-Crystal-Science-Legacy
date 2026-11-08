@@ -44,7 +44,15 @@ public class ContainerResonantTemplateCodingTerm extends ContainerPatternEncodin
     public ContainerResonantTemplateCodingTerm(InventoryPlayer ip,
                                                ae2.helpers.IPatternTerminalGuiHost guiHost,
                                                IResonantTemplateCodingTerminalHost host) {
-        super(ip, guiHost);
+        this(ip, guiHost, host, ae2.container.GuiIds.GuiKey.PATTERN_ENCODING_TERMINAL);
+    }
+
+    /** 无线终端用：GUI 键不同（影响子界面/返回主界面的定位） */
+    public ContainerResonantTemplateCodingTerm(InventoryPlayer ip,
+                                               ae2.helpers.IPatternTerminalGuiHost guiHost,
+                                               IResonantTemplateCodingTerminalHost host,
+                                               ae2.container.GuiIds.GuiKey guiKey) {
+        super(guiKey, ip, guiHost, true);
         this.resonantHost = host;
         // 顶部标题清空：界面里只保留样式中的「样板编码」区域标题，避免出现两个终端名。
         // （AE2 在 AEBaseGui 构造时用 container.getGuiTitle() 覆盖样式里的 dialog_title，
