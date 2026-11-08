@@ -12,7 +12,11 @@ import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.ItemStackHelper;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.EnumFacing;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.NonNullList;
 import net.minecraft.util.math.BlockPos;
@@ -28,6 +32,8 @@ public class TileCrystalGrowthChamber extends AENetworkedPoweredTile implements 
 
     private int recipeProgress;
     private boolean isActive;
+    /** 四周等效的「晶体催生加速器」数量（对齐源码 growthNum） */
+    private int growthAccelerators;
     private int workTickCountDown; // 操作间隔计数（默认 10 刻一轮，超频卡缩短）
     private NonNullList<ItemStack> inventory = NonNullList.withSize(SLOTS, ItemStack.EMPTY);
 
@@ -50,6 +56,11 @@ public class TileCrystalGrowthChamber extends AENetworkedPoweredTile implements 
             s -> s < 54,
             s -> s < 54 && !(inventory.get(s).getItem() instanceof CrystalSeedItem));
 
+        // 相邻设备装了晶体生长卡就等同于一台晶体催生加速器（对齐源码 updateGrowthNum）
+        if (world.rand.nextFloat() < 0.1F) {
+            updateGrowthAccelerators();
+        }
+
         // 陨石超频卡：一轮操作的间隔 10 刻 → 1 张 4 刻 / 2 张 1 刻；装卡后加速卡失效
         int oc = countOverloadCards();
         int speedCards = oc > 0 ? 0 : getSpeedCardCount();
@@ -64,7 +75,8 @@ public class TileCrystalGrowthChamber extends AENetworkedPoweredTile implements 
             workTickCountDown = 1; // 供能不足，下一刻重试
             return;
         }
-        int growthAmount = 10 * (1 + speedCards) * 10;
+        // 与源码 growthTick = base + speedCards + growthNum 对齐（再乘批量化系数）
+        int growthAmount = 10 * (1 + speedCards + growthAccelerators) * 10;
 
         boolean didGrow = false;
         for (int i = 0; i < 54; i++) {
@@ -142,6 +154,49 @@ public class TileCrystalGrowthChamber extends AENetworkedPoweredTile implements 
                 net.minecraft.item.Item.getItemFromBlock(AE2CSBlocks.CRYSTAL_GROWTH_CHAMBER));
         }
         return s.getItem() instanceof CrystalSeedItem || s.getItem() instanceof ae2csl.item.crystal.PureCrystalItem;
+    }
+
+    /**
+     * 统计四周的催生加速器数量：AE2 晶体催生加速器，以及任何装了晶体生长卡的相邻设备/部件。
+     * 对齐 1.21.1 源码 CrystalGrowthChamberBlockEntity#updateGrowthNum。
+     */
+    private void updateGrowthAccelerators() {
+        if (world == null || world.isRemote) {
+            return;
+        }
+        Item growthCard = Item.REGISTRY.getObject(new net.minecraft.util.ResourceLocation(
+            ae2csl.Tags.MOD_ID, "crystal_growth_card"));
+        if (growthCard == null) {
+            return;
+        }
+
+        int count = 0;
+        for (EnumFacing side : EnumFacing.VALUES) {
+            BlockPos neighbour = pos.offset(side);
+            TileEntity te = world.getTileEntity(neighbour);
+            if (te == null) {
+                continue;
+            }
+            if (te instanceof ae2.tile.misc.TileGrowthAccelerator) {
+                count++;
+                continue;
+            }
+            // 相邻方块（机器 / 接口 / 样板供应器）
+            if (te instanceof ae2.api.upgrades.IUpgradeableObject upgradeable
+                && upgradeable.isUpgradedWith(growthCard)) {
+                count++;
+                continue;
+            }
+            // 相邻线缆上的部件
+            if (te instanceof ae2.tile.networking.TileCableBus cableBus) {
+                ae2.api.parts.IPart part = cableBus.getPart(side.getOpposite());
+                if (part instanceof ae2.api.upgrades.IUpgradeableObject upgradeablePart
+                    && upgradeablePart.isUpgradedWith(growthCard)) {
+                    count++;
+                }
+            }
+        }
+        this.growthAccelerators = count;
     }
 
     @Override public int getField(int id) { switch(id) { case 0: return recipeProgress; case 1: return (int)getCurrentPower(); default: return 0; } }

@@ -135,6 +135,7 @@ public class AEPlugin {
         }
 
         registerMachineUpgrades();
+        addGrowthCardSupport();
 
         if (growthCard != null) {
             Upgrades.add(growthCard, meteoriteItem, 1, "block.ae2csl.meteorite_pattern_provider");
@@ -157,6 +158,48 @@ public class AEPlugin {
             if (exResonatingPart != null) {
                 Upgrades.add(growthCard, exResonatingPart, 1, "block.ae2csl.extended_resonating_pattern_provider");
             }
+        }
+    }
+
+    /**
+     * 晶体生长卡登记（对齐 1.21.1 源码 AEPlugin.addGrowthCardSupport）。
+     * 效果：催生仓会检查四周相邻的方块/部件，装了生长卡的设备等同于一台晶体催生加速器。
+     */
+    private static void addGrowthCardSupport() {
+        Item growthCard = Item.REGISTRY.getObject(new net.minecraft.util.ResourceLocation(
+            AE2CSConstants.MODID, "crystal_growth_card"));
+        if (growthCard == null) {
+            return;
+        }
+
+        String interfaceGroup = "block.ae2.interface";
+
+        // AE2 原版总线 / 接口
+        Upgrades.add(growthCard, ae2.core.definitions.AEParts.STORAGE_BUS.item(), 1, interfaceGroup);
+        Upgrades.add(growthCard, ae2.core.definitions.AEParts.IMPORT_BUS.item(), 1, interfaceGroup);
+        Upgrades.add(growthCard, ae2.core.definitions.AEParts.EXPORT_BUS.item(), 1, interfaceGroup);
+        Upgrades.add(growthCard, ae2.core.definitions.AEParts.INTERFACE.item(), 1, interfaceGroup);
+        Upgrades.add(growthCard, ae2.core.definitions.AEBlocks.INTERFACE.item(), 1, interfaceGroup);
+
+        // 本模组：集成接口 / 末影接口（方块 + 部件）
+        addGrowthCardToMachineAndPart(growthCard, AE2CSBlocks.INTEGRATED_INTERFACE,
+            "integrated_interface_part", "block.ae2csl.integrated_interface");
+        addGrowthCardToMachineAndPart(growthCard, AE2CSBlocks.ENDER_INTERFACE_BLOCK,
+            "ender_interface_part", "block.ae2csl.ender_interface");
+        addGrowthCardToMachineAndPart(growthCard, AE2CSBlocks.EX_ENDER_INTERFACE_BLOCK,
+            "extended_ender_interface_part", "block.ae2csl.extended_ender_interface");
+    }
+
+    private static void addGrowthCardToMachineAndPart(Item growthCard, net.minecraft.block.Block block,
+                                                      String partName, String group) {
+        Item blockItem = Item.getItemFromBlock(block);
+        if (blockItem != null) {
+            Upgrades.add(growthCard, blockItem, 1, group);
+        }
+        Item part = Item.REGISTRY.getObject(new net.minecraft.util.ResourceLocation(
+            AE2CSConstants.MODID, partName));
+        if (part != null) {
+            Upgrades.add(growthCard, part, 1, group);
         }
     }
 
