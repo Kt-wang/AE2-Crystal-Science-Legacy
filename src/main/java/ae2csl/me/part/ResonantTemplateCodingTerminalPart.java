@@ -33,6 +33,7 @@ public class ResonantTemplateCodingTerminalPart extends PatternEncodingTerminalP
     private static final String TAG_PULL_RECIPE_INPUTS = "PullRecipeInputsToRealGrid";
     private static final String TAG_PULLED_ANVIL_MODE = "PulledAnvilMode";
     private static final String TAG_ENCODE_RESONATING = "EncodeResonatingPattern";
+    private static final String TAG_PULLED_CRAFTING = "PulledCraftingInputs";
 
     public static final ResourceLocation MODEL_BASE =
         new ResourceLocation(Tags.MOD_ID, "part/resonant_template_coding_terminal/base");
@@ -45,6 +46,10 @@ public class ResonantTemplateCodingTerminalPart extends PatternEncodingTerminalP
     private boolean pulledAnvilMode;
     /** 默认开启：终端只产出谐振样板（界面不再提供开关） */
     private boolean encodeResonatingPattern = true;
+
+    /** 抽取到终端的真实合成输入（对齐源码 pulledCraftingInputInv） */
+    private final ae2.util.inv.AppEngInternalInventory pulledCraftingInv =
+        new ae2.util.inv.AppEngInternalInventory(this, 9);
 
     public ResonantTemplateCodingTerminalPart(IPartItem<?> partItem) {
         super(partItem);
@@ -89,6 +94,7 @@ public class ResonantTemplateCodingTerminalPart extends PatternEncodingTerminalP
         if (data.hasKey(TAG_ENCODE_RESONATING)) {
             encodeResonatingPattern = data.getBoolean(TAG_ENCODE_RESONATING);
         }
+        pulledCraftingInv.readFromNBT(data, TAG_PULLED_CRAFTING);
     }
 
     @Override
@@ -97,6 +103,7 @@ public class ResonantTemplateCodingTerminalPart extends PatternEncodingTerminalP
         data.setBoolean(TAG_PULL_RECIPE_INPUTS, pullRecipeInputsToRealGrid);
         data.setBoolean(TAG_PULLED_ANVIL_MODE, pulledAnvilMode);
         data.setBoolean(TAG_ENCODE_RESONATING, encodeResonatingPattern);
+        pulledCraftingInv.writeToNBT(data, TAG_PULLED_CRAFTING);
     }
 
     // ---- IResonantTemplateCodingTerminalHost ----
@@ -140,6 +147,22 @@ public class ResonantTemplateCodingTerminalPart extends PatternEncodingTerminalP
 
     public void saveChanges() {
         getHost().markForSave();
+    }
+
+    public ae2.util.inv.AppEngInternalInventory getPulledCraftingInv() {
+        return pulledCraftingInv;
+    }
+
+    /** 抽取槽内容随部件掉落 */
+    @Override
+    public void addAdditionalDrops(java.util.List<ItemStack> drops, boolean wrenched) {
+        super.addAdditionalDrops(drops, wrenched);
+        for (ItemStack stack : pulledCraftingInv) {
+            if (!stack.isEmpty()) {
+                drops.add(stack);
+            }
+        }
+        pulledCraftingInv.clear();
     }
 
     public ItemStack getMainContainerIcon() {
