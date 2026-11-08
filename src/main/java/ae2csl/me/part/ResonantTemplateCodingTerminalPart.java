@@ -48,6 +48,8 @@ public class ResonantTemplateCodingTerminalPart extends PatternEncodingTerminalP
 
     public ResonantTemplateCodingTerminalPart(IPartItem<?> partItem) {
         super(partItem);
+        // 扩容编码库存（144 输入 / 36 输出），必须在容器创建之前完成
+        ae2csl.me.ResonantPatternEncodingCapacity.expand(getLogic());
     }
 
     @Override public IPartModel getStaticModels() {

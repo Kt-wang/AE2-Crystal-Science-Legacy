@@ -7,6 +7,10 @@
 package ae2csl.container;
 
 import ae2.api.stacks.GenericStack;
+import ae2.container.slot.FakeSlot;
+import ae2.parts.encoding.PatternEncodingLogic;
+import ae2.util.ConfigGuiInventory;
+import ae2csl.me.ResonantPatternEncodingCapacity;
 import ae2.container.me.patternencode.ContainerPatternEncodingTerm;
 import ae2.helpers.IPatternTerminalLogicHost;
 import ae2.parts.encoding.PatternEncodingLogic;
@@ -31,15 +35,81 @@ public class ContainerResonantTemplateCodingTerm extends ContainerPatternEncodin
 
     private final IResonantTemplateCodingTerminalHost resonantHost;
 
+    /** 扩容后追加的槽位（AE2 原本只有 81 输入 / 27 输出） */
+    private FakeSlot[] extraInputSlots = new FakeSlot[0];
+    private FakeSlot[] extraOutputSlots = new FakeSlot[0];
+    private FakeSlot[] allInputSlots;
+    private FakeSlot[] allOutputSlots;
+
     public ContainerResonantTemplateCodingTerm(InventoryPlayer ip,
                                                ae2.helpers.IPatternTerminalGuiHost guiHost,
                                                IResonantTemplateCodingTerminalHost host) {
         super(ip, guiHost);
         this.resonantHost = host;
+        expandEncodingSlots();
     }
 
     public IResonantTemplateCodingTerminalHost getResonantHost() {
         return resonantHost;
+    }
+
+    /**
+     * 编码库存扩容到 144/36 后，父类只按原数组长度创建了 81/27 个槽，
+     * 这里补齐剩余槽位，并让面板通过 getProcessingInputSlots() 看到完整数组
+     * （ProcessingEncodingPanel 按数组长度动态计算滚动范围，无需改 AE2 面板）。
+     */
+    private void expandEncodingSlots() {
+        FakeSlot[] baseInputs = super.getProcessingInputSlots();
+        FakeSlot[] baseOutputs = super.getProcessingOutputSlots();
+        this.allInputSlots = baseInputs;
+        this.allOutputSlots = baseOutputs;
+
+        if (!(this.resonantHost instanceof IPatternTerminalLogicHost logicHost)) {
+            return;
+        }
+        PatternEncodingLogic logic = logicHost.getLogic();
+        if (logic == null) {
+            return;
+        }
+
+        ConfigGuiInventory inputs = logic.getEncodedInputInv().createGuiWrapper();
+        if (inputs.size() > baseInputs.length) {
+            this.extraInputSlots = new FakeSlot[inputs.size() - baseInputs.length];
+            for (int i = 0; i < this.extraInputSlots.length; i++) {
+                FakeSlot slot = new FakeSlot(inputs, baseInputs.length + i, 0, 0);
+                slot.setHideAmount(true);
+                this.extraInputSlots[i] = slot;
+                addSlot(slot, ae2.container.SlotSemantics.PROCESSING_INPUTS);
+            }
+            this.allInputSlots = concat(baseInputs, this.extraInputSlots);
+        }
+
+        ConfigGuiInventory outputs = logic.getEncodedOutputInv().createGuiWrapper();
+        if (outputs.size() > baseOutputs.length) {
+            this.extraOutputSlots = new FakeSlot[outputs.size() - baseOutputs.length];
+            for (int i = 0; i < this.extraOutputSlots.length; i++) {
+                this.extraOutputSlots[i] = new FakeSlot(outputs, baseOutputs.length + i, 0, 0);
+                addSlot(this.extraOutputSlots[i], ae2.container.SlotSemantics.PROCESSING_OUTPUTS);
+            }
+            this.allOutputSlots = concat(baseOutputs, this.extraOutputSlots);
+        }
+    }
+
+    private static FakeSlot[] concat(FakeSlot[] base, FakeSlot[] extra) {
+        FakeSlot[] merged = new FakeSlot[base.length + extra.length];
+        System.arraycopy(base, 0, merged, 0, base.length);
+        System.arraycopy(extra, 0, merged, base.length, extra.length);
+        return merged;
+    }
+
+    @Override
+    public FakeSlot[] getProcessingInputSlots() {
+        return this.allInputSlots != null ? this.allInputSlots : super.getProcessingInputSlots();
+    }
+
+    @Override
+    public FakeSlot[] getProcessingOutputSlots() {
+        return this.allOutputSlots != null ? this.allOutputSlots : super.getProcessingOutputSlots();
     }
 
 
