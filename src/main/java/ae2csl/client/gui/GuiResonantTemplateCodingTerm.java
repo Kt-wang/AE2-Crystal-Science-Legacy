@@ -2,29 +2,39 @@
  * AE2 Crystal Science - GuiResonantTemplateCodingTerm (1.12.2)
  *
  * 复用 AE2 样板编码终端的界面（编码网格 / 样板槽 / 模式切换 / 自动填充），
- * 并在左侧工具栏加一个「编码为谐振样板」开关按钮。
+ * 并在面板左侧自绘一个「编码为谐振样板」开关：
+ * AE2 的 ME 界面不使用 vanilla buttonList 渲染，因此这里直接画 + 自己处理点击。
  */
 package ae2csl.client.gui;
 
 import ae2.client.gui.Icon;
 import ae2.client.gui.me.patternencode.GuiPatternEncodingTerm;
 import ae2.client.gui.style.GuiStyleManager;
-import ae2csl.client.gui.icon.AdaptedAE2Icon;
-import ae2csl.client.gui.widgets.AE2CSIconButton;
 import ae2csl.container.ContainerResonantTemplateCodingTerm;
 
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.entity.player.InventoryPlayer;
+import net.minecraft.util.ResourceLocation;
 
 import java.io.IOException;
 import java.util.Arrays;
+import java.util.List;
 
 public class GuiResonantTemplateCodingTerm extends GuiPatternEncodingTerm {
 
     private static final String STYLE_PATH = "/screens/terminals/pattern_encoding_terminal.json";
-    private static final int BTN_ENCODE_RESONATING = 100;
+    private static final ResourceLocation BUTTON_BG =
+        new ResourceLocation("ae2", "textures/guis/icons/toolbar_button_background.png");
+    private static final ResourceLocation BUTTON_BG_HOVER =
+        new ResourceLocation("ae2", "textures/guis/icons/toolbar_button_background_hover.png");
 
-    private AE2CSIconButton encodeResonatingButton;
+    /** 面板左侧（GUI 相对坐标） */
+    private static final int BUTTON_X = -17;
+    private static final int BUTTON_Y = 3;
+    private static final int BUTTON_W = 16;
+    private static final int BUTTON_H = 16;
 
     public GuiResonantTemplateCodingTerm(ContainerResonantTemplateCodingTerm container,
                                          InventoryPlayer playerInventory) {
@@ -35,57 +45,51 @@ public class GuiResonantTemplateCodingTerm extends GuiPatternEncodingTerm {
         return (ContainerResonantTemplateCodingTerm) getContainer();
     }
 
-    @Override
-    public void initGui() {
-        super.initGui();
-        this.encodeResonatingButton = new AE2CSIconButton(BTN_ENCODE_RESONATING,
-            AE2CSToolbar.iconButtonX(guiLeft), AE2CSToolbar.buttonY(guiTop, 0),
-            new AdaptedAE2Icon(Icon.PATTERN_UPLOAD), buildTooltip());
-        this.buttonList.add(this.encodeResonatingButton);
+    private boolean isOverButton(int mouseX, int mouseY) {
+        int x = guiLeft + BUTTON_X;
+        int y = guiTop + BUTTON_Y;
+        return mouseX >= x && mouseX < x + BUTTON_W && mouseY >= y && mouseY < y + BUTTON_H;
     }
 
-    private java.util.List<String> buildTooltip() {
-        boolean on = menu().encodeResonating;
+    private List<String> buildTooltip() {
         return Arrays.asList(
             I18n.format("ae2csl.gui.resonant_terminal.encode_resonating"),
-            I18n.format(on ? "ae2csl.gui.resonant_terminal.state.on"
-                           : "ae2csl.gui.resonant_terminal.state.off"));
+            I18n.format(menu().encodeResonating
+                ? "ae2csl.gui.resonant_terminal.state.on"
+                : "ae2csl.gui.resonant_terminal.state.off"));
     }
 
     @Override
-    protected void actionPerformed(net.minecraft.client.gui.GuiButton button) throws IOException {
-        if (button.id == BTN_ENCODE_RESONATING) {
+    public void drawFG(int offsetX, int offsetY, int mouseX, int mouseY) {
+        super.drawFG(offsetX, offsetY, mouseX, mouseY);
+
+        // 按钮背景（悬停/开启时用高亮版）
+        boolean hovered = isOverButton(mouseX, mouseY);
+        boolean on = menu().encodeResonating;
+        Minecraft.getMinecraft().getTextureManager()
+            .bindTexture(hovered || on ? BUTTON_BG_HOVER : BUTTON_BG);
+        GlStateManager.color(1.0F, 1.0F, 1.0F, 1.0F);
+        drawTexturedModalRect(BUTTON_X - 1, BUTTON_Y - 2, 0, 0, 18, 20);
+
+        // 图标（AE2 图案上传图标）
+        bindTexture(new ResourceLocation("ae2", "textures/guis/icons.png"));
+        Icon.PATTERN_UPLOAD.getBlitter().dest(BUTTON_X, BUTTON_Y).blit();
+    }
+
+    @Override
+    protected void mouseClicked(int mouseX, int mouseY, int mouseButton) throws IOException {
+        if (mouseButton == 0 && isOverButton(mouseX, mouseY)) {
             menu().toggleEncodeResonating();
-            if (this.encodeResonatingButton != null) {
-                this.encodeResonatingButton.setTooltip(buildTooltip());
-                this.encodeResonatingButton.setArmed(menu().encodeResonating);
-            }
             return;
         }
-        super.actionPerformed(button);
-    }
-
-    @Override
-    public void updateScreen() {
-        super.updateScreen();
-        if (this.encodeResonatingButton != null) {
-            this.encodeResonatingButton.setTooltip(buildTooltip());
-            this.encodeResonatingButton.setArmed(menu().encodeResonating);
-        }
+        super.mouseClicked(mouseX, mouseY, mouseButton);
     }
 
     @Override
     public void drawScreen(int mouseX, int mouseY, float partialTicks) {
         super.drawScreen(mouseX, mouseY, partialTicks);
-        // 图标按钮工具提示
-        for (net.minecraft.client.gui.GuiButton btn : this.buttonList) {
-            if (btn instanceof AE2CSIconButton && btn.visible && btn.isMouseOver()) {
-                java.util.List<String> tooltip = ((AE2CSIconButton) btn).getTooltip();
-                if (tooltip != null && !tooltip.isEmpty()) {
-                    drawHoveringText(tooltip, mouseX, mouseY);
-                    break;
-                }
-            }
+        if (isOverButton(mouseX, mouseY)) {
+            drawHoveringText(buildTooltip(), mouseX, mouseY);
         }
     }
 }
