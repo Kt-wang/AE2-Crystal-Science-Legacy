@@ -438,3 +438,6 @@ ae2csl.item.resonating_pattern.selected=当前输入槽：%s
 ae2csl.item.resonating_pattern.target=输入 %s（%s）→ (%s, %s, %s) 的 %s 面
 ae2csl.item.resonating_pattern.no_targets=未标记任何输入目标（将回退到供应器默认目标/相邻库存）
 ae2csl.item.resonating_pattern.more=还有 %s 个已标记输入（共 %s 个输入）
+ae2csl.gui.resonant_terminal.encode_resonating=编码为谐振样板
+ae2csl.gui.resonant_terminal.state.on=状态：开
+ae2csl.gui.resonant_terminal.state.off=状态：关

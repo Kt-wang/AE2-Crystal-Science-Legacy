@@ -432,3 +432,6 @@ ae2csl.item.resonating_pattern.selected=Selected input: %s
 ae2csl.item.resonating_pattern.target=Input %s (%s) -> (%s, %s, %s) %s
 ae2csl.item.resonating_pattern.no_targets=No input targets marked (falls back to provider defaults / adjacent inventory)
 ae2csl.item.resonating_pattern.more=%s more marked inputs (of %s inputs)
+ae2csl.gui.resonant_terminal.encode_resonating=Encode as Resonating Pattern
+ae2csl.gui.resonant_terminal.state.on=State: ON
+ae2csl.gui.resonant_terminal.state.off=State: OFF

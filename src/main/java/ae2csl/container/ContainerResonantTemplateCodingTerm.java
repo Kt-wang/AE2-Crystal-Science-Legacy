@@ -8,6 +8,7 @@ package ae2csl.container;
 
 import ae2.api.stacks.GenericStack;
 import ae2.container.me.patternencode.ContainerPatternEncodingTerm;
+import ae2.container.guisync.GuiSync;
 import ae2.helpers.IPatternTerminalLogicHost;
 import ae2.parts.encoding.PatternEncodingLogic;
 import ae2csl.me.crafting.ResonatingPatternDetails;
@@ -30,6 +31,12 @@ public class ContainerResonantTemplateCodingTerm extends ContainerPatternEncodin
     private static final String BLANK_PATTERN_ID = "ae2:blank_pattern";
     private static final String RESONATING_PATTERN_ID = "ae2csl:resonating_pattern";
 
+    private static final String ACTION_SET_ENCODE_RESONATING = "setEncodeResonating";
+
+    /** 与部件上的开关同步，供 GUI 显示状态 */
+    @GuiSync(97)
+    public boolean encodeResonating;
+
     private final IResonantTemplateCodingTerminalHost resonantHost;
 
     public ContainerResonantTemplateCodingTerm(InventoryPlayer ip,
@@ -37,10 +44,33 @@ public class ContainerResonantTemplateCodingTerm extends ContainerPatternEncodin
                                                IResonantTemplateCodingTerminalHost host) {
         super(ip, guiHost);
         this.resonantHost = host;
+        this.encodeResonating = host != null && host.isEncodeResonatingPattern();
+        registerClientAction(ACTION_SET_ENCODE_RESONATING, Boolean.class, this::applyEncodeResonating);
     }
 
     public IResonantTemplateCodingTerminalHost getResonantHost() {
         return resonantHost;
+    }
+
+    /** GUI 点击开关：客户端先本地更新再通知服务端 */
+    public void toggleEncodeResonating() {
+        boolean next = !this.encodeResonating;
+        if (isClientSide()) {
+            this.encodeResonating = next;
+            sendClientAction(ACTION_SET_ENCODE_RESONATING, next);
+            return;
+        }
+        applyEncodeResonating(next);
+    }
+
+    private void applyEncodeResonating(boolean value) {
+        this.encodeResonating = value;
+        if (this.resonantHost != null) {
+            this.resonantHost.setEncodeResonatingPattern(value);
+        }
+        if (isServerSide()) {
+            detectAndSendChanges();
+        }
     }
 
     @Override
