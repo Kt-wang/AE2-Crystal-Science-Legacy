@@ -63,6 +63,8 @@ public class GuiHandler implements IGuiHandler {
     public static final int GUI_METEORITE_PATTERN_PROVIDER_PART = 72;
     /** 部件形态谐振样板供应器 GUI（id = 本值 + side 序号 0-5） */
     public static final int GUI_RESONATING_PATTERN_PROVIDER_PART = 80;
+    /** 部件形态谐振样板编码终端 GUI（id = 本值 + side 序号 0-5） */
+    public static final int GUI_RESONANT_TEMPLATE_CODING_TERM_PART = 96;
     /** 谐振样板转换器（手持物品 GUI） */
     public static final int GUI_RESONATING_PATTERN_CONVERTER = 88;
     /** 部件形态集成接口 GUI（id = 本值 + side 序号 0-5） */
@@ -162,6 +164,18 @@ public class GuiHandler implements IGuiHandler {
                 return container;
             }
         }
+        if (id >= GUI_RESONANT_TEMPLATE_CODING_TERM_PART
+            && id < GUI_RESONANT_TEMPLATE_CODING_TERM_PART + 6) {
+            EnumFacing side = EnumFacing.VALUES[id - GUI_RESONANT_TEMPLATE_CODING_TERM_PART];
+            if (tile instanceof ae2.api.parts.IPartHost partHost
+                && partHost.getPart(side) instanceof ae2csl.me.part.ResonantTemplateCodingTerminalPart part) {
+                var container = new ae2csl.container.ContainerResonantTemplateCodingTerm(
+                    player.inventory, part, part);
+                container.setLocator(ae2.core.gui.locator.GuiHostLocators.forPart(part));
+                return container;
+            }
+            return null;
+        }
         if (id >= GUI_RESONATING_PATTERN_PROVIDER_PART && id < GUI_RESONATING_PATTERN_PROVIDER_PART + 6) {
             EnumFacing side = EnumFacing.VALUES[id - GUI_RESONATING_PATTERN_PROVIDER_PART];
             if (tile instanceof ae2.api.parts.IPartHost partHost
@@ -246,6 +260,17 @@ public class GuiHandler implements IGuiHandler {
             case GUI_BAND_WHITELIST: return new GuiBandWhiteListManager(player.inventory, tile);
             case GUI_ENDER_EMITTER_FREQUENCY_BAND: return new GuiEnderEmitterFrequencyBand(player.inventory, tile);
             case GUI_ENDER_EMITTER_FREQUENCY_BAND_LINK: return new GuiEnderEmitterFrequencyBandLink(player.inventory, tile);
+        }
+        if (id >= GUI_RESONANT_TEMPLATE_CODING_TERM_PART
+            && id < GUI_RESONANT_TEMPLATE_CODING_TERM_PART + 6) {
+            EnumFacing side = EnumFacing.VALUES[id - GUI_RESONANT_TEMPLATE_CODING_TERM_PART];
+            if (tile instanceof ae2.api.parts.IPartHost partHost
+                && partHost.getPart(side) instanceof ae2csl.me.part.ResonantTemplateCodingTerminalPart part) {
+                return new GuiResonantTemplateCodingTerm(
+                    new ae2csl.container.ContainerResonantTemplateCodingTerm(player.inventory, part, part),
+                    player.inventory);
+            }
+            return null;
         }
         // 部件形态集成接口（按面索引）
         if (id >= GUI_INTEGRATED_INTERFACE_PART && id < GUI_INTEGRATED_INTERFACE_PART + 6) {
