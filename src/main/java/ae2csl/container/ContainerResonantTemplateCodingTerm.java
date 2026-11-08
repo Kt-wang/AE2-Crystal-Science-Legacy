@@ -150,12 +150,14 @@ public class ContainerResonantTemplateCodingTerm extends ContainerPatternEncodin
             return false;
         }
 
-        List<GenericStack> inputs = collect(logic.getEncodedInputInv());
-        List<GenericStack> outputs = collect(logic.getEncodedOutputInv());
-        if (inputs.stream().noneMatch(Objects::nonNull)) {
+        // 压缩空槽：编码库存现在有 144 格，若保留空位，落在第 82 格之后的材料
+        // 会超出样板查看界面的 9x9 展示范围（表现为「[P] 打开不全」）。
+        List<GenericStack> inputs = compact(collect(logic.getEncodedInputInv()));
+        List<GenericStack> outputs = compact(collect(logic.getEncodedOutputInv()));
+        if (inputs.isEmpty()) {
             return false;
         }
-        if (outputs.isEmpty() || outputs.get(0) == null) {
+        if (outputs.isEmpty()) {
             return false;
         }
 
@@ -188,6 +190,17 @@ public class ContainerResonantTemplateCodingTerm extends ContainerPatternEncodin
         outputSlot.onSlotChanged();
         detectAndSendChanges();
         return true;
+    }
+
+    /** 去掉空槽，保持原顺序（首个输出仍是主产物） */
+    private static List<GenericStack> compact(List<GenericStack> stacks) {
+        List<GenericStack> out = new ArrayList<>(stacks.size());
+        for (GenericStack stack : stacks) {
+            if (stack != null) {
+                out.add(stack);
+            }
+        }
+        return out;
     }
 
     private static List<GenericStack> collect(ae2.util.ConfigInventory inv) {
