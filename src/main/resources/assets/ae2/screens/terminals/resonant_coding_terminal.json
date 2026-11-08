@@ -5,9 +5,9 @@
   ],
   "widgets": {
     "encodeResonatingPattern": {
-      "_comment": "谐振样板编码开关：与 AE2 的清空/替换开关同一行，仅画 16x16 图标。",
-      "left": 100,
-      "bottom": 159,
+      "_comment": "谐振样板编码开关（对齐 1.21.1 源码坐标，16x16，只画图标）。",
+      "left": 147,
+      "bottom": 183,
       "width": 16,
       "height": 16
     }
